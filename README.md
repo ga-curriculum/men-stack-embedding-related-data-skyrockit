@@ -14,19 +14,29 @@ tktk Write a short but descriptive summary of the content in this module.
 
 | Lesson | Video Time | Video | Skills |
 | ------ |:----------:|:-----:| ------ |
-| [tktk Microlesson Name](./tktk-microlesson-01/README.md) | -- | -- | tktk skills covered |
-| [tktk Microlesson Name](./tktk-microlesson-02/README.md) | -- | -- | tktk skills covered |
-| [tktk Microlesson Name](./tktk-microlesson-03/README.md) | -- | -- | tktk skills covered |
-| **Total content**                                        | -- | -- |                     |
+| [Setup](./setup/README.md)                                                                                               | -- | -- | tktk skills covered |
+| [Setting the Stage](./setting-the-stage/README.md)                                                                       | -- | -- | tktk skills covered |
+| [Build the Application Schema](./build-the-application-schema/README.md)                                                 | -- | -- | tktk skills covered |
+| [Build and Use the Applications Controller](./build-and-use-the-applications-controller/README.md)                       | -- | -- | tktk skills covered |
+| [Add Route Middleware](./add-route-middleware/README.md)                                                                 | -- | -- | tktk skills covered |
+| [Build the Job Apps Landing Page](./build-the-job-apps-landing-page/README.md)                                           | -- | -- | tktk skills covered |
+| [Build the Navigation Bar Partial](./build-the-navigation-bar-partial/README.md)                                         | -- | -- | tktk skills covered |
+| [Build the New Page](./build-the-new-page/README.md)                                                                     | -- | -- | tktk skills covered |
+| [Build Create Functionality](./build-create-functionality/README.md)                                                     | -- | -- | tktk skills covered |
+| [Add Index Functionality to the Job Apps Landing Page](./add-index-functionality-to-the-job-apps-landing-page/README.md) | -- | -- | tktk skills covered |
+| [Build the Show Page](./build-the-show-page/README.md)                                                                   | -- | -- | tktk skills covered |
+| [Build Delete Functionality](./build-delete-functionality/README.md)                                                     | -- | -- | tktk skills covered |
+| [Build the Edit Page](./build-the-edit-page/README.md)                                                                   | -- | -- | tktk skills covered |
+| [Build Update Functionality](./build-update-application-functionality/README.md)                                         | -- | -- | tktk skills covered |
+| [Wrap Up](./wrap-up/README.md)                                                                                           | -- | -- | tktk skills covered |
+| **Total content**                                                                                                        | -- | -- | --                  |
 
 ## Level Up content
 
 | Lesson | Video Time | Video | Skills |
 | ------ |:----------:|:-----:| ------ |
-| [tktk Level Up Microlesson Name](./level-up/tktk-microlesson-01.md) | -- | -- | tktk skills covered |
-| [tktk Level Up Microlesson Name](./level-up/tktk-microlesson-02.md) | -- | -- | tktk skills covered |
-| [tktk Level Up Microlesson Name](./level-up/tktk-microlesson-03.md) | -- | -- | tktk skills covered |
-| **Total Level Up content**                                          | -- | -- |                     |
+| [Style the Application](./level-up/style-the-application.md) | -- | -- | tktk skills covered |
+| **Total Level Up content**                                   | -- | -- |                     |
 
 ## References
 
