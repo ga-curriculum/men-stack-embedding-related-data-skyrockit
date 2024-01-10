@@ -16,7 +16,7 @@ tktk it might also be good to draw student's attention to how with just these us
 
 tktk here's a demo ERD, this should be replaced when assets are created, but it's a start:
 
-![Job Applications ERD]()
+![Job Applications ERD](./assets/tktk-erd-placeholder.png)
 
 tktk Hunter, can you fix up this ERD so that it's happy?
 
