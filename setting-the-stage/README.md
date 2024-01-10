@@ -7,9 +7,13 @@ tktk Notes: What're we building? Establish what this application is here. Discus
 tktk Here's some user stories to get going, feel free to flesh these out, they're just quick starting points:
 
 tktk - As a user (AAU), I should be able to create job application for jobs that I anticipating applying for or have applied for. I should be able to keep track of the company name, the job title, and the status of the job application. Optionally I can add any notes I have about the job, and the URL to the job posting.
+
 tktk - AAU, I should be able to view all the jobs that I have applied for on a single page. Only the job title and the company for each application should be listed here to keep this view digestable.
+
 tktk - AAU, I should be able to view all the details of a job application on a new page by following a link from that index page.
+
 tktk - AAU, when viewing the details of an application, I should be able to follow a link to be taken to a page where I can edit any of the details of a job application and update it from there.
+
 tktk - AAU, when viewing the details of an application, I should be able to click a button and delete the application.
 
 tktk it might also be good to draw student's attention to how with just these user stories we can get an idea of what the schema of the applications resource will look like, along with what CRUD actions users will be able to carry out on that resource.
