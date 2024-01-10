@@ -6,7 +6,7 @@ tktk Notes: What're we building? Establish what this application is here. Discus
 
 tktk Here's some user stories to get going, feel free to flesh these out, they're just quick starting points:
 
-tktk - As a user (AAU), I should be able to create job application for jobs that I anticipating applying for or have applied for. I should be able to keep track of the company name, and the job title. Optionally I can add any notes I have about the job, the URL to the job posting, and the current status of the job.
+tktk - As a user (AAU), I should be able to create job application for jobs that I anticipating applying for or have applied for. I should be able to keep track of the company name, the job title, and the status of the job application. Optionally I can add any notes I have about the job, and the URL to the job posting.
 tktk - AAU, I should be able to view all the jobs that I have applied for on a single page. Only the job title and the company for each application should be listed here to keep this view digestable.
 tktk - AAU, I should be able to view all the details of a job application on a new page by following a link from that index page.
 tktk - AAU, when viewing the details of an application, I should be able to follow a link to be taken to a page where I can edit any of the details of a job application and update it from there.
@@ -20,4 +20,4 @@ tktk here's a demo ERD, this should be replaced when assets are created, but it'
 
 tktk Hunter, can you fix up this ERD so that it's happy?
 
-tktk Code: The final code for this lecture can be found at: <https://git.generalassemb.ly/modular-curriculum-all-courses/men-stack-applications-tracker>
+tktk Code: The final code for this lecture can be found at: <https://git.generalassemb.ly/modular-curriculum-all-courses/men-stack-embedding-related-data-job-applications-solution>

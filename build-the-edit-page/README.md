@@ -4,4 +4,4 @@
 
 tktk Notes: Not much wild going on here, but would be good to draw student attention to how we are pre-selecting an item in the drop down, this is the first time they're seeing that.
 
-tktk Code: The final code for this lecture can be found at: <https://git.generalassemb.ly/modular-curriculum-all-courses/men-stack-applications-tracker>
+tktk Code: The final code for this lecture can be found at: <https://git.generalassemb.ly/modular-curriculum-all-courses/men-stack-embedding-related-data-job-applications-solution>

@@ -4,5 +4,5 @@
 
 tktk Notes: Now that there is data in the DB for this resource we can display it. 
 
-tktk Code: The final code for this lecture can be found at: <https://git.generalassemb.ly/modular-curriculum-all-courses/men-stack-applications-tracker>
+tktk Code: The final code for this lecture can be found at: <https://git.generalassemb.ly/modular-curriculum-all-courses/men-stack-embedding-related-data-job-applications-solution>
 

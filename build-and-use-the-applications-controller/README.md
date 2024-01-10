@@ -4,4 +4,4 @@
 
 tktk Notes: Stub up an applications controller file - this is the second time they're seeing this so quickly re-establishing what this file is would be wise. Import it into `server.js` file and mount it.
 
-tktk Code: The final code for this lecture can be found at: <https://git.generalassemb.ly/modular-curriculum-all-courses/men-stack-applications-tracker>
+tktk Code: The final code for this lecture can be found at: <https://git.generalassemb.ly/modular-curriculum-all-courses/men-stack-embedding-related-data-job-applications-solution>

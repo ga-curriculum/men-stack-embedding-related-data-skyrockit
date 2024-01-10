@@ -4,4 +4,4 @@
 
 tktk Notes: Add middleware to the applications controller mounted in `server.js` to protect the route and add `user` to the `res.locals` object. Cover `res.locals` here, it's the first time they're seeing it outside of level up.
 
-tktk Code: The final code for this lecture can be found at: <https://git.generalassemb.ly/modular-curriculum-all-courses/men-stack-applications-tracker>
+tktk Code: The final code for this lecture can be found at: <https://git.generalassemb.ly/modular-curriculum-all-courses/men-stack-embedding-related-data-job-applications-solution>
