@@ -10,7 +10,7 @@ At this stage, let's recall one of our user stories:
 
 > AAU I should be able to create job application for jobs that I anticipating applying for or have applied for. I should be able to keep track of the company name, the job title, and the status of the job application. Optionally I can add any notes I have about the job, and the URL to the job posting.
 
-Using @RESTful/Resourceful Routing Conventions , we find that to display a new.ejs view with a form for entering a new application, the proper route will be:
+Using [tktk link] @RESTful/Resourceful Routing Conventions, we find that to display a new.ejs view with a form for entering a new application, the proper route will be:
 
 ```plaintext
 GET /users/:userId/applications/new
@@ -90,8 +90,17 @@ From the schema, we can already infer a few things about how we can best design 
 
 ### Adding the form
 
+In `new.ejs`, create a new form element. For now, we will leave the `action` and `method` attributes empty:
+
 ```html
-  <form action="/users/<%= user._id %>/applications" method="POST">
+  <form action="" method="">
+  </form>
+```
+
+Next, add input fields for our user data. Don't forget to add labels for accessibility! 
+
+```html
+  <form action="" method="">
     <label for="company">Company:</label>
     <input type="text" name="company" id="company">
     <label for="title">Title:</label>
@@ -108,7 +117,80 @@ From the schema, we can already infer a few things about how we can best design 
       <option value="rejected">Rejected</option>
       <option value="accepted">Accepted</option>
     </select>
+  </form>
+```
+
+A quick reminder - when we submit the form, the `name` attribute for each input is used as the key in a key:value pair, where the value is the user input. As a result, the `name` attribute for each input must *exactly* match the corresponding property in our schema.
+
+So, where we have: 
+
+```js
+company: {
+    type: String,
+    required: true,
+  }
+```
+
+The corresponding input should look like: 
+
+```html
+<label for="company">Company:</label>
+<input type="text" name="company" id="company">
+```
+
+Also, note that the `value` attribute for each option in our `<select>` dropdown exactly matches one of the elements in the `enum` array on our schema: 
+
+```js
+status: {
+    type: String,
+    enum: ['interested', 'applied', 'interviewing', 'rejected', 'accepted'],
+  }
+```
+
+```html
+<select id="status" name="status">
+      <option value="interested">Interested</option>
+      <option value="applied">Applied</option>
+      <option value="interviewing">Interviewing</option>
+      <option value="rejected">Rejected</option>
+      <option value="accepted">Accepted</option>
+    </select>
+```
+
+Similar to how the rest of the `input`s work, when the form is submitted the `name` of the `<select>` input will be used as a key, and the `value` of the selected option will be submitted as the value. So, if the user selects "Applied" from the dropdown, the resulting data object would look like this: 
+
+```json
+{ "status": "applied" }
+```
+
+This is why the `value` must match an `enum` element exactly.
+
+
+### Submitting the form
+
+Finally, we need a way to submit the form, so let's add a button to the bottom of our `<form>` element and give it a `type` attribute of "submit": 
+
+```html
+<form action="" method="">
+    <label for="company">Company:</label>
+    <input type="text" name="company" id="company">
+    <label for="title">Title:</label>
+    <input type="text" name="title" id="title">
+    <label for="notes">Notes:</label>
+    <textarea name="notes" id="notes"></textarea>
+    <label for="postingLink">Posting Link:</label>
+    <input type="text" name="postingLink" id="postingLink">
+    <label for="status">Status:</label>
+    <select id="status" name="status">
+      <option value="interested">Interested</option>
+      <option value="applied">Applied</option>
+      <option value="interviewing">Interviewing</option>
+      <option value="rejected">Rejected</option>
+      <option value="accepted">Accepted</option>
+    </select>
+    <!-- add the following: -->
     <button type="submit">Add Application</button>
   </form>
 ```
 
+    
