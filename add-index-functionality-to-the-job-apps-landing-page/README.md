@@ -2,7 +2,6 @@
 
 **Learning objective:** By the end of this lesson, students will be able to tktk
 
-tktk Notes: Now that there is data in the DB for this resource we can display it. 
 
 Currently, when we finish creating a new application, we are redirecting to `/applications`. Now that there is data in the database for this resource, we want `/applications` to be a view that indexes all of the applications we've created. 
 
@@ -64,9 +63,7 @@ Create an `index.ejs` file inside of `views/applications`, and add the following
   <ul>
     <% applications.forEach((application)=>{ %>
       <li>
-        <a href="/users/<%= user._id %>/applications/<%= application._id %>">
-            <%= application.title %> at <%= application.company %>
-        </a>
+          <%= application.title %> at <%= application.company %>
       </li>
     <% }) %>
   </ul>
@@ -74,7 +71,7 @@ Create an `index.ejs` file inside of `views/applications`, and add the following
 </html>
 ```
 
-
+Inside of a `<ul>` element, we loop over the `applications` array we receive from the context object, and create an `<li>` for each application. For now, we'll just display the title and company. Try adding another application - you should be able to see a list of all of the applications you've created on this page! 
 
 
 
