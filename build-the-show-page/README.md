@@ -4,4 +4,6 @@
 
 tktk Notes: Just a show page here, nothing too crazy! Might be good to draw attention to the conditional rendering used here since some of the fields are optional on creation.
 
-tktk Code: The final code for this lecture can be found at: <https://git.generalassemb.ly/modular-curriculum-all-courses/men-stack-embedding-related-data-job-applications-solution>
+Now that we have an index view
+
+Our index only shows the title and company, but each application in our database actually contains a lot more data than that. In order to see all of the data, let's build a `show` view. 
