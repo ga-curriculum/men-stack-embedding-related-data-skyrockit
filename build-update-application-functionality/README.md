@@ -2,6 +2,7 @@
 
 **Learning objective:** By the end of this lesson, students will be able to tktk
 
-tktk Notes: Nothing crazy here. 
 
-tktk Code: The final code for this lecture can be found at: <https://git.generalassemb.ly/modular-curriculum-all-courses/men-stack-embedding-related-data-job-applications-solution>
+Let's tackle our final user story!
+
+> AAU, when viewing the details of an application, I should be able to follow a link to be taken to a page where I can edit any of the details of a job application and update it from there.

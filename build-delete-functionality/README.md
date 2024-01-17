@@ -4,7 +4,7 @@
 
 Next, we'll tackle the following user story: 
 
-> AAU, I should be able to delete an application from the show view. 
+> AAU, when viewing the details of an application, I should be able to click a button and delete the application.
 
 First, let's conceptualize the route: 
 
@@ -45,8 +45,35 @@ Next, we'll need to create the UI that will issue the result to the route. In `v
 </html>
 ```
 
-[tktk method-override install]
+As you can see from the action in the `<form>`, we'll need to install the `method-override` package: 
 
+```bash
+npm i method-override
+```
+
+We'll then need to import it in `server.js` before mounting it: 
+
+```js
+const mongoose = require('mongoose');
+// Import here!
+const methodOverride = require('method-override');
+.
+.
+.
+// Mount it along with your other middleware, ABOVE the routes: 
+app.use(express.urlencoded({ extended: false }));
+// Add methodOverride here: 
+app.use(methodOverride('_method'))
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: true,
+  })
+);
+```
+
+Fantastic, now we can override the default behavior of our `<form>` method. 
 
 Next, in `controllers/applications.js`, define the route: 
 
