@@ -2,8 +2,6 @@
 
 **Learning objective:** By the end of this lesson, students will be able to tktk
 
-tktk Notes: Just a show page here, nothing too crazy! Might be good to draw attention to the conditional rendering used here since some of the fields are optional on creation.
-
 Now that we have an index view, let's look at another User Story: 
 
 > AAU, I should be able to view all the details of a job application on a new page by following a link from that index page.
@@ -24,4 +22,65 @@ To start, let's go to `views/applications/index.ejs` and set up a link using the
     <% }) %>
   </ul>
 ```
+
+Next, add a new route to `controllers/applications.js`: 
+
+```js
+router.get('/:applicationId', async (req, res) => {
+
+});
+```
+
+Then, code out the body of the controller function: 
+
+```js
+router.get('/:applicationId', async (req, res) => {
+  try {
+    // Find the current user from req.session
+    const currentUser = await User.findById(req.session.user._id);
+    // Find the application by the applicationId supplied from req.params
+    const application = currentUser.applications.id(req.params.applicationId);
+    // Render the show view, passing the application data in the context object
+    res.render('applications/show.ejs', {
+      application: application,
+    });
+  } catch (error) {
+    // Log any errors and redirect home if needed
+    console.log(error);
+    res.redirect('/')
+  }
+});
+```
+
+Next, we'll need to add the view we rendered above: 
+
+```bash
+touch views/applications/show.ejs
+```
+
+To our boilerplate, we'll add some EJS to display the `application` data: 
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= application.title %></title>
+</head>
+<body>
+  <%- include('../partials/_navbar.ejs') %>
+  <h1><%= application.title %> at <%= application.company %></h1>
+  <% if (application.notes) { %>
+    <p>Notes: <%= application.notes %></p>
+  <% } %>
+  <% if (application.postingLink) { %>
+    <a href="<%= application.postingLink %>">Visit this job posting</a>
+  <% } %>
+  <p>The status of this application is: <%= application.status %></p>
+</body>
+</html>
+```
+
+Note that some of the information we collected from the user was optional. We want to make sure we account for any optional data using conditional logic, so that the user is is only shown information they included. We can do this by using the `<% if(data) %>` convention.
 
