@@ -54,6 +54,8 @@ router.get('/:applicationId', async (req, res) => {
 });
 ```
 
+## Building the UI
+
 Next, we'll need to add the view we rendered above: 
 
 ```bash
@@ -84,5 +86,5 @@ To our boilerplate, we'll add some EJS to display the `application` data:
 </html>
 ```
 
-Note that some of the information we collected from the user was optional. We want to make sure we account for any optional data using conditional logic, so that the user is is only shown information they included. We can do this by using the `<% if(data) %>` convention.
+Note that some of the information we collected from the user was optional. We want to make sure we account for any optional data using conditional logic, so that the user is only shown information they opted to include. We can do this by using the `<% if(data) %>` convention.
 
