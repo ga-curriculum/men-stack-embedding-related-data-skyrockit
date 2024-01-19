@@ -1,14 +1,14 @@
 # ![[tktk Module Name] - Build the Show Page](./assets/hero.png)
 
-**Learning objective:** By the end of this lesson, students will be able to tktk
+**Learning objective:** By the end of this lesson, students will be able to implement a show route and page in a MEN stack application.
 
 Now that we have an index view, let's look at another User Story: 
 
 > AAU, I should be able to view all the details of a job application on a new page by following a link from that index page.
 
-Currently, our index only shows the title and company, but each application in our database actually contains a lot more data than that! In order to see all of the data, and fulfil our user story, let's build a `show` view that we can link to from our index. 
+Currently, our index only shows the title and company, but each application in our database contains a lot more data than that! In order to see all of the data, and fulfil our user story, let's build a `show` view that we can link to from our index. 
 
-To start, let's go to `views/applications/index.ejs` and set up a link using the proper routing convention: 
+To start, let's revisit `views/applications/index.ejs` and set up a link with the proper routing convention: 
 
 ```html
 <ul>
@@ -23,6 +23,8 @@ To start, let's go to `views/applications/index.ejs` and set up a link using the
   </ul>
 ```
 
+## Defining the route and coding the controller
+
 Next, add a new route to `controllers/applications.js`: 
 
 ```js
@@ -36,7 +38,7 @@ Then, code out the body of the controller function:
 ```js
 router.get('/:applicationId', async (req, res) => {
   try {
-    // Find the current user from req.session
+    // Look up the user from req.session
     const currentUser = await User.findById(req.session.user._id);
     // Find the application by the applicationId supplied from req.params
     const application = currentUser.applications.id(req.params.applicationId);
@@ -45,7 +47,7 @@ router.get('/:applicationId', async (req, res) => {
       application: application,
     });
   } catch (error) {
-    // Log any errors and redirect home if needed
+    // If any errors, log them and redirect back home
     console.log(error);
     res.redirect('/')
   }
