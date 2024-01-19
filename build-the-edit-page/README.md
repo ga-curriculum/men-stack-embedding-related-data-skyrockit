@@ -1,12 +1,14 @@
 # ![[tktk Module Name] - Build the Edit Page](./assets/hero.png)
 
-**Learning objective:** By the end of this lesson, students will be able to tktk
+**Learning objective:** By the end of this lesson, students will be able to implement edit functionality in a MEN stack application.
 
 Let's tackle our final user story!
 
 > AAU, when viewing the details of an application, I should be able to follow a link to be taken to a page where I can edit any of the details of a job application and update it from there.
 
-As always, we start by conceptualizing the route: 
+## Conceptualizing the Route
+
+As always, we start by conceptualizing the route:
 
 ```plaintext
 GET /users/:userId/applications/edit
@@ -49,6 +51,8 @@ Next, we'll create the UI that will issue the request to that route. Let's retur
 </html>
 ```
 
+## Defining the route and coding the controller
+
 Next, in `controllers/applications.js`, we'll define the route: 
 
 ```js
@@ -57,7 +61,7 @@ router.get('/:applicationId/edit', async (req, res) => {
 });
 ```
 
-And then code out the controller function. We will look up an application by it's `id`, and then render a view containing a form to update it: 
+And then code out the controller function. We'll look up an application by it's `_id`, and then render a view containing a form to update it: 
 
 ```js
 router.get('/:applicationId/edit', async (req, res) => {
