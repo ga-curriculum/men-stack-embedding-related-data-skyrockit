@@ -1,28 +1,28 @@
 # ![[tktk Module Name] - Add Index Functionality to the Job Apps Landing Page](./assets/hero.png)
 
-**Learning objective:** By the end of this lesson, students will be able to tktk
+**Learning objective:** By the end of this lesson, students will be able to implement an index route and view to a MEN stack application.
 
 
-Currently, when we finish creating a new application, we are redirecting to `/applications`. Now that there is data in the database for this resource, we want `/applications` to be a view that indexes all of the applications we've created. 
+Currently, when we finish creating a new application, our controller redirects to `/applications`. Now that there is data in the database for this resource, we want `/applications` to be a page that indexes all of the applications we've created. 
 
 Let's get started! 
 
-## Identifying the route
+## Conceptualizing the route
 
-We've already done this! 
+We've already done this! The route will be: 
 
 ```plaintext
-GET /users/userId/applications
+GET /users/:userId/applications
 ```
 
 ## Add the UI
 
 [tktk link in nav?]
-Submitting a new application will also automatically redirect us here. 
+Submitting a new application will automatically redirect us here. 
 
 ## Define the route and build the controller
 
-In order to list all of the applications created by the user, we'll first need to look up the current user in the database. Then, when rendering the index view, the `applications` array of the current user will get passed into the context object. 
+In order to list all of the applications created by the user, we'll first need to look up the current user in the database. When rendering the index view, the `applications` array of the current user will get passed to the view in the context object. 
 
 ```js
 router.get('/', async (req, res) => {
@@ -56,18 +56,18 @@ Create an `index.ejs` file inside of `views/applications`, and add the following
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Your Applications</title>
 </head>
-<body>
-  <%- include('../partials/_navbar.ejs') %>
-  <h1>Welcome to your application tracker</h1>
-  <a href="/users/<%=user._id%>/applications/new">Add a New Application</a>
-  <ul>
-    <% applications.forEach((application)=>{ %>
-      <li>
-          <%= application.title %> at <%= application.company %>
-      </li>
-    <% }) %>
-  </ul>
-</body>
+  <body>
+    <%- include('../partials/_navbar.ejs') %>
+    <h1>Welcome to your application tracker</h1>
+    <a href="/users/<%=user._id%>/applications/new">Add a New Application</a>
+    <ul>
+      <% applications.forEach((application)=>{ %>
+        <li>
+            <%= application.title %> at <%= application.company %>
+        </li>
+      <% }) %>
+    </ul>
+  </body>
 </html>
 ```
 
