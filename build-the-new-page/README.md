@@ -8,13 +8,13 @@ At this stage, let's recall one of our user stories:
 
 > AAU I should be able to create job application for jobs that I anticipating applying for or have applied for. I should be able to keep track of the company name, the job title, and the status of the job application. Optionally I can add any notes I have about the job, and the URL to the job posting.
 
-Using [tktk link] @RESTful/Resourceful Routing Conventions, we find that to display a new.ejs view with a form for entering a new application, the proper route will be:
+Using [RESTful Routing Conventions](https://git.generalassemb.ly/modular-curriculum-all-courses/restful-routing/blob/main/routing-conventions/README.md), we find that to display a `new.ejs` view with a form for entering a new application, the proper route will be:
 
 ```plaintext
 GET /users/:userId/applications/new
 ```
 
-[tktk is link added in nav partials?]
+[tktk is link added in nav partials? Add step if not]
 
 ## Defining the route on the server
 
@@ -28,9 +28,9 @@ router.get('/new', async (req, res) => {
 
 ## Building the UI
 
-Next, it's time to build the UI that will hit our create route. In order to submit user input to the database, we'll need to create a new view that has a form element.
+Next, it's time to build the UI that will hit our new route. In order to submit user input to the database, we'll need to create a new view that has a form element.
 
-First, create a `new.ejs` file in `views/applications`, and add HTML boilerplate (!+tab).  
+In `views/applications`, create a `new.ejs` file and add HTML boilerplate (!+tab).  
 
 Change the title to "Add a New Application", and add the navbar partial to the top of the `<body>`. 
 
