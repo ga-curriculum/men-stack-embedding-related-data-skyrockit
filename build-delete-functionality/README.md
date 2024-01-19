@@ -97,7 +97,7 @@ router.delete('/:applicationId', async (req, res) => {
     // Look up the user from req.session
     const currentUser = await User.findById(req.session.user._id);
     // Use the Mongoose .deleteOne() method to delete 
-    // an application by the id supplied from req.params
+    // an application using the id supplied from req.params
     currentUser.applications.id(req.params.applicationId).deleteOne();
     // Save changes to the user
     await currentUser.save();
