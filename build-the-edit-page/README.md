@@ -78,6 +78,8 @@ router.get('/:applicationId/edit', async (req, res) => {
 });
 ```
 
+## Building the UI
+
 We don't currently have a `applications/edit.ejs` to render, so we'll need to create that file next: 
 
 ```bash
