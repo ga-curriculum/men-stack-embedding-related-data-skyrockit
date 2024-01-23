@@ -35,7 +35,7 @@ Next, we will import the applications controller into `server.js` above our defi
 const applicationsController = require('./controllers/applications.js');
 ```
 
-Finally, we will connect our controller to a route to test our stubbed routes.  The following line can be placed just above our `app.listen` logic in the server:
+Finally, we will connect our controller to a route to test our stubbed routes. The following line can be placed just above our `app.listen` logic in the server:
 
 `server.js`
 ```javascript
@@ -44,7 +44,7 @@ app.use('/users/applications', applicationsController);
 
 ### Stub our controller routes
 
-With all of our logic connected we can start to stub and test our routing.  The focus for us is not to create all of our database and view logic, but rather, to make sure our controller routes can be accessed and send us a response.
+With all of our logic connected we can start to stub and test our routing. The focus for us is not to create all of our database and view logic, but rather, to make sure our controller routes can be accessed and send us a response.
 
 In that spirit, let us stub the route that will eventually GET all of the applications created by a user:
 
@@ -56,11 +56,11 @@ router.get('/', (req, res) => {
 });
 ```
 
-Since we have already wired up this controller to the server and associated it with a route, we can test if this route works in our browser.  Navigate to `localhost:3000/users/applications`.  If you have successfully wired up the route, you should see your "hello applications index route" response.
+Since we have already wired up this controller to the server and associated it with a route, we can test if this route works in our browser. Navigate to `localhost:3000/users/applications`.  If you have successfully wired up the route, you should see your "hello applications index route" response.
 
 ### Adding and testing the "New" route
 
-Having established a base level format for our get route we can do the same for all other CRUD routes related to our "applications".  Our next route to add and test will be a GET route that displays the new application form.  Again, we really only care about connecting the request and sending a response so let's do that underneath our last route:
+Having established a base level format for our get route we can do the same for all other CRUD routes related to our "applications". Our next route to add and test will be a GET route that displays the new application form. Again, we really only care about connecting the request and sending a response so let's do that underneath our last route:
 
 `controllers/applications.js`
 ```javascript
@@ -69,7 +69,7 @@ router.get('/new', (req, res) => {
 });
 ```
 
-You can test that this route works by navigating to `localhost:3000/users/applications/new`.  If you are greated with the response you are ready to move on to the next route.
+You can test that this route works by navigating to `localhost:3000/users/applications/new`.  If you are greeted with the response you are ready to move on to the next route.
 
 ### A route to show an application
 
@@ -83,7 +83,7 @@ router.get('/:applicationId', (req, res) => {
 ```
 
 ### The edit page route
-We also want to create a route that allows a user to reach a form to edit an already existing application.  To do so, we will create another GET route that will include the route param but also "/edit" appended to it.  Add the following code to your controller:
+We also want to create a route that allows a user to reach a form to edit an already existing application. To do so, we will create another GET route that will include the route param but also "/edit" appended to it. Add the following code to your controller:
 
 `controllers/application.js`
 ```javascript
@@ -93,7 +93,7 @@ router.get('/:applicationId/edit', (req, res) => {
 ```
 
 ### Our route for creating an application
-All of our previous routes were get requests which allowed for us to be able to test them in the browser.  For our remaining routes, we will need to use a tool like "Postman" to test our routes.  These routes will eventually send data to create or edit an application.  Our delete route will remove an application from the database.  Since these routes are not simply requesting information they will need to use a different HTTP verb per route to signify their intent.  Our first route will be for creating applications.  It follows the same structure as the previous ones but uses the HTTP ver `post` in place of `get`.  Let's add the following code to your controller:
+All of our previous routes were get requests which allowed for us to be able to test them in the browser. For our remaining routes, we will need to use a tool like "Postman" to test our routes.  These routes will eventually send data to create or edit an application. Our delete route will remove an application from the database. Since these routes are not simply requesting information they will need to use a different HTTP verb per route to signify their intent. Our first route will be for creating applications. It follows the same structure as the previous ones but uses the HTTP ver `post` in place of `get`. Let's add the following code to your controller:
 
 `controllers/applications.js`
 ```javascript
@@ -106,7 +106,7 @@ To test this, we will run a POST request to this route using Postman:
 
 ![Postman](./assets/originals/postman.png)
 
-We can test this route in a similar manner to the previously created routes.  If you get the response you created, you can move forward with wiring up the last two routes.
+We can test this route in a similar manner to the previously created routes. If you get the response you created, you can move forward with wiring up the last two routes.
 
 ### Edit and Delete functionality.
 
@@ -123,4 +123,4 @@ router.delete('/:applicationId', (req, res) => {
 });
 ```
 
-Test these routes in Postman by changing the verb and clicking on "Send".  If you get the responses you created all of your routes have been mounted and are ready for modification!
+Test these routes in Postman by changing the verb and clicking on "Send". If you get the responses you created all of your routes have been mounted and are ready for modification!
