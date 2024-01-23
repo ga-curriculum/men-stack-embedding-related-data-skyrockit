@@ -18,7 +18,7 @@ Now that we have our route, update the `<form>` in `views/applications/new.ejs`:
 
 ## Defining the route and coding the controller
 
-Next, we need to code out the route that the form will be hitting. In `controllers/applications.js`, add the following: 
+Next, we need to code out the route that the form will be hitting. In `controllers/applications.js`, add the following to the existing route: 
 
 ```js
 router.post('/', async (req, res) => {
