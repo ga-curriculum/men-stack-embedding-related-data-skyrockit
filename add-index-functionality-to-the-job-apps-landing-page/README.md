@@ -2,7 +2,6 @@
 
 **Learning objective:** By the end of this lesson, students will be able to implement an index route and view to a MEN stack application.
 
-
 Currently, when we finish creating a new application, our controller redirects to `/applications`. Now that there is data in the database for this resource, we want `/applications` to be a page that indexes all of the applications we've created. 
 
 Let's get started! 
