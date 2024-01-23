@@ -110,10 +110,14 @@ We can test this route in a similar manner to the previously created routes. If 
 
 ### Edit and Delete functionality.
 
-Our last two routes will be used for editing and deleting job applications.  We will add them and test them in this one step as they have the same pattern but with different HTTP verbs:
+Our last two routes will be used for editing and deleting job applications. We will add them and test them in this one step as they have the same pattern but with different HTTP verbs:
 
 `controllers/applications.js`
 ```javascript
+router.get(':/applicationId/edit', (req, res) => {
+ res.send(`You have reached the EDIT route for req.params: ${req.params.applicationId}`);
+});
+
 router.put('/:applicationId', (req, res) => {
   res.send(`You have reached the PUT route for req.params: ${req.params.applicationId}`);
 });

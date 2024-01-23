@@ -49,18 +49,17 @@ Next, we'll need to create the UI that will issue the result to the route. In `v
 </html>
 ```
 
-
 ## Defining the route and coding the controller
 
-Next, in `controllers/applications.js`, define the route: 
+Next, in `controllers/applications.js`, update the delete route from:  
 
 ```js
-router.delete('/:applicationId', async (req, res) => {
-
+router.delete('/:applicationId', (req, res) => {
+  res.send(`You have reached the DELETE route for req.params: ${req.params.applicationId}`);
 });
 ```
 
-Then, code out the controller function: 
+to: 
 
 ```js
 router.delete('/:applicationId', async (req, res) => {
