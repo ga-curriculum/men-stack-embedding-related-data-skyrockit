@@ -16,9 +16,11 @@ DELETE /users/:userId/applications/:applicationsId
 
 ## Adding the UI to issue the request
 
-Next, we'll need to create the UI that will issue the result to the route. In `views/applications/show.ejs`, add the following `<form>`: 
+Next, we'll need to create the UI that will issue the result to the route. In `show.ejs`, add the following `<form>`: 
 
 ```html
+<!-- views/applications/show.ejs -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,6 +56,8 @@ Next, we'll need to create the UI that will issue the result to the route. In `v
 Next, in `controllers/applications.js`, update the delete route from:  
 
 ```js
+// controllers/applications.js
+
 router.delete('/:applicationId', (req, res) => {
   res.send(`You have reached the DELETE route for req.params: ${req.params.applicationId}`);
 });
@@ -62,6 +66,8 @@ router.delete('/:applicationId', (req, res) => {
 to: 
 
 ```js
+// controllers/applications.js
+
 router.delete('/:applicationId', async (req, res) => {
   try {
     // Look up the user from req.session
