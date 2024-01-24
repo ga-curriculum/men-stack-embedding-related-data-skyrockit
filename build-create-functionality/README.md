@@ -1,6 +1,6 @@
 # ![[tktk Module Name] - Build Create Functionality](./assets/hero.png)
 
-**Learning objective:** By the end of this lesson, students will be able to build a create route.
+**Learning objective:** By the end of this lesson, students will be able to implement a create route in a .
 
 ## Conceptualizing the route
 
@@ -10,17 +10,21 @@ Using [RESTful Routing Conventions](https://git.generalassemb.ly/modular-curricu
 POST /users/:userId/applications
 ```
 
-Now that we have our route, update the `<form>` in `views/applications/new.ejs`: 
+Now that we have our route, update the `<form>` in `new.ejs`: 
 
 ```html
+<!-- views/applications/new.ejs -->
+
 <form action="/users/<%= user._id %>/applications" method="POST">
 ```
 
 ## Defining the route and coding the controller
 
-Next, we need to code out the route that the form will be hitting. In `controllers/applications.js`, add the following to the existing route: 
+Next, we need to code out the route that the form will be hitting. In our applications controller, add the following to the existing route: 
 
 ```js
+// controllers/applications.js`
+
 router.post('/', async (req, res) => {
   try {
     // Look up the user from req.session
