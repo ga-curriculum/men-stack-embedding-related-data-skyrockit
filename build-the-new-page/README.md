@@ -19,6 +19,8 @@ GET /users/:userId/applications/new
 In `controllers/applications.js`, update the `new` route. Instead of a `res.send()`, we want to `res.render()` our `new.ejs` view:  
 
 ```js
+// controllers/applications.js
+
 router.get('/new', async (req, res) => {
   res.render('applications/new.ejs');
 });
@@ -33,6 +35,8 @@ In `views/applications`, create a `new.ejs` file and add HTML boilerplate (!+tab
 Change the title to "Add a New Application", and add the navbar partial to the top of the `<body>`: 
 
 ```html
+<!-- views/applications/new.ejs -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,9 +55,11 @@ Change the title to "Add a New Application", and add the navbar partial to the t
 
 Next, we're ready to add our form. Recalling our user story, we know that this form will need to have inputs for the company name, job title, and status. We also know it should have a notes section, along with a URL.
 
-As always when working with forms, we should first reference our  schema:
+As always when working with forms, we should first reference our schema:
 
 ```js
+// models/user.js
+
 const applicationSchema = mongoose.Schema({
   company: {
     type: String,
@@ -89,6 +95,8 @@ From the schema, we can already infer a few things about how we can best design 
 In `new.ejs`, create a new form element. For now, we will leave the `action` and `method` attributes empty:
 
 ```html
+<!-- views/applications/new.ejs -->
+
   <form action="" method="">
   </form>
 ```
@@ -96,6 +104,8 @@ In `new.ejs`, create a new form element. For now, we will leave the `action` and
 Next, add input fields for our user data. Don't forget to add labels for accessibility! 
 
 ```html
+<!-- views/applications/new.ejs -->
+
   <form action="" method="">
     <label for="company">Company:</label>
     <input type="text" name="company" id="company">
@@ -167,6 +177,8 @@ This is why the `value` must match an `enum` element exactly.
 Finally, we need a way to submit the form, so let's add a button to the bottom of our `<form>` element and give it a `type` attribute of "submit": 
 
 ```html
+<!-- views/applications/new.ejs -->
+
 <form action="" method="">
   <label for="company">Company:</label>
   <input type="text" name="company" id="company">
