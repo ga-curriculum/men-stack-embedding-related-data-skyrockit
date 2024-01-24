@@ -38,16 +38,37 @@ Now that we have our middleware created we need to mount it and use it in `serve
 
 ```javascript
 // server.js
+.
+.
+.
+const morgan = require('morgan');
+const session = require('express-session');
 
 const passUserToView = require('./middleware/pass-user-to-view.js');
 ```
 
-Once that is in place we can "use" the middleware before our route logic, like so:
+Once that is in place we can "use" the middleware before any routing we establish:
 
 ```javascript
 //server.js
+app.use(express.urlencoded({ extended: false }));
+app.use(methodOverride('_method'));
+// app.use(morgan('dev'));
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: true,
+  })
+);
 
 app.use(passUserToView);
+
+.
+.
+.
+
+app.use('/auth', authController);
 ```
 
 We now have the middleware in place to move forward!

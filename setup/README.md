@@ -18,10 +18,16 @@ Navigate to [this link](https://git.generalassemb.ly/modular-curriculum-all-cour
 git clone git@git.generalassemb.ly:modular-curriculum-all-courses/men-stack-session-auth-template.git
 ```
 
+Once we have the repository on our machines, we can change the name of the directory to better reflect a job tracking app meant to help us ascend to the highest stratospheres of our career:  Skyrockit!
+
+```bash
+mv men-stack-session-auth-template skyrockit
+```
+
 Change into the directory we cloned down and open VSCode from there:
 
 ```bash
-cd men-stack-session-auth-template
+cd skyrockit
 code .
 ```
 
@@ -59,11 +65,4 @@ The express app is ready on port 3000!
 Connected to MongoDB final-mern-app.
 ```
 
-Excellent work!!  Let's add and commit before we move on to the next phase of our app build.
-
-```bash
-git add .
-git commit -m "app setup complete"
-```
-
-tktk: Also, this App needs a name! If inspiration strikes while you're building this out or you have a fun way to theme it 100% lean into it!
+Excellent work!!  We are ready to set the stage for how to move forward with creating this application.
