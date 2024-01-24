@@ -6,7 +6,15 @@
 
 Now that we have most of the key components in place, we can start to connect our controller logic to pages a user interacts with.
 
-### Establishing our index route.
+### Conceptualizing the route.
+
+Before we program this route let's refresh our memories on the action and route combination needed for a landing page or "index" route:
+
+```
+GET /users/:userId/applications
+```
+
+### Modifying our index route.
 
 First, we want to create an index route that will direct a logged-in user towards an index of their applications. If the user is not logged in, we want to redirect them to a page where they can either register or log-in. The application that we cloned down already has an index route defined, so we just need to modify the logic a bit to accomplish this.
 
