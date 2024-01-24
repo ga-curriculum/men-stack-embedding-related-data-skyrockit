@@ -45,7 +45,7 @@ tktk Hunter, can you fix up this ERD so that it's happy?
 
 ### Embedding data
 
-As a part of our ERD, you will note that we have chosen to create a relationship where applications are _embedded_ in the user model.  We are making this choice because it will reduce the amount of read operations needed to get the "application".  The user will already be signed in and thus we will not need to search for other documents as they will be "embedded" in our user.
+As a part of our ERD, you will note that we have chosen to create a relationship where applications are _embedded_ in the user model.  We are making this choice because it will reduce the amount of read operations needed to get the "application". The user will already be signed in and thus we will not need to search for other documents as they will be "embedded" in our user.
 
 If you would like a refresher of an embedded relationship in Mongo, you can [look here](https://git.generalassemb.ly/modular-curriculum-all-courses/mongoose-relationships/tree/main/embedding).
 
