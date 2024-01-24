@@ -21,15 +21,15 @@ This matches the route we gave the `action` attribute of our `<form>`.
 
 ## Defining the route and coding the controller
 
-Next, in `controllers/applications.js`, define the route: 
+Next, in `controllers/applications.js`, let's change the update route from: 
 
 ```js
-router.put('/:applicationId', async (req, res) => {
-
+router.put('/:applicationId', (req, res) => {
+  res.send(`You have reached the PUT route for req.params: ${req.params.applicationId}`);
 });
 ```
 
-Then, code the controller function: 
+To: 
 
 ```js
 router.put('/:applicationId', async (req, res) => {

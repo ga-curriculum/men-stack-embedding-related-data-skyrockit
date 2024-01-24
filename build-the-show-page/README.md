@@ -25,15 +25,15 @@ To start, let's revisit `views/applications/index.ejs` and set up a link with th
 
 ## Defining the route and coding the controller
 
-Next, add a new route to `controllers/applications.js`: 
+Then, code out the body of the controller function. Update the current router function from:
 
 ```js
-router.get('/:applicationId', async (req, res) => {
-
+router.get('/:applicationId', (req, res) => {
+  res.send(`here is your request param: ${req.params.applicationId}`);
 });
 ```
 
-Then, code out the body of the controller function: 
+to: 
 
 ```js
 router.get('/:applicationId', async (req, res) => {

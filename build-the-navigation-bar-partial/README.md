@@ -4,25 +4,26 @@
 
 ## What is a Partial
 
-When building an app you may notice that there are elements of user facing code that may be repeated in order to render on multiple pages.  We know that we want to practice D.R.Y programming and copying and pasting these repetitive elements goes against that principle.
+When building an app you may notice that there are elements of user facing code that are repeated in order to render on multiple pages. We know that we want to practice D.R.Y programming, and copying and pasting these repetitive elements goes against that principle.
 
-Luckily for us, EJS makes use of "partials".  In short, a partial is an an EJS template that is made to be rendered inside of multiple templates.  A great example of something that is rendered in multiple pages of an app is a navbar.  We are going to create and render a navbar partial for our application now!
+Luckily for us, EJS makes use of "partials". In short, a partial is an an EJS template that is made to be rendered inside of other templates. A great example of something that is rendered on multiple pages of an app is a navbar. The code for the navbar of an app is likely to remain the same regardless of what page the user is navigating to, and so being able to write the code once and reuse it on each page is very handy! To demonstrate the power and utility of partials, we will create and render a navbar partial for our application.
 
-### Creating the partial
+## Creating a partial template
 
-Our partial will be used by different views in our application so for code clarity we will place this partial in it's own subdirectory.
+Our partial will be used by different views in our application, so for code clarity we will place this partial in it's own subdirectory:
 
 ```bash
 mkdir views/partials
 touch views/partials/_navbar.ejs
 ```
 
-**Note:** We are using an underscore as a naming convention for our partial.  This is a naming convention that reinforces tha we are rendering a partial in our template.
+**Note:** We are using an underscore as a naming convention for our partial. This is a naming convention that reinforces tha we are rendering a partial in our template.
 
-Now, in the template we'll add the following code:
+Next, in this new template we'll add the following code:
 
-`views/partials/_navbar.ejs`
-```javascript
+```html
+<!-- views/partials/_navbar.ejs -->
+
 <nav>
   <% if(user) { %>
     <a href="/users/<%=user._id%>/applications">View Your Applications</a>
@@ -34,9 +35,9 @@ Now, in the template we'll add the following code:
 </nav>
 ```
 
-### Including our partial in other templates
+## Using partials
 
-The process for including a partial in other templates is relatively straightforward.  We will be including our newly created partial in four templates:
+The process for including a partial in other templates is relatively straightforward. We will be including our newly created partial in four templates:
 
 - `sign-up.ejs`
 - `sign-in.ejs`
@@ -45,8 +46,9 @@ The process for including a partial in other templates is relatively straightfor
 
 Let's go ahead and include this partial in our `sign-up` and `sign-in` templates:
 
-`sign-up.ejs`
 ```html
+<!-- views/auth/sign-up.ejs -->
+
 <body>
   <%- include('../partials/_navbar.ejs') %> // this is the line that renders our partial
   <h1>Create a new account!</h1>
@@ -62,8 +64,9 @@ Let's go ahead and include this partial in our `sign-up` and `sign-in` templates
 </body>
 ```
 
-`sign-in.ejs`
 ```html
+<!-- views/auth/sign-in.ejs -->
+
 <body>
   <%- include('../partials/_navbar.ejs') %> // this is our partial
   <h1>Sign in</h1>
@@ -79,14 +82,13 @@ Let's go ahead and include this partial in our `sign-up` and `sign-in` templates
 
 If all is working well, you should now see the links above your forms and know that your partial is rendering!
 
-### Including the partial on the app landing page
-
 Now that we have the partial working for our `sign-up` and `sign-in` pages we can render it onto our site index page and the site landing page as well.
 
 First, let's add the partial to our site's landing page:
 
-`index.ejs`
 ```html
+<!-- views/index.ejs -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -101,7 +103,7 @@ First, let's add the partial to our site's landing page:
 </html>
 ```
 
-**Note** The addition of this partial now makes all of the previous links on this page redundant.  You can remove the links you had and let the partial do the work for you!  Test it out and you can see the partial rendered in your application landing page now.
+**Note** The addition of this partial now makes all of the previous links on this page redundant.  You can remove the links you had and let the partial do the work for you! Test it out and you can see the partial rendered in your application landing page now.
 
 ### Including the partial on the "applications" landing page
 
@@ -109,12 +111,13 @@ We can now move on to adding the `navbar` partial to our "applications" landing 
 
 First, we'll add the partial to the page:
 
-`views/applications/index.ejs`
 ```html
+<!-- views/applications/index.ejs -->
+
 <body>
   <%- include('../partials/_navbar.ejs') %>
   <h1>Welcome to your application tracker</h1>
 </body>
 ```
 
-Refresh your page and you should see the navbar rendered above your h1!!  If all is working we are ready to add more to your job tracker site!
+Refresh the page and you should see the navbar rendered above your h1. Next, we are ready to start building out the application.

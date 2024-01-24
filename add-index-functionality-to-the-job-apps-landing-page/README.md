@@ -16,12 +16,11 @@ GET /users/:userId/applications
 
 ## Add the UI
 
-[tktk link in nav?]
-Submitting a new application will automatically redirect us here. 
+Submitting a new application will automatically redirect us here, and we already have a link in our nav partial! 
 
 ## Define the route and build the controller
 
-In order to list all of the applications created by the user, we'll first need to look up the current user in the database. When rendering the index view, the `applications` array of the current user will get passed to the view in the context object. 
+In order to list all of the applications created by the user, we'll first need to look up the current user in the database. When rendering the index view, the `applications` array of the current user will get passed to the view in the context object. Let's update our controller function: 
 
 ```js
 router.get('/', async (req, res) => {
@@ -43,9 +42,7 @@ router.get('/', async (req, res) => {
 
 ## Building the view
 
-Now that we have a controller for our index route, let's build the view that the controller will render. 
-
-Create an `index.ejs` file inside of `views/applications`, and add the following: 
+Now that we have a controller for our index route, let's update our `applications/index.ejs` file to display the applications data: 
 
 ```html
 <!DOCTYPE html>
@@ -58,6 +55,7 @@ Create an `index.ejs` file inside of `views/applications`, and add the following
   <body>
     <%- include('../partials/_navbar.ejs') %>
     <h1>Welcome to your application tracker</h1>
+    <!-- Add the following: -->
     <a href="/users/<%=user._id%>/applications/new">Add a New Application</a>
     <ul>
       <% applications.forEach((application)=>{ %>

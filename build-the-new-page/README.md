@@ -14,11 +14,9 @@ Using [RESTful Routing Conventions](https://git.generalassemb.ly/modular-curricu
 GET /users/:userId/applications/new
 ```
 
-[tktk is link added in nav partials? Add step if not]
-
 ## Defining the route on the server
 
-In `server.js`, add the following route that maps the HTTP request to the new action: 
+In `controllers/applications.js`, update the `new` route. Instead of a `res.send()`, we want to `res.render()` our `new.ejs` view:  
 
 ```js
 router.get('/new', async (req, res) => {

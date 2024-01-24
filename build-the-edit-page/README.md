@@ -53,15 +53,15 @@ Next, we'll create the UI that will issue the request to that route. Let's retur
 
 ## Defining the route and coding the controller
 
-Next, in `controllers/applications.js`, we'll define the route: 
+Next, in `controllers/applications.js`, we want to look up an application by it's `_id`, and then render a view containing a form to update it. Let's update the edit route from:
 
 ```js
-router.get('/:applicationId/edit', async (req, res) => {
-
+router.get(':/applicationId/edit', (req, res) => {
+ res.send(`You have reached the EDIT route for req.params: ${req.params.applicationId}`);
 });
 ```
 
-And then code out the controller function. We'll look up an application by it's `_id`, and then render a view containing a form to update it: 
+To: 
 
 ```js
 router.get('/:applicationId/edit', async (req, res) => {
