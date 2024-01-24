@@ -2,12 +2,9 @@
 
 **Learning objective:** By the end of this lesson, students will be able to implement update functionality in a MEN stack application.
 
-
-Now that we have our edit view, we can handle the updating of the resource! 
-
 ## Conceptualizing the Route
 
-As always, we'll start by conceptualizing our route: 
+Now that we have our edit view, we can handle the updating of the resource! As always, we'll start by conceptualizing our route: 
 
 ```plaintext
 PUT /users/:userId/applications/:applicationId
@@ -24,6 +21,8 @@ This matches the route we gave the `action` attribute of our `<form>`.
 Next, in `controllers/applications.js`, let's change the update route from: 
 
 ```js
+// controllers/applications.js`
+
 router.put('/:applicationId', (req, res) => {
   res.send(`You have reached the PUT route for req.params: ${req.params.applicationId}`);
 });
@@ -32,6 +31,8 @@ router.put('/:applicationId', (req, res) => {
 To: 
 
 ```js
+// // controllers/applications.js`
+
 router.put('/:applicationId', async (req, res) => {
   try {
     // Find the user from req.session
