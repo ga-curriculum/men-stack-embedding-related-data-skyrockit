@@ -2,7 +2,7 @@
 
 **Learning objective:** By the end of this lesson, students will be able to organize their user stories and build process prior to writing code for our Job Board application.
 
-## What we're building - A Job Application Tracker App
+## What we're building - SkyRockit: The Ultimate Job Tracking App
 
 We will be building an application where a user can track the status of various job applications that they have submitted.  Prior to the actual building of the application we need to establish the form of our "job application" data ( the schema ) and how it relates to our user ( we will chose the embedded data route ).
 
@@ -27,6 +27,23 @@ AAU, when viewing the details of an application, I should be able to click a but
 ```
 
 You might notice that the above user stories give us a good idea of what CRUD functions a user might want to perform on our applications.  Also, take note of how our first user story gives us some context as to how we might structure our data ("company name", "job title", "status", and optional "notes")  While these categories may not be the final names we give for data in our schema, they give us a high level guide we can refer back to when making decisions about how we structure data.
+
+Let's go ahead and establish the RESTful routing for app:
+
+| Action   | Route                                              | HTTP Verb  | 
+|----------|----------------------------------------------------|------------|
+| Index    | '/users/:userId/applications'                      | GET        |
+| New      | '/users/:userId/applications/new'                  | GET        |
+| Create   | '/users/:userId/applications'                      | POST       |
+| Show     | '/users/:userId/applications/:applicationId'       | GET        |
+| Edit     | '/users/:userId/applications/:applicationId/edit'  | GET        |
+| Update   | '/users/:userId/applications/:applicationId'       | PUT        |
+| Delete   | '/users/:userId/applications/:applicationId'       | DELETE     |
+
+**Note:** We are including the `userId` in the route since we are nesting our applications within the user object.
+
+
+<!-- tktk if it makes more sense to replace the above table with an asset that makes sense to me -->
 
 ### Create an ERD
 
