@@ -1,6 +1,6 @@
 # ![[tktk Module Name] - Add Index Functionality to the Job Apps Landing Page](./assets/hero.png)
 
-**Learning objective:** By the end of this lesson, students will be able to implement an index route and view to a MEN stack application.
+**Learning objective:** By the end of this lesson, students will be able to implement an index route and view in a MEN stack application.
 
 Currently, when we finish creating a new application, our controller redirects to `/applications`. Now that there is data in the database for this resource, we want `/applications` to be a page that indexes all of the applications we've created. 
 
@@ -23,6 +23,8 @@ Submitting a new application will automatically redirect us here, and we already
 In order to list all of the applications created by the user, we'll first need to look up the current user in the database. When rendering the index view, the `applications` array of the current user will get passed to the view in the context object. Let's update our controller function: 
 
 ```js
+// controllers/applications.js
+
 router.get('/', async (req, res) => {
   try {
     // Look up the user from req.session
@@ -45,6 +47,8 @@ router.get('/', async (req, res) => {
 Now that we have a controller for our index route, let's update our `applications/index.ejs` file to display the applications data: 
 
 ```html
+<!-- applications/index.ejs -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
