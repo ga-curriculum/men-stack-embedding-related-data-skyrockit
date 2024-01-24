@@ -14,9 +14,11 @@ As always, we start by conceptualizing the route:
 GET /users/:userId/applications/edit
 ```
 
-Next, we'll create the UI that will issue the request to that route. Let's return to `views/applications/show.ejs` one last time:  
+Next, we'll create the UI that will issue the request to that route. Let's return to `show.ejs` one last time:  
 
 ```html
+<!-- views/applications/show.ejs -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,14 +58,18 @@ Next, we'll create the UI that will issue the request to that route. Let's retur
 Next, in `controllers/applications.js`, we want to look up an application by it's `_id`, and then render a view containing a form to update it. Let's update the edit route from:
 
 ```js
+// controllers/applications.js
+
 router.get(':/applicationId/edit', (req, res) => {
- res.send(`You have reached the EDIT route for req.params: ${req.params.applicationId}`);
+  res.send(`You have reached the EDIT route for req.params: ${req.params.applicationId}`);
 });
 ```
 
 To: 
 
 ```js
+// controllers/applications.js
+
 router.get('/:applicationId/edit', async (req, res) => {
   try {
     const currentUser = await User.findById(req.session.user._id);
@@ -94,6 +100,8 @@ As you can imagine, it would be a very bad user experience to have to re-enter a
 To avoid this, we can set each input's `value` attribute equal to the current data in the database. For the `<select>` dropdown, we also need to do a bit of extra work to ensure that only the option that matches the current `status` is selected.
 
 ```html
+<!-- views/applications/edit.ejs -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
