@@ -4,7 +4,7 @@
 
 ## Adding Route Middleware for our Application Routes
 
-To begin this project, we cloned a repository that already had auth routes and logic established.  This was a great start point, but we are at the stage now where we need to add middleware to be used with our application routes. The middleware we are adding will protect these `application` routes from being accessed by visitors who are not logged in. It will also add the `user` to a `res.locals` object that can be accessed by our view templates.
+To begin this project, we cloned a repository that already had auth routes and logic established.  This was a great starting point, but we are at the stage now where we need to add middleware to be used with our application routes. The middleware we are adding will protect these `application` routes from being accessed by visitors who are not logged in. It will also add the `user` to a `res.locals` object that can be accessed by our view templates.
 
 Per the [Express documentation](https://expressjs.com/en/api.html#res) on `res.locals`:  'Use this property to set variables accessible in templates rendered with `res.render`.'
 

@@ -14,6 +14,13 @@ Using [RESTful Routing Conventions](https://git.generalassemb.ly/modular-curricu
 GET /users/:userId/applications/new
 ```
 
+Before we dig in, a quick reminder that some CRUD operations only require a single request, such as a `GET` request for an index route. Others, such as Create or Update, will be a two step process: 
+
+1. The first request displays a form for the user to enter the data
+2. A second request submits the form to the server where the data is created or updated
+
+Below, we'll tackle the first of those tasks (a `GET` request to a view displaying a form), and in the next lesson we'll handle the what happens when that form gets submitted. 
+
 ## Defining the route on the server
 
 In `controllers/applications.js`, update the `new` route. Instead of a `res.send()`, we want to `res.render()` our `new.ejs` view:  
