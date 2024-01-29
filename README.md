@@ -14,7 +14,7 @@ tktk Write a short but descriptive summary of the content in this module.
 
 | Lesson | Video Time | Video | Skills |
 | ------ |:----------:|:-----:| ------ |
-| [Setup](./setup/README.md)                                                                                               | -- | -- | tktk skills covered |
+| [Setup](./setup/README.md)                                                                                               | -- | -- | Setting up the development environment |
 | [Setting the Stage](./setting-the-stage/README.md)                                                                       | -- | -- | tktk skills covered |
 | [Build the Application Schema](./build-the-application-schema/README.md)                                                 | -- | -- | tktk skills covered |
 | [Build and Use the Applications Controller](./build-and-use-the-applications-controller/README.md)                       | -- | -- | tktk skills covered |
