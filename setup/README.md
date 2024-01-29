@@ -1,7 +1,5 @@
 # ![Job Application Tracker App - Setup](./assets/herotktk.png)
 
-**Learning objective:** By the end of this lesson, students will have completed the intitial app setup to begin working on their job application tracker.
-
 ## Cloning our Auth repository
 
 We will begin our Job Application build by cloning down the repository that holds our previously built Auth logic.  Doing so will allow us to have a connection established to our MongoDB Atlas, add functioning auth for our user model, and install some of the packages we will need for our app build.
