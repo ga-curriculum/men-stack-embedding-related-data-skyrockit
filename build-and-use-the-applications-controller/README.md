@@ -1,4 +1,4 @@
-# ![Job Application Tracker App - tktk Microlesson Name](./assets/hero.png)
+# ![Job Application Tracker App - Build and Use the Applications Controller](./assets/hero.png)
 
 **Learning objective:** By the end of this lesson, students will be able to create a controller file, connect the file to `server.js`, and test out the associated logic.
 
