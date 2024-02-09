@@ -1,4 +1,4 @@
-# ![[tktk Module Name] - Build the Edit Page](./assets/hero.png)
+# ![Job Application Tracker App - Build the Edit Page](./assets/hero.png)
 
 **Learning objective:** By the end of this lesson, students will be able to implement edit functionality in a MEN stack application.
 

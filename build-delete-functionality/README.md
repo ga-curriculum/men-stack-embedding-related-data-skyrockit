@@ -1,4 +1,4 @@
-# ![[tktk Module Name] - Build Delete Functionality](./assets/hero.png)
+# ![Job Application Tracker App - Build Delete Functionality](./assets/hero.png)
 
 **Learning objective:** By the end of this lesson, students will be able to implement delete functionality in a MEN stack application. 
 

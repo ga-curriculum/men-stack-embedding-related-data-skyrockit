@@ -1,4 +1,4 @@
-# ![[tktk Module Name] - Level Up - Style the Application](./assets/hero.png)
+# ![Job Application Tracker App - Level Up - Style the Application](./assets/hero.png)
 
 Now that you've built a MEN-stack app with embedding, it's time to add some style. If you follow all of the steps of this level up you'll have an app that looks like this:
 

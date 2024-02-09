@@ -1,4 +1,4 @@
-# ![[tktk Module Name] - Wrap Up](./assets/hero.png)
+# ![Job Application Tracker App - Wrap Up](./assets/hero.png)
 
 **Learning objective:** By the end of this lesson, students will have a big picture understanding of the Skyrockit app. 
 

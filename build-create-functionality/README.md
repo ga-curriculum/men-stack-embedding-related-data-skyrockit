@@ -1,4 +1,4 @@
-# ![[tktk Module Name] - Build Create Functionality](./assets/hero.png)
+# ![Job Application Tracker App - Build Create Functionality](./assets/hero.png)
 
 **Learning objective:** By the end of this lesson, students will be able to implement a create route in a MEN stack application.
 

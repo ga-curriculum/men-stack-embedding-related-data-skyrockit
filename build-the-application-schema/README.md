@@ -1,4 +1,4 @@
-# ![Job Application Tracker App - Build and Use the Applicaitons Controller](./assets/hero.png)
+# ![Job Application Tracker App - Build and Use the Applications Controller](./assets/hero.png)
 
 **Learning objective:** By the end of this lesson, students will have added the "application" schema to the app and thus set the stage for building CRUD functionality into the job tracker.
 

@@ -1,4 +1,4 @@
-# ![[tktk Module Name] - Add Index Functionality to the Job Apps Landing Page](./assets/hero.png)
+# ![Job Application Tracker App - Add Index Functionality to the Job Apps Landing Page](./assets/hero.png)
 
 **Learning objective:** By the end of this lesson, students will be able to implement an index route and view in a MEN stack application.
 
