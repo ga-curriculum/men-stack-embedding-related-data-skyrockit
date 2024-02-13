@@ -1,4 +1,4 @@
-# ![Job Application Tracker App - Setup](./assets/herotktk.png)
+# ![MEN Stack Embedding Related Data - Skyrockit - Setup](./assets/herotktk.png)
 
 ## Setup
 

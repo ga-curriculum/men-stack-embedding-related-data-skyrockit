@@ -1,4 +1,4 @@
-# ![Job Application Tracker App - Build Update Functionality](./assets/hero.png)
+# ![MEN Stack Embedding Related Data - Skyrockit - Build Update Functionality](./assets/hero.png)
 
 **Learning objective:** By the end of this lesson, students will be able to implement update functionality in a MEN stack application.
 

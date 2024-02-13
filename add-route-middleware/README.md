@@ -1,4 +1,4 @@
-# ![Job Application Tracker App - Add Route Middleware](./assets/hero.png)
+# ![MEN Stack Embedding Related Data - Skyrockit - Add Route Middleware](./assets/hero.png)
 
 **Learning objective:** By the end of this lesson, students will be able to add middleware to be used in conjunction with their routing logic.
 

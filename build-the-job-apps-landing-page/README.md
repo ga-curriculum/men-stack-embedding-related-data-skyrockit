@@ -1,4 +1,4 @@
-# ![Job Application Tracker App - Build the Job Apps Landing Page](./assets/hero.png)
+# ![MEN Stack Embedding Related Data - Skyrockit - Build the Job Apps Landing Page](./assets/hero.png)
 
 **Learning objective:** By the end of this lesson, students will be able build the jobs app landing page.
 

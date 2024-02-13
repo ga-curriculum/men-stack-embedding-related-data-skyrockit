@@ -1,4 +1,4 @@
-# ![Job Application Tracker App - Setting the Stage](./assets/hero.png)
+# ![MEN Stack Embedding Related Data - Skyrockit - Setting the Stage](./assets/hero.png)
 
 **Learning objective:** By the end of this lesson, students will be equipped to conceptualize and outline the foundation of a web application, focusing on data structure, user stories, and routing.
 

@@ -1,4 +1,4 @@
-# ![Job Application Tracker App - Build the New Page](./assets/hero.png)
+# ![MEN Stack Embedding Related Data - Skyrockit - Build the New Page](./assets/hero.png)
 
 **Learning objective:** By the end of this lesson, students will be able to construct a route and view for a user to enter form data for a new resource. 
 

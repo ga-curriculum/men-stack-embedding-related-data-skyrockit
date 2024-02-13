@@ -1,4 +1,4 @@
-# ![Job Application Tracker App - Build and Use the Applications Controller](./assets/hero.png)
+# ![MEN Stack Embedding Related Data - Skyrockit - Build the Application Schema](./assets/hero.png)
 
 **Learning objective:** By the end of this lesson, students will successfully develop an `application` schema and establish its relationship within the `user` model through embedding.
 

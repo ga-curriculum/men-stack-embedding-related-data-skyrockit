@@ -1,4 +1,4 @@
-# ![Job Application Tracker App - Build Delete Functionality](./assets/hero.png)
+# ![MEN Stack Embedding Related Data - Skyrockit - Build Delete Functionality](./assets/hero.png)
 
 **Learning objective:** By the end of this lesson, students will be able to implement delete functionality in a MEN stack application. 
 

@@ -1,4 +1,4 @@
-# ![Job Application Tracker App - Build the Navigation Bar Partial](./assets/hero.png)
+# ![MEN Stack Embedding Related Data - Skyrockit - Build the Navigation Bar Partial](./assets/hero.png)
 
 **Learning objective:** By the end of this lesson, students will be able to create a partial to be used on multiple pages and reduce code duplication.
 

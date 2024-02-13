@@ -1,4 +1,4 @@
-# ![Job Application Tracker App - Wrap Up](./assets/hero.png)
+# ![MEN Stack Embedding Related Data - Skyrockit - Wrap Up](./assets/hero.png)
 
 **Learning objective:** By the end of this lesson, students will have a big picture understanding of the Skyrockit app. 
 

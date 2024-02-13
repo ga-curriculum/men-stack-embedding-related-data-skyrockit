@@ -1,4 +1,4 @@
-# ![Job Application Tracker App - Build the Edit Page](./assets/hero.png)
+# ![MEN Stack Embedding Related Data - Skyrockit - Build the Edit Page](./assets/hero.png)
 
 **Learning objective:** By the end of this lesson, students will be able to implement edit functionality in a MEN stack application.
 

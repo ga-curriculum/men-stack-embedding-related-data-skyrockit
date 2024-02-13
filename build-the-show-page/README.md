@@ -1,4 +1,4 @@
-# ![Job Application Tracker App - Build the Show Page](./assets/hero.png)
+# ![MEN Stack Embedding Related Data - Skyrockit - Build the Show Page](./assets/hero.png)
 
 **Learning objective:** By the end of this lesson, students will be able to implement a show route and page in a MEN stack application.
 
