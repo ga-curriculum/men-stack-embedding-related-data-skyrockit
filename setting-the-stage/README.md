@@ -1,6 +1,6 @@
 # ![Job Application Tracker App - Setting the Stage](./assets/hero.png)
 
-**Learning objective:** By the end of this lesson, students will be able to organize their user stories and build process prior to writing code for our job tracking application.
+**Learning objective:** By the end of this lesson, students will be equipped to conceptualize and outline the foundation of a web application, focusing on data structure, user stories, and routing.
 
 ## What we're building - Skyrockit: The Ultimate Job Tracking Application
 
