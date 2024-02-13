@@ -1,32 +1,37 @@
 # ![Job Application Tracker App - Setting the Stage](./assets/hero.png)
 
-**Learning objective:** By the end of this lesson, students will be able to organize their user stories and build process prior to writing code for our Job Board application.
+**Learning objective:** By the end of this lesson, students will be able to organize their user stories and build process prior to writing code for our job tracking application.
 
-## What we're building - SkyRockit: The Ultimate Job Tracking App
+## What we're building - SkyRockit: The Ultimate Job Tracking Application
 
-We will be building an application where a user can track the status of various job applications that they have submitted.  Prior to the actual building of the application we need to establish the form of our "job application" data ( the schema ) and how it relates to our user ( we will chose the embedded data route ).
+In this lesson, we embark on an exciting journey to build "Skyrockit," a comprehensive job tracking application. This platform is designed to empower users by allowing them to easily track and manage the status of their various job applications. With Skyrockit, users gain greater control and visibility over their job search process, streamlining the often overwhelming task of managing multiple platforms.  
+
+### Shaping the data
+
+The foundation of any robust application lies in how its data is structured. For Skyrockit, our focus will be on creating a well-defined schema for "job application" data. We will explore the intricacies of data modeling, choosing to embed our job application data directly within our user model. This approach not only simplifies the data architecture but also enhances the application's performance by reducing the complexity of data retrieval.
 
 ### Establish our User Stories
 
-It is always a good idea to organize your thoughts around what you want your users to be able to do in your application.  A great strategy for laying the foundation of your app is creating user stories for each behavior a user could accomplish.  These user stories do not have to be technical in nature.  They also do not need to even be written as code.
+One of the key steps in developing an intuitive and user-friendly application is to clearly understand and outline what our users need and expect from the platform. To achieve this, we will begin with the process of crafting user stories. These narratives will serve as a roadmap, guiding our development process by laying out each action and feature our users should be able to perform within Skyrockit. User stories will be crafted in a non-technical language, focusing on the user experience rather than the underlying code, ensuring that our code is aligned with user expectations and requirements.
 
-If you would like a refresher on how to write some user stories you can [go here](https://git.generalassemb.ly/modular-curriculum-all-courses/javascript-browser-game-rock-paper-scissors/blob/main/pseudocode/README.md).
+By meticulously planning our data structure and user stories, we set the stage for creating an application that is not only functional but also resonates with the needs of our users, making their job tracking experience seamless and effective.
 
-The following are some examples of user stories we can write for our Jobs Application Tracker.
+The following are some examples of user stories we can write for our Skyrockit app:
 
-```
-As a user (AAU), I should be able to create job application for jobs that I anticipating applying for or have applied for. I should be able to keep track of the company name, the job title, and the status of the job application. Optionally I can add any notes I have about the job, and the URL to the job posting.
+> As a user, I want to be able to add new job applications that I'm thinking about applying to or have already applied to. For each job, I should be able to note down important stuff like the company's name, the job title, what stage the application is at, and if I want, some personal notes and the link to the job posting.
 
-AAU, I should be able to view all the jobs that I have applied for on a single page. Only the job title and the company for each application should be listed here to keep this view digestable.
+> As a user, I want to see all the jobs I've applied for in one place. This page should just show the job title and the company name for each job to keep it simple and easy to look at.
 
-AAU, I should be able to view all the details of a job application on a new page by following a link from that index page.
+> As a user, I need to be able to click on any job in my list and see all the details about it on a new page. This includes everything I've recorded about that job application.
 
-AAU, when viewing the details of an application, I should be able to follow a link to be taken to a page where I can edit any of the details of a job application and update it from there.
+> As a user, when I'm looking at all the details of a job application, I want to be able to change any of the information. There should be an easy-to-find link that takes me to a different page where I can make these changes and then save them.
 
-AAU, when viewing the details of an application, I should be able to click a button and delete the application.
-```
+> As a user, if I'm looking at the details of a job application, I want a simple way to delete it completely, like clicking a 'Delete' button.
+
 
 You might notice that the above user stories give us a good idea of what CRUD functions a user might want to perform on our applications.  Also, take note of how our first user story gives us some context as to how we might structure our data ("company name", "job title", "status", and optional "notes")  While these categories may not be the final names we give for data in our schema, they give us a high level guide we can refer back to when making decisions about how we structure data.
+
+## Planning the routes
 
 Let's go ahead and establish the RESTful routing for app:
 
@@ -43,27 +48,22 @@ Let's go ahead and establish the RESTful routing for app:
 **Note:** We are including the `userId` in the route since we are nesting our applications within the user object.
 
 
-<!-- tktk if it makes more sense to replace the above table with an asset that makes sense to me -->
-
 ### Create an ERD
 
-Once we have our user stories established, we want to focus on the structure of our data.  When focusing on this task, we can create an ERD (Entity Relationship Diagram) that outlines what names our data will go by, what kind of datatypes said data will comprise of, and how our models will relate to each other.
+After we've nailed down our user stories, our next step is to map out our data's structure. For this, we create an ERD, or Entity Relationship Diagram. This visual tool will chart out the names we'll use for our data, the types of data we'll be working with, and how different pieces of data are connected.
 
-An ERD can be used as a reference throughout the build of a project and can also be adjusted as your applications grow and become more complex.  Note that while the ERD is not actual code, it is critical for organizing an understanding of what your data should look like for yourself and other developers.
+An ERD is like a blueprint for your data. It doesn't involve any coding, but it's essential for planning and understanding your data's layout, both for you and anyone else who works on the project. As your application evolves and becomes more intricate, you can update the ERD to keep pace. It's a living document that guides you through the development journey, ensuring you and your team always have a clear picture of how your data is organized and interconnected.
 
 Below is an example of the ERD we will be using for our Job Application Tracker:
 
-tktk here's a demo ERD, this should be replaced when assets are created, but it's a start:
-
 ![Job Applications ERD](./assets/tktk-erd-placeholder.png)
 
-tktk Hunter, can you fix up this ERD so that it's happy?
-
+[tktk Hunter, can you fix up this ERD so that it's happy?]
 
 ### Embedding data
 
-As a part of our ERD, you will note that we have chosen to create a relationship where applications are _embedded_ in the user model.  We are making this choice because it will reduce the amount of read operations needed to get the "application". The user will already be signed in and thus we will not need to search for other documents as they will be "embedded" in our user.
+In our ERD, we've opted for an *embedded* relationship model, where the job application data is directly incorporated into the user model. This approach was intentional because it makes data retrieval much easier in our application. By embedding the application data within the user's document, we minimize the need for multiple database read operations. Since users are already logged in, their associated applications are *embedded* within their own user document.
 
-If you would like a refresher of an embedded relationship in Mongo, you can [look here](https://git.generalassemb.ly/modular-curriculum-all-courses/mongoose-relationships/tree/main/embedding).
+This embedded model enhances performance by reducing the need for extensive database queries. It's a strategic decision that aligns well with the typical flow and structure of our application.
 
-Lastly, if you are interested in diving into the differences of embedding data vs referencing data in Mongo, you can do so in [this informative article](https://www.mongodb.com/developer/products/mongodb/mongodb-schema-design-best-practices/).
+For those curious about the nuances between embedding and referencing data in MongoDB, and when to use each approach, consider exploring [this informative article](https://www.mongodb.com/developer/products/mongodb/mongodb-schema-design-best-practices/). It offers a deeper dive into data modeling strategies, helping you make informed choices in your MongoDB schema design.
