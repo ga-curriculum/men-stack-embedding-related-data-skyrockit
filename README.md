@@ -1,4 +1,4 @@
-# ![[tktk Module Name]](./assets/tktk-hero.png)
+# ![MEN Stack Embedding Related Data - Skyrockit](./assets/tktk-hero.png)
 
 ## About
 
@@ -6,9 +6,7 @@ tktk Write a short but descriptive summary of the content in this module.
 
 ## Prerequisites
 
-- tktk
-- tktk
-- tktk
+- Mongoose Relationships
 
 ## Content
 
