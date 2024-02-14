@@ -50,7 +50,7 @@ The following line can be placed just above our `app.listen` logic in the server
 ```javascript
 // server.js
 
-app.use('/users/:userId/applications', applicationsController);
+app.use('/users/applications', applicationsController);
 ```
 
 With the controller connected, we are ready to start building out the pages of our site!

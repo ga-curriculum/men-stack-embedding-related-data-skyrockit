@@ -17,7 +17,7 @@ tktk Write a short but descriptive summary of the content in this module.
 | [Build the Application Schema](./build-the-application-schema/README.md)                                                 | -- | -- | Build `application` schema and embed in `user` model |
 | [Build and Use the Applications Controller](./build-and-use-the-applications-controller/README.md)                       | -- | -- | Create and integrate an `applications` controller |
 | [Add Route Middleware](./add-route-middleware/README.md)                                                                 | -- | -- | Add custom middleware `isSignedIn` and `passUserToView` |
-| [Build the Job Apps Landing Page](./build-the-job-apps-landing-page/README.md)                                           | -- | -- | tktk skills covered |
+| [Build the Job Apps Landing Page](./build-the-job-apps-landing-page/README.md)                                           | -- | -- | Build the `applications` index route and view |
 | [Build the Navigation Bar Partial](./build-the-navigation-bar-partial/README.md)                                         | -- | -- | tktk skills covered |
 | [Build the New Page](./build-the-new-page/README.md)                                                                     | -- | -- | tktk skills covered |
 | [Build Create Functionality](./build-create-functionality/README.md)                                                     | -- | -- | tktk skills covered |
