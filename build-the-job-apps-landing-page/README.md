@@ -28,7 +28,7 @@ router.get('/', (req, res) => {
 });
 ```
 
-Since we have already wired up this controller to the server and associated it with a route, we can test if this route works in our browser. Navigate to `localhost:3000/users/applications`.  If you have successfully connected the route, you should see your "hello applications index route" response.
+Since we have already wired up this controller to the server and associated it with a route, we can test it in our browser. Navigate to `localhost:3000/users/applications`.  If you have successfully connected the route, you should see your "hello applications index route" response.
 
 
 ### Render the applications `Index` template
@@ -75,5 +75,4 @@ router.get('/', async (req, res) => {
 
 Note that in the above snippet we aren't passing any information to the template yet. We'll be adding more to this controller function later - for now, we are just interested in making sure that the template is rendering when the route is accessed from the server. 
 
-Test it out - `localhost:3000/users/applications`.
-If you see the rendered page then congratulations, you are ready to move forward!
+Test it out - `localhost:3000/users/applications`. If you see the rendered page then congratulations, you are ready to move forward!
