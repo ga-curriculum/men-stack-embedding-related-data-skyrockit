@@ -2,6 +2,25 @@
 
 **Learning objective:** By the end of this lesson, students will be able to implement a create route in a MEN stack application.
 
+### Our route for creating an application
+All of our previous routes were get requests which allowed for us to be able to test them in the browser. For our remaining routes, we will need to use a tool like "Postman" to test our routes.  These routes will eventually send data to create or edit an application. Our delete route will remove an application from the database. Since these routes are not simply requesting information they will need to use a different HTTP verb per route to signify their intent. Our first route will be for creating applications. It follows the same structure as the previous ones but uses the HTTP ver `post` in place of `get`. Let's add the following code to your controller:
+
+
+```javascript
+// controllers/applications.js
+router.post('/', (req, res) => {
+  res.send('you have reached the POST route for applications');
+});
+```
+
+To test this, we will run a POST request to this route using Postman:
+
+![Postman](./assets/originals/postman.png)
+
+We can test this route in a similar manner to the previously created routes. If you get the response you created, you can move forward with wiring up the last two routes.
+
+
+
 ## Conceptualizing the route
 
 Using [RESTful Routing Conventions](https://git.generalassemb.ly/modular-curriculum-all-courses/restful-routing/blob/main/routing-conventions/README.md), we find that to submit the form for creating applications, the proper route will be:

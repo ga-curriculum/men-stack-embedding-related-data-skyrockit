@@ -2,6 +2,28 @@
 
 **Learning objective:** By the end of this lesson, students will be able to implement delete functionality in a MEN stack application. 
 
+### Edit and Delete functionality.
+
+Our last two routes will be used for editing and deleting job applications. We will add them and test them in this one step as they have the same pattern but with different HTTP verbs:
+
+```javascript
+// controllers/applications.js
+
+router.get(':/applicationId/edit', (req, res) => {
+ res.send(`You have reached the EDIT route for req.params: ${req.params.applicationId}`);
+});
+
+router.put('/:applicationId', (req, res) => {
+  res.send(`You have reached the PUT route for req.params: ${req.params.applicationId}`);
+});
+
+router.delete('/:applicationId', (req, res) => {
+  res.send(`You have reached the DELETE route for req.params: ${req.params.applicationId}`);
+});
+```
+
+Test these routes in Postman by changing the verb and clicking on "Send". If you get the responses you created all of your routes have been mounted and are ready for modification!
+
 Next, we'll tackle the following user story: 
 
 > AAU, when viewing the details of an application, I should be able to click a button and delete the application.

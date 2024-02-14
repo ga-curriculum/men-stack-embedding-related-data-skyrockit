@@ -2,6 +2,23 @@
 
 **Learning objective:** By the end of this lesson, students will be able build the jobs app landing page.
 
+### Stub our controller routes
+
+With all of our logic connected we can start to stub and test our routing. The focus for us is not to create all of our database and view logic, but rather, to make sure our controller routes can be accessed and send us a response.
+
+In that spirit, let us stub the route that will eventually GET all of the applications created by a user:
+
+```javascript
+// controllers/applications.js
+
+router.get('/', (req, res) => {
+  res.send('hello applications index route');
+});
+```
+
+Since we have already wired up this controller to the server and associated it with a route, we can test if this route works in our browser. Navigate to `localhost:3000/users/applications`.  If you have successfully wired up the route, you should see your "hello applications index route" response.
+
+
 ## Building the Landing Page
 
 Now that we have most of the key components in place, we can start to connect our controller logic to pages a user interacts with.

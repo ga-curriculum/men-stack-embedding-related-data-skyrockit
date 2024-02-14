@@ -2,6 +2,18 @@
 
 **Learning objective:** By the end of this lesson, students will be able to implement edit functionality in a MEN stack application.
 
+
+### The edit page route
+We also want to create a route that allows a user to reach a form to edit an already existing application. To do so, we will create another GET route that will include the route param but also "/edit" appended to it. Add the following code to your controller:
+
+
+```javascript
+// controllers/application.js
+router.get('/:applicationId/edit', (req, res) => {
+  res.send(`You are at the edit page for this application:  ${req.params.applicationId}`);
+});
+```
+
 Let's tackle our final user story!
 
 > AAU, when viewing the details of an application, I should be able to follow a link to be taken to a page where I can edit any of the details of a job application and update it from there.

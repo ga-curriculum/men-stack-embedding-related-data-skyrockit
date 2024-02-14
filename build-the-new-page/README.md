@@ -2,6 +2,21 @@
 
 **Learning objective:** By the end of this lesson, students will be able to construct a route and view for a user to enter form data for a new resource. 
 
+### Adding and testing the "New" route
+
+Having established a base level format for our get route we can do the same for all other CRUD routes related to our "applications". Our next route to add and test will be a GET route that displays the new application form. Again, we really only care about connecting the request and sending a response so let's do that underneath our last route:
+
+```javascript
+// controllers/applications.js
+
+router.get('/new', (req, res) => {
+  res.send('you have made a request to the new application route');
+});
+```
+
+You can test that this route works by navigating to `localhost:3000/users/applications/new`.  If you are greeted with the response you are ready to move on to the next route.
+
+
 ## Conceptualizing the Route
 
 At this stage, let's recall one of our user stories: 

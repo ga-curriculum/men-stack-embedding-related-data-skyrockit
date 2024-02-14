@@ -2,6 +2,19 @@
 
 **Learning objective:** By the end of this lesson, students will be able to implement a show route and page in a MEN stack application.
 
+### A route to show an application
+
+Like the last two routes we can follow the same pattern to establish a route that will eventually show a created application.  For this one, we want to use a route param to handle an application id.  To test this, we will define the route and send the value of that route param as the response as follows:
+
+
+```javascript
+// controllers/applications.js
+router.get('/:applicationId', (req, res) => {
+  res.send(`here is your request param: ${req.params.applicationId}`);
+});
+```
+
+
 ## Conceptualizing the Show View
 
 Now that we have an index view, let's look at another User Story: 
