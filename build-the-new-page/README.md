@@ -4,7 +4,7 @@
 
 At this stage, we have an index page, but no applications to display. Before we can add application data to our database, we need a form to collect this information from our user. 
 
-## Conceptualizing the Route
+## Conceptualizing the route
 
 Let's review our first user story: 
 

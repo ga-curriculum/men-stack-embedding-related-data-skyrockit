@@ -16,14 +16,14 @@ tktk Write a short but descriptive summary of the content in this module.
 | [Setting the Stage](./setting-the-stage/README.md)                                                     | -- | -- | Outline the application: data structure, user stories, and routing |
 | [Build the Application Schema](./build-the-application-schema/README.md)                               | -- | -- | Build `application` schema and embed in `user` model |
 | [Build and Use the Applications Controller](./build-and-use-the-applications-controller/README.md)     | -- | -- | Create and integrate an `applications` controller |
-| [Build the Applications Index Page](./build-the-applications-index-page/README.md)                     | -- | -- | Build the `applications` index route and view |
+| [Build the Applications Index Page](./build-the-applications-index-page/README.md)                     | -- | -- | Build the `index` route and view |
 | [Add Route Middleware](./add-route-middleware/README.md)                                               | -- | -- | Add custom middleware `isSignedIn` and `passUserToView` |
 | [Build the Navigation Bar Partial](./build-the-navigation-bar-partial/README.md)                       | -- | -- | Create a reusable `nav` bar component |
 | [Build the New Page](./build-the-new-page/README.md)                                                   | -- | -- | Create a form for adding `new` job applications |
 | [Build Create Functionality](./build-create-functionality/README.md)                                   | -- | -- | Implement the Create operation in a `POST` route |
-| [Add Data to the Applications Index Page](./add-data-to-the-applications-index-page/README.md)         | -- | -- | Implement the `Read` operation for the `index` route |
+| [Add Data to the Applications Index Page](./add-data-to-the-applications-index-page/README.md)         | -- | -- | Implement the `read` operation for the `index` route |
 | [Build the Show Page](./build-the-show-page/README.md)                                                 | -- | -- | Build the `show` route and view |
-| [Build Delete Functionality](./build-delete-functionality/README.md)                                   | -- | -- | tktk skills covered |
+| [Build Delete Functionality](./build-delete-functionality/README.md)                                   | -- | -- | Implement a `DELETE` route and form |
 | [Build the Edit Page](./build-the-edit-page/README.md)                                                 | -- | -- | tktk skills covered |
 | [Build Update Functionality](./build-update-application-functionality/README.md)                       | -- | -- | tktk skills covered |
 | [Wrap Up](./wrap-up/README.md)                                                                         | -- | -- | tktk skills covered |
