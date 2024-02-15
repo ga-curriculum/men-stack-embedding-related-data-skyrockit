@@ -35,9 +35,13 @@ Next, add the following code to our new nav partial:
 </nav>
 ```
 
-The above code applies conditional rendering based on the existence of a user. When setting up our middleware we either passed a user into each view or null. If there is no signed in user, only the sign in and sign up links will be visible, otherwise the user will see a link to go view all of their applications. 
+The above code applies conditional rendering based on the existence of a user. When setting up our `passUserToView` middleware, we either passed a user object or null into the locals object of each page. The logic above reads, if there is no signed-in user, only the sign-in and sign-up links will be visible, otherwise the user will see a link to go view all of their applications or sign out. 
 
-We'll add our `user` back into the mix momentarily! 
+If you want to test this conditional, just create a test user and sign in. Once signed in, the page receives a user object, and you'll see the link to view your applications. 
+
+⚠ *Note the link path:* You'll get an error if you try the link. The path to our applications controller is currently set to `users/applications` - purposefully omitting  `userId` so that we don't need an `id` to test these first few routes in the browser.
+
+ We'll add `user` back into the mix shortly!
 
 ## Using partials
 
@@ -107,7 +111,7 @@ First, let's add the partial to our site's homepage:
 </html>
 ```
 
-**Note** The addition of this partial now makes all of the previous links on this page redundant. You can remove the all previous starter code markup and let the partial do the work for you! Test it out and you can see the partial rendered in your application landing page now.
+**Note** The addition of this partial now makes all of the previous links on this page redundant. You can remove the all previous starter code markup and let the partial do the work for you! Test it out and you can see the partial rendered in your main homepage now.
 
 ### Including the `nav` partial on the `applications` landing page
 
@@ -123,19 +127,3 @@ Let's also add our `navbar` partial to our `applications` landing page:
 ```
 
 Refresh the page and you should see the navbar rendered above your h1.
-
-## Adding `userId` for future routes
-
-With our `isSignIn` middleware temporarily disabled, we were able to build and test our first `applications` controller route. However, all of our future routes require a `userId` for their functionality, which can only come from having a signed in user. 
-
-Its time to add the userId as a route parameter in the path for our `applications` controller and reinstate our `isSigned` middleware. 
-
-```js
-// server.js
-
-app.use('/auth', authController);
-app.use(isSignedIn);
-app.use('/users/:userId/applications', applicationsController);
-```
-
-Next, we begin our CRUD routes. 

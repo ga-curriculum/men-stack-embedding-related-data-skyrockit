@@ -1,44 +1,32 @@
 # ![MEN Stack Embedding Related Data - Skyrockit - Build the New Page](./assets/hero.png)
 
-**Learning objective:** By the end of this lesson, students will be able to construct a route and view for a user to enter form data for a new resource. 
+**Learning objective:** By the end of this lesson, students will be able to create a form for adding new job applications, understand how to route this form using RESTful conventions, and learn the principles of aligning form inputs with a data schema.
 
-### Adding and testing the "New" route
-
-Having established a base level format for our get route we can do the same for all other CRUD routes related to our "applications". Our next route to add and test will be a GET route that displays the new application form. Again, we really only care about connecting the request and sending a response so let's do that underneath our last route:
-
-```javascript
-// controllers/applications.js
-
-router.get('/new', (req, res) => {
-  res.send('you have made a request to the new application route');
-});
-```
-
-You can test that this route works by navigating to `localhost:3000/users/applications/new`.  If you are greeted with the response you are ready to move on to the next route.
-
+At this stage, we have an index page, but no applications to display. Before we can add application data to our database, we need a form to collect this information from our user. 
 
 ## Conceptualizing the Route
 
-At this stage, let's recall one of our user stories: 
+Let's review our first user story: 
 
-> AAU I should be able to create job application for jobs that I anticipating applying for or have applied for. I should be able to keep track of the company name, the job title, and the status of the job application. Optionally I can add any notes I have about the job, and the URL to the job posting.
+> As a user, I want to be able to add new job applications that I'm thinking about applying to or have already applied to. For each job, I should be able to note down important stuff like the company's name, the job title, what stage the application is at, and if I want, some personal notes and the link to the job posting.
 
-Using [RESTful Routing Conventions](https://git.generalassemb.ly/modular-curriculum-all-courses/restful-routing/blob/main/routing-conventions/README.md), we find that to display a `new.ejs` view with a form for entering a new application, the proper route will be:
+To make this possible, we need to establish a `new` route. This route will lead users to a form where they can input all the necessary information about a new job application. According to [RESTful Routing](https://git.generalassemb.ly/modular-curriculum-all-courses/restful-routing/blob/main/routing-conventions/README.md) Conventions, the route for displaying a `new.ejs` view, containing a form for a new application, is defined as:
 
 ```plaintext
 GET /users/:userId/applications/new
 ```
 
-Before we dig in, a quick reminder that some CRUD operations only require a single request, such as a `GET` request for an index route. Others, such as Create or Update, will be a two step process: 
+Before we move forward, a quick reminder that some CRUD operations only require a single request, such as a `GET` request for a `show` page. However, operations like creating or updating data typically involve two distinct steps:
 
-1. The first request displays a form for the user to enter the data
-2. A second request submits the form to the server where the data is created or updated
+1. *Initial request for form:* The first step involves a request that results in a page being displayed. This page contains a form designed to gather the required data from the user.
+2. *Submitting the Form:* After the user fills out and submits the form, a second request takes place. This request sends the user's data to the server, where it's either added as new data to the database (Create) or used to update existing data (Update).
 
-Below, we'll tackle the first of those tasks (a `GET` request to a view displaying a form), and in the next lesson we'll handle the what happens when that form gets submitted. 
+Below, we'll tackle the first half of the `New` + `Create` process (a `GET` request to a view displaying a form), and in the next lesson we'll handle the what happens when that form is submitted. 
+
 
 ## Defining the route on the server
 
-In `controllers/applications.js`, update the `new` route. Instead of a `res.send()`, we want to `res.render()` our `new.ejs` view:  
+In `controllers/applications.js`, create the `new` route. This route should `res.render()` a `new.ejs` view:
 
 ```js
 // controllers/applications.js
@@ -50,11 +38,11 @@ router.get('/new', async (req, res) => {
 
 ## Building the UI
 
-Next, it's time to build the UI that will hit our new route. In order to submit user input to the database, we'll need to create a new view that has a form element.
+Next, it's time to build our view. In order to submit user input, we'll need to create a page with a form element.
 
-In `views/applications`, create a `new.ejs` file and add HTML boilerplate (!+tab).  
+In `views/applications`, create a `new.ejs` file and add HTML boilerplate.  
 
-Change the title to "Add a New Application", and add the navbar partial to the top of the `<body>`: 
+Change the title to "Add a New Application", and give the page a matching header. Lastly, and add our navbar partial at the top of the `<body>`: 
 
 ```html
 <!-- views/applications/new.ejs -->
@@ -68,16 +56,18 @@ Change the title to "Add a New Application", and add the navbar partial to the t
 </head>
   <body>
     <%- include('../partials/_navbar.ejs') %>
-
+    <h1>Add a New Application</h1>
   </body>
 </html>
 ```
 
-### Conceptualizing the form
+You, can now test the route by navigating to `localhost:3000/users/applications/new`.  If you are greeted by our page title, you know your route is working. 
 
-Next, we're ready to add our form. Recalling our user story, we know that this form will need to have inputs for the company name, job title, and status. We also know it should have a notes section, along with a URL.
+## Designing the form
 
-As always when working with forms, we should first reference our schema:
+Now, let's focus on constructing our form, keeping our user story in mind. This form is intended to allow users to input details about job applications including the **company name**, **job title**, and the application's **status**. Additionally, it should provide space for **notes** and a **link** to the job posting.
+
+It's essential to align our form design with the structure outlined in our data schema:
 
 ```js
 // models/user.js
@@ -104,15 +94,15 @@ const applicationSchema = mongoose.Schema({
 });
 ```
 
-From the schema, we can already infer a few things about how we can best design our form: 
+When designing the form based on this schema, here's what we should consider:
 
-- We can expect `company`, `title`, and `postingLink` to all be single line text inputs. 
+- **Single Line Text Inputs**: For `company`, `title`, and `postingLink`, use standard text inputs. These fields typically require short, concise text.
 
-- `notes` should probably be a `<textarea>`, since there is the possibility that the user will want more space to type in extensive notes. 
+- **TextArea for Notes**: The notes field is likely to contain more detailed information. Therefore, use a `<textarea>` element, giving users ample space to write their notes.
 
-- Finally, `status` has enumerable options, meaning that only the strings included in the `enum` array will be considered valid. Forcing users to guess which inputs are allowed would lead to a pretty terrible user experience, so we should make this input a `<select>` dropdown instead, letting them select only from valid options.
+- **Dropdown for Status:** The status field has pre-defined, *enumerable* options. To enhance user experience and prevent errors, use a `<select>` dropdown. This way, users can only choose from the valid options listed in the `enum` array. This approach eliminates guesswork for users and gives us predictable data.
 
-### Adding the form
+## Building the form
 
 In `new.ejs`, create a new form element. For now, we will leave the `action` and `method` attributes empty:
 
@@ -123,34 +113,40 @@ In `new.ejs`, create a new form element. For now, we will leave the `action` and
   </form>
 ```
 
-Next, add input fields for our user data. Don't forget to add labels for accessibility! 
+Next, add input fields to match each item in our data schema. Each input should have a corresponding label for accessibility. 
 
 ```html
 <!-- views/applications/new.ejs -->
 
-  <form action="" method="">
-    <label for="company">Company:</label>
-    <input type="text" name="company" id="company">
-    <label for="title">Title:</label>
-    <input type="text" name="title" id="title">
-    <label for="notes">Notes:</label>
-    <textarea name="notes" id="notes"></textarea>
-    <label for="postingLink">Posting Link:</label>
-    <input type="text" name="postingLink" id="postingLink">
-    <label for="status">Status:</label>
-    <select id="status" name="status">
-      <option value="interested">Interested</option>
-      <option value="applied">Applied</option>
-      <option value="interviewing">Interviewing</option>
-      <option value="rejected">Rejected</option>
-      <option value="accepted">Accepted</option>
-    </select>
-  </form>
+<form action="" method="">
+  <label for="company">Company:</label>
+  <input type="text" name="company" id="company">
+  
+  <label for="title">Title:</label>
+  <input type="text" name="title" id="title">
+  
+  <label for="notes">Notes:</label>
+  <textarea name="notes" id="notes"></textarea>
+  
+  <label for="postingLink">Posting Link:</label>
+  <input type="text" name="postingLink" id="postingLink">
+  
+  <label for="status">Status:</label>
+  <select id="status" name="status">
+    <option value="interested">Interested</option>
+    <option value="applied">Applied</option>
+    <option value="interviewing">Interviewing</option>
+    <option value="rejected">Rejected</option>
+    <option value="accepted">Accepted</option>
+  </select>
+</form>
 ```
 
-A quick reminder - when we submit the form, the `name` attribute for each input is used as the key in a key:value pair, where the value is the user's input. As a result, the `name` attribute for each input must *exactly* match the corresponding property in our schema.
+### Shaping data
 
-So, where we have: 
+It's important to remember that when a form is submitted, each input's name attribute becomes the key in a key-value pair. The value for this key is what the user enters into the form. Therefore, it's essential for the name attribute of each input field to match exactly with the corresponding property name in our data schema.
+
+For example, in our schema, we have a company field defined like this:
 
 ```js
 company: {
@@ -159,14 +155,17 @@ company: {
   }
 ```
 
-The corresponding input should look like: 
+To ensure proper data mapping when the form is submitted, the corresponding input in our HTML form should be set up as follows:
 
 ```html
 <label for="company">Company:</label>
 <input type="text" name="company" id="company">
 ```
 
-Also, note that the `value` attribute for each option in our `<select>` dropdown exactly matches one of the elements in the `enum` array on our schema: 
+> The `name` attribute of the input (`name="company"`) exactly matches the property name in the schema (`company:`).
+
+
+Also, note that the `value` attribute for each `<option>` in our `<select>` dropdown exactly matches one of the items in the `enum` array on our schema: 
 
 ```js
 status: {
@@ -185,7 +184,7 @@ status: {
     </select>
 ```
 
-Similar to how the rest of the `input`s work, when the form is submitted the `name` of the `<select>` input will be used as a key, and the `value` of the selected option will be submitted as the value. So, if the user selects "Applied" from the dropdown, the resulting key:value pair would look like this: 
+Similar to how the rest of the `input`s work, when the form is submitted the `name` of the `<select>` input will be used as a key, and the `value` of the selected option will be submitted as the value. If a user were to select "Applied" from the dropdown, the resulting key:value pair would look like this: 
 
 ```json
 { "status": "applied" }
@@ -194,9 +193,9 @@ Similar to how the rest of the `input`s work, when the form is submitted the `na
 This is why the `value` must match an `enum` element exactly.
 
 
-### Submitting the form
+## Submitting the form
 
-Finally, we need a way to submit the form, so let's add a button to the bottom of our `<form>` element and give it a `type` attribute of "submit": 
+To complete our form and enable submission, we need to add a submit button. This button will be placed at the bottom of the form and is essential for allowing the user to send their input data to the server. 
 
 ```html
 <!-- views/applications/new.ejs -->
@@ -204,12 +203,16 @@ Finally, we need a way to submit the form, so let's add a button to the bottom o
 <form action="" method="">
   <label for="company">Company:</label>
   <input type="text" name="company" id="company">
+  
   <label for="title">Title:</label>
   <input type="text" name="title" id="title">
+  
   <label for="notes">Notes:</label>
   <textarea name="notes" id="notes"></textarea>
+  
   <label for="postingLink">Posting Link:</label>
   <input type="text" name="postingLink" id="postingLink">
+  
   <label for="status">Status:</label>
   <select id="status" name="status">
     <option value="interested">Interested</option>
@@ -218,9 +221,11 @@ Finally, we need a way to submit the form, so let's add a button to the bottom o
     <option value="rejected">Rejected</option>
     <option value="accepted">Accepted</option>
   </select>
-  <!-- add the following: -->
+
+  <!-- Add a submit button -->
   <button type="submit">Add Application</button>
 </form>
 ```
 
-Fantastic - next, we're ready to build the create functionality and give this form somewhere to submit to! We'll be coming back to update the `action` and `method` on this form, but otherwise the view for a new route is finished. 
+Fantastic - next, we're ready to build the `create` functionality and give this form somewhere to submit to! 
+We'll be coming back to update the `action` and `method` on this form, but otherwise our `new` page is finished.

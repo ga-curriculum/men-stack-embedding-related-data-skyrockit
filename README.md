@@ -18,8 +18,8 @@ tktk Write a short but descriptive summary of the content in this module.
 | [Build and Use the Applications Controller](./build-and-use-the-applications-controller/README.md)                       | -- | -- | Create and integrate an `applications` controller |
 | [Add Route Middleware](./add-route-middleware/README.md)                                                                 | -- | -- | Add custom middleware `isSignedIn` and `passUserToView` |
 | [Build the Job Apps Landing Page](./build-the-job-apps-landing-page/README.md)                                           | -- | -- | Build the `applications` index route and view |
-| [Build the Navigation Bar Partial](./build-the-navigation-bar-partial/README.md)                                         | -- | -- | Create a reusable nav bar component |
-| [Build the New Page](./build-the-new-page/README.md)                                                                     | -- | -- | tktk skills covered |
+| [Build the Navigation Bar Partial](./build-the-navigation-bar-partial/README.md)                                         | -- | -- | Create a reusable `nav` bar component |
+| [Build the New Page](./build-the-new-page/README.md)                                                                     | -- | -- | Create a form for adding `new` job applications |
 | [Build Create Functionality](./build-create-functionality/README.md)                                                     | -- | -- | tktk skills covered |
 | [Add Index Functionality to the Job Apps Landing Page](./add-index-functionality-to-the-job-apps-landing-page/README.md) | -- | -- | tktk skills covered |
 | [Build the Show Page](./build-the-show-page/README.md)                                                                   | -- | -- | tktk skills covered |
@@ -59,3 +59,22 @@ tktk If there is not a deployed site related to this module this section and all
 ---
 
 **Find a 👾 bug 👾 or have suggestions? [Let us know](https://git.generalassemb.ly/modular-curriculum-all-courses/universal-resources-internal/blob/main/module-feedback.md)!**
+
+
+
+
+## Adding `userId` for future routes
+
+With our `isSignIn` middleware temporarily disabled, we were able to build and test our first `applications` controller route. However, all of our future routes require a `userId` for their functionality, which can only come from having a signed in user. 
+
+Its time to add the userId as a route parameter in the path for our `applications` controller and reinstate our `isSigned` middleware. 
+
+```js
+// server.js
+
+app.use('/auth', authController);
+app.use(isSignedIn);
+app.use('/users/:userId/applications', applicationsController);
+```
+
+Next, we begin our CRUD routes. 
