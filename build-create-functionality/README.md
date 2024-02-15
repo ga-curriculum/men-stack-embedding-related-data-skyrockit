@@ -1,6 +1,6 @@
 # ![MEN Stack Embedding Related Data - Skyrockit - Build Create Functionality](./assets/hero.png)
 
-**Learning objective:** By the end of this lesson, students will be able to implement a create route in a MEN stack application.
+**Learning objective:** By the end of this lesson, students will be able to implement and understand the 'Create' operation in a CRUD application by setting up a RESTful `POST` route in an Express application.
 
 With our form in place for adding new job applications, the next critical step is to establish the route that will handle the form data and create a new entry in our database. This is where the 'Create' operation in our CRUD functionality comes into play.
 

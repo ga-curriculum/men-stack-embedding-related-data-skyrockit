@@ -1,6 +1,6 @@
 # ![MEN Stack Embedding Related Data - Skyrockit - Add Data to the Applications Index Page](./assets/hero.png)
 
-**Learning objective:** By the end of this lesson, students will be able to implement an index route and view in a MEN stack application.
+**Learning objective:** By the end of this lesson, students will be able to implement the `Read` operation for an `index` route in a CRUD application.
 
 Currently, when we finish creating a new application, our controller redirects to `/applications`. Now that there is data in the database for this resource, we want `/applications` to be a page that indexes all of the applications we've created. 
 
@@ -20,7 +20,7 @@ Submitting a new application will automatically redirect us here, and we already
 
 ## Define the route and build the controller
 
-In order to list all of the applications created by the user, we'll first need to look up the current user in the database. When rendering the index view, the `applications` array of the current user will get passed to the view in the context object. Let's update our controller function: 
+In order to list all of the applications created by the user, we'll first need to look up the current user in the database. When rendering the index view, the `applications` array of the current user will get passed to the view in the context object. Let's update our existing `index` controller function: 
 
 ```js
 // controllers/applications.js
@@ -42,9 +42,9 @@ router.get('/', async (req, res) => {
 });
 ```
 
-## Building the view
+## Updating the view
 
-Now that we have a controller for our index route, let's update our `applications/index.ejs` file to display the applications data: 
+Now that we have updated the controller for our `index` route, let's update our `applications/index.ejs` file to display the `applications` data: 
 
 ```html
 <!-- applications/index.ejs -->
@@ -58,9 +58,9 @@ Now that we have a controller for our index route, let's update our `application
 </head>
   <body>
     <%- include('../partials/_navbar.ejs') %>
-    <h1>Welcome to your application tracker</h1>
-    <!-- Add the following: -->
+    <h1>Applications Index Page</h1>
     <a href="/users/<%=user._id%>/applications/new">Add a New Application</a>
+    <!-- Add the following: -->
     <ul>
       <% applications.forEach((application)=>{ %>
         <li>
@@ -72,9 +72,4 @@ Now that we have a controller for our index route, let's update our `application
 </html>
 ```
 
-Inside of a `<ul>` element, we loop over the `applications` array we receive from the context object, and create an `<li>` for each application. For now, we'll just display the title and company. Try adding another application - you should be able to see a list of all of the applications you've created on this page! 
-
-
-
-
-
+Inside of a `<ul>` element, we loop over the `applications` array we receive from the context object, and create an `<li>` for each application. For now, we'll just display the title and company. Try adding another application the the `new` form - you should now be able to see a list of all of the applications you've created on this page!

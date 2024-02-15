@@ -20,8 +20,8 @@ tktk Write a short but descriptive summary of the content in this module.
 | [Add Route Middleware](./add-route-middleware/README.md)                                               | -- | -- | Add custom middleware `isSignedIn` and `passUserToView` |
 | [Build the Navigation Bar Partial](./build-the-navigation-bar-partial/README.md)                       | -- | -- | Create a reusable `nav` bar component |
 | [Build the New Page](./build-the-new-page/README.md)                                                   | -- | -- | Create a form for adding `new` job applications |
-| [Build Create Functionality](./build-create-functionality/README.md)                                   | -- | -- | tktk skills covered |
-| [Add Data to the Applications Index Page](./add-data-to-the-applications-index-page/README.md)         | -- | -- | tktk skills covered |
+| [Build Create Functionality](./build-create-functionality/README.md)                                   | -- | -- | Implement the Create operation in a `POST` route |
+| [Add Data to the Applications Index Page](./add-data-to-the-applications-index-page/README.md)         | -- | -- | Implement the `Read` operation for the `index` route |
 | [Build the Show Page](./build-the-show-page/README.md)                                                 | -- | -- | tktk skills covered |
 | [Build Delete Functionality](./build-delete-functionality/README.md)                                   | -- | -- | tktk skills covered |
 | [Build the Edit Page](./build-the-edit-page/README.md)                                                 | -- | -- | tktk skills covered |
