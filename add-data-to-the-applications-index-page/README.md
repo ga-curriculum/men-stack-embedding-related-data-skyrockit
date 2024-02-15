@@ -44,7 +44,13 @@ router.get('/', async (req, res) => {
 
 ## Updating the view
 
-Now that we have updated the controller for our `index` route, let's update our `applications/index.ejs` file to display the `applications` data: 
+Now that we have updated the controller for our `index` route, let's update our `applications/index.ejs` file to display the `applications` data.
+
+Consider the following User Story:
+
+> As a user, I want to see all the jobs I've applied for in one place. This page should just show the job title and the company name for each job to keep it simple and easy to look at.
+
+For now, we'll just display the `title` and `company`:
 
 ```html
 <!-- applications/index.ejs -->
@@ -72,4 +78,4 @@ Now that we have updated the controller for our `index` route, let's update our 
 </html>
 ```
 
-Inside of a `<ul>` element, we loop over the `applications` array we receive from the context object, and create an `<li>` for each application. For now, we'll just display the title and company. Try adding another application the the `new` form - you should now be able to see a list of all of the applications you've created on this page!
+Inside of a `<ul>` element, we loop over the `applications` array we receive from the context object, and create an `<li>` for each application. Try adding another application using the form - you should now be able to see a list of all of the applications you've created on this page!
