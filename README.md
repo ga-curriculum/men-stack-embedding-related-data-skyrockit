@@ -24,7 +24,7 @@ tktk Write a short but descriptive summary of the content in this module.
 | [Add Data to the Applications Index Page](./add-data-to-the-applications-index-page/README.md)         | -- | -- | Implement the `read` operation for the `index` route |
 | [Build the Show Page](./build-the-show-page/README.md)                                                 | -- | -- | Build the `show` route and view |
 | [Build Delete Functionality](./build-delete-functionality/README.md)                                   | -- | -- | Implement a `DELETE` route and form |
-| [Build the Edit Page](./build-the-edit-page/README.md)                                                 | -- | -- | tktk skills covered |
+| [Build the Edit Page](./build-the-edit-page/README.md)                                                 | -- | -- | Implement an `edit` view and route |
 | [Build Update Functionality](./build-update-application-functionality/README.md)                       | -- | -- | tktk skills covered |
 | [Wrap Up](./wrap-up/README.md)                                                                         | -- | -- | tktk skills covered |
 | **Total content**                                                                                      | -- | -- | --                  |
