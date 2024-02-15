@@ -340,7 +340,7 @@ button{
 
 ## Styling the index page
 
-Now that we've added all the styles to the landing page, the sign in form, and the sign up form, it's time to log into the app so we can style the rest. 
+Now that we've added all the styles to the landing page, the sign-in form, and the sign-up form, it's time to log into the app so we can style the rest. 
 
 1. We're going to add some `classes` and `<divs>` to the contents of `applications/index.ejs`:
 ```html

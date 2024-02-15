@@ -1,4 +1,4 @@
-# ![MEN Stack Embedding Related Data - Skyrockit - Build the Job Apps Landing Page](./assets/hero.png)
+# ![MEN Stack Embedding Related Data - Skyrockit - Build the Applications Index Page](./assets/hero.png)
 
 **Learning objective:** By the end of this lesson, students will be able to build the `applications` index route and view.
 
@@ -8,17 +8,17 @@ Now that we have most of the key components in place, we can start to connect ou
 
 ### Conceptualizing the route.
 
-Before we program this route let's refresh our memories on the action and route combination needed for a landing page or "index" route:
+Before we program this route, let's refresh our memories on the action and route combination needed for a landing page or "index" route:
 
-```
+```text
 GET /users/:userId/applications
 ```
 
-If this route looks a little different from what we defined in our server, thats by design. We'll be adding a user id to our route parameters as soon as we have our basic route functionality in place.
+> If this route looks a little different from what we just defined in our server, that's by design. We'll be adding a `userId` to our route parameters as soon as we have some basic route functionality in place.
 
 ### Create the applications `index` route
 
-First we'll create the route that will eventually `GET` all of the users applications:
+First we'll create the route that will eventually `GET` all of the user's applications:
 
 ```javascript
 // controllers/applications.js
@@ -28,7 +28,7 @@ router.get('/', (req, res) => {
 });
 ```
 
-Since we have already wired up this controller to the server and associated it with a route, we can test it in our browser. Navigate to `localhost:3000/users/applications`.  If you have successfully connected the route, you should see your "hello applications index route" response.
+Since we have already wired up this controller to the server and associated it with a route, we can test it in our browser. Navigate to `localhost:3000/users/applications`. If you have successfully connected the route, you should see your "hello applications index route" response.
 
 
 ### Render the applications `Index` template
@@ -50,10 +50,10 @@ Once this file is created, let's add some boilerplate:
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Applications Index</title>
+  <title>Your Applications</title>
 </head>
 <body>
-  <h1>Application Index Page</h1>
+  <h1>Applications Index Page</h1>
 </body>
 </html>
 ```

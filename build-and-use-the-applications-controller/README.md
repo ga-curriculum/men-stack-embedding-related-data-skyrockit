@@ -28,9 +28,7 @@ const router = express.Router();
 
 const User = require('../models/user.js');
 
-
 // we will build out our router logic here
-
 
 module.exports = router;
 ```
@@ -50,7 +48,12 @@ The following line can be placed just above our `app.listen` logic in the server
 ```javascript
 // server.js
 
-app.use('/users/applications', applicationsController);
+app.use('/auth', authController);
+app.use('/users/applications', applicationsController); // New!
+
+app.listen(port, () => {
+  console.log(`The express app is ready on port ${port}!`);
+});
 ```
 
-With the controller connected, we are ready to start building out the pages of our site!
+With the controller connected, we are ready to start building out the `applications` pages.

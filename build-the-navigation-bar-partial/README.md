@@ -4,13 +4,13 @@
 
 ## What is a Partial
 
-When creating an application, you might find that certain pieces of UI code are repeated on multiple pages. To avoid copy and pasting the same code (which goes against best practice of writing D.R.Y. code), we can use a feature in EJS called "partials."
+When creating an application, you might find that certain pieces of UI code are repeated on multiple pages. To avoid copying and pasting the same code (which goes against best practice of writing D.R.Y. code), we can use a feature in EJS called "partials."
 
-A partial is essentially a small EJS template designed to be included or embedded within other EJS templates. A common use case for partials is for components like navigation bars, which are typically consistent across different pages of an app. The code for the navbar of an app is likely to remain the same regardless of what page the user is navigating to, and so being able to write the code once and reuse it on each page is very handy! To demonstrate the power and utility of partials, we will create and render a navbar partial for our application.
+A partial is essentially a small EJS template designed to be included or embedded within other EJS templates. A common use case for partials is for components like navigation bars, which are typically consistent across different pages of an app. The code for the navbar of an app is likely to remain the same regardless of what page the user is navigating to, so being able to write the code once and reuse it on each page is very handy! To demonstrate the power and utility of partials, we will create and render a navbar partial for our application.
 
 ## Creating a partial template
 
-Our partial will be used by different views in our application, so for code clarity we will place this partial in it's own subdirectory:
+Our partial will be used by different views in our application, so for code clarity, we will place this partial in its own subdirectory:
 
 ```bash
 mkdir views/partials
@@ -35,13 +35,7 @@ Next, add the following code to our new nav partial:
 </nav>
 ```
 
-The above code applies conditional rendering based on the existence of a user. When setting up our `passUserToView` middleware, we either passed a user object or null into the locals object of each page. The logic above reads, if there is no signed-in user, only the sign-in and sign-up links will be visible, otherwise the user will see a link to go view all of their applications or sign out. 
-
-If you want to test this conditional, just create a test user and sign in. Once signed in, the page receives a user object, and you'll see the link to view your applications. 
-
-⚠ *Note the link path:* You'll get an error if you try the link. The path to our applications controller is currently set to `users/applications` - purposefully omitting  `userId` so that we don't need an `id` to test these first few routes in the browser.
-
- We'll add `user` back into the mix shortly!
+The above code applies conditional rendering based on the existence of a user. When setting up our `passUserToView` middleware, we either passed a user object or null into the locals object of each page. The logic above reads, that if there is no signed-in user, only the sign-in and sign-up links will be visible, otherwise the user will see a link to view all of their applications or sign out. 
 
 ## Using partials
 
@@ -111,7 +105,10 @@ First, let's add the partial to our site's homepage:
 </html>
 ```
 
-**Note** The addition of this partial now makes all of the previous links on this page redundant. You can remove the all previous starter code markup and let the partial do the work for you! Test it out and you can see the partial rendered in your main homepage now.
+> **Note** The addition of this partial now makes all of the previous links on this page redundant. You can remove the all previous starter code markup and let the partial do the work for you! Test it out and you can see the partial rendered in your main homepage now.
+
+> If you want to test the conditional rendering in the partial, just create a test user and sign in. Once signed in, the page receives a user object, and you'll see the link to the applications page.
+
 
 ### Including the `nav` partial on the `applications` landing page
 
@@ -122,7 +119,7 @@ Let's also add our `navbar` partial to our `applications` landing page:
 
 <body>
   <%- include('../partials/_navbar.ejs') %>
-  <h1>Welcome to your application tracker</h1>
+  <h1>Applications Index Page</h1>
 </body>
 ```
 

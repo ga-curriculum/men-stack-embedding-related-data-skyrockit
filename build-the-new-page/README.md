@@ -1,6 +1,6 @@
 # ![MEN Stack Embedding Related Data - Skyrockit - Build the New Page](./assets/hero.png)
 
-**Learning objective:** By the end of this lesson, students will be able to create a form for adding new job applications, understand how to route this form using RESTful conventions, and learn the principles of aligning form inputs with a data schema.
+**Learning objective:** By the end of this lesson, students will be able to create a form for adding new job applications, understand how to route this form using RESTful conventions and learn the principles of aligning form inputs with a data schema.
 
 At this stage, we have an index page, but no applications to display. Before we can add application data to our database, we need a form to collect this information from our user. 
 
@@ -21,7 +21,7 @@ Before we move forward, a quick reminder that some CRUD operations only require 
 1. *Initial request for form:* The first step involves a request that results in a page being displayed. This page contains a form designed to gather the required data from the user.
 2. *Submitting the Form:* After the user fills out and submits the form, a second request takes place. This request sends the user's data to the server, where it's either added as new data to the database (Create) or used to update existing data (Update).
 
-Below, we'll tackle the first half of the `New` + `Create` process (a `GET` request to a view displaying a form), and in the next lesson we'll handle the what happens when that form is submitted. 
+Below, we'll tackle the first half of the `New` + `Create` process (a `GET` request to a view displaying a form), and in the next lesson we'll handle what happens when that form is submitted.
 
 
 ## Defining the route on the server
@@ -38,11 +38,11 @@ router.get('/new', async (req, res) => {
 
 ## Building the UI
 
-Next, it's time to build our view. In order to submit user input, we'll need to create a page with a form element.
+Next, it's time to build our view. To submit user input, we'll need to create a page with a form element.
 
 In `views/applications`, create a `new.ejs` file and add HTML boilerplate.  
 
-Change the title to "Add a New Application", and give the page a matching header. Lastly, and add our navbar partial at the top of the `<body>`: 
+Change the title to "Add a New Application", and give the page a matching header. Lastly, add the navbar partial at the top of the `<body>`: 
 
 ```html
 <!-- views/applications/new.ejs -->
@@ -61,7 +61,22 @@ Change the title to "Add a New Application", and give the page a matching header
 </html>
 ```
 
-You, can now test the route by navigating to `localhost:3000/users/applications/new`.  If you are greeted by our page title, you know your route is working. 
+Time to test, but how do we get to our new page? 
+
+We need a link on our `applications` index page that will take us to our `new` view.
+
+```html
+<!-- views/applications/index.ejs -->
+
+<body>
+  <h1>Applications Index Page</h1>
+  <a href="/users/<%=user._id%>/applications/new">Add a New Application</a>
+</body>
+</html>
+```
+
+The link for this route should match our defined route above. Sign in and test it out! 
+
 
 ## Designing the form
 
@@ -144,7 +159,7 @@ Next, add input fields to match each item in our data schema. Each input should 
 
 ### Shaping data
 
-It's important to remember that when a form is submitted, each input's name attribute becomes the key in a key-value pair. The value for this key is what the user enters into the form. Therefore, it's essential for the name attribute of each input field to match exactly with the corresponding property name in our data schema.
+It's important to remember that when a form is submitted, each input's `name` attribute becomes the key in a key-value pair. The value for this key is what the user enters into the form. Therefore, the `name` attribute of each input field needs to match exactly with the corresponding property name in our data schema.
 
 For example, in our schema, we have a company field defined like this:
 
@@ -167,6 +182,7 @@ To ensure proper data mapping when the form is submitted, the corresponding inpu
 
 Also, note that the `value` attribute for each `<option>` in our `<select>` dropdown exactly matches one of the items in the `enum` array on our schema: 
 
+**Schema:**
 ```js
 status: {
     type: String,
@@ -174,6 +190,7 @@ status: {
   }
 ```
 
+**Form:**
 ```html
 <select id="status" name="status">
       <option value="interested">Interested</option>
@@ -184,7 +201,7 @@ status: {
     </select>
 ```
 
-Similar to how the rest of the `input`s work, when the form is submitted the `name` of the `<select>` input will be used as a key, and the `value` of the selected option will be submitted as the value. If a user were to select "Applied" from the dropdown, the resulting key:value pair would look like this: 
+Similar to how the rest of the inputs work, when the form is submitted the `name` of the `<select>` input will be used as a key, and the `value` of the selected option will be submitted as the value. If a user were to select "Applied" from the dropdown, the resulting key:value pair would look like this: 
 
 ```json
 { "status": "applied" }
@@ -195,7 +212,7 @@ This is why the `value` must match an `enum` element exactly.
 
 ## Submitting the form
 
-To complete our form and enable submission, we need to add a submit button. This button will be placed at the bottom of the form and is essential for allowing the user to send their input data to the server. 
+To complete our form, the last element we need is a submit button.
 
 ```html
 <!-- views/applications/new.ejs -->
