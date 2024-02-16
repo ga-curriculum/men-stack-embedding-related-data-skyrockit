@@ -362,7 +362,7 @@ Now that we've added all the styles to the hoomepage, the sign-in form, and the 
     </div>
 ```
 
-1. Add the style rules to `style.css`. These will help adjust the layout of the page and add some style to our "Add an App" link.
+2. Add the style rules to `style.css`. These will help adjust the layout of the page and add some style to our "Add an App" link.
 ```css
 .all-apps-body {
   display: flex;
