@@ -41,20 +41,16 @@ Let's add the following to  `is-signed-in.js`:
 // middleware/is-signed-in.js
 
 const isSignedIn = (req, res, next) => {
-  if (req.session.user && req.session.user._id === req.params.userId) {
-    return next();
-  }
+  if (req.session.user) return next();
   res.redirect('/auth/sign-in');
 };
 
 module.exports = isSignedIn;
 ```
 
-The function first checks if there's a user object in the session (provided by `req.session.user`). This is typically used to confirm that a user is logged in.
+The function checks if there's a user object in the session (provided by `req.session.user`). This is typically used to confirm that a user is logged in.
 
-It further checks if the logged-in user's ID (`req.session.user._id`) matches the user ID in the URL parameters (`req.params.userId`). This is to ensure that the user is accessing their own data and not someone else's.
-
-If the user is logged in and the user IDs match, `next()` is called, allowing the request to proceed to the next middleware or route handler. If this check fails, however, it moves to redirect the user to the sign-in page, strongly suggesting to the user that, to get where they want to go, they'll have to sign-in.
+If the user is logged in, `next()` is called, allowing the request to proceed to the next middleware or route handler. If this check fails, however, it moves to redirect the user to the sign-in page, strongly suggesting to the user that, to get where they want to go, they'll have to sign-in.
 
 ### `PassUserToView`
 
