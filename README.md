@@ -29,7 +29,7 @@ This module is focused on developing a robust MEN (MongoDB, Express.js, Node.js)
 | [Build Delete Functionality](./build-delete-functionality/README.md)                               | -- | -- | Implement a `DELETE` route and form |
 | [Build the Edit Page](./build-the-edit-page/README.md)                                             | -- | -- | Implement an `edit` view and route |
 | [Build Update Functionality](./build-update-functionality/README.md)                               | -- | -- | `update` data in an application by implementing a `PUT` route|
-| [Wrap Up](./wrap-up/README.md)                                                                     | -- | -- | tktk skills covered |
+| [Wrap Up](./wrap-up/README.md)                                                                     | -- | -- | Review of app build |
 | **Total content**                                                                                  | -- | -- | --                  |
 
 ## Level Up content
