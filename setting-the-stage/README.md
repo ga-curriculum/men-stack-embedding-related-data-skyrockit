@@ -66,4 +66,4 @@ In our ERD, we've opted for an *embedded* relationship model, where the job appl
 
 This embedded model enhances performance by reducing the need for extensive database queries. It's a strategic decision that aligns well with the typical flow and structure of our application.
 
-For those curious about the nuances between embedding and referencing data in MongoDB, and when to use each approach, consider exploring [this informative article](https://www.mongodb.com/developer/products/mongodb/mongodb-schema-design-best-practices/). It offers a deeper dive into data modeling strategies, helping you make informed choices in your MongoDB schema design for future projects! 
+For those curious about the nuances between embedding and referencing data in MongoDB, and when to use each approach, consider exploring [this informative article](https://www.mongodb.com/developer/products/mongodb/mongodb-schema-design-best-practices/). It offers a deeper dive into data modeling strategies, helping you make informed choices in your MongoDB schema design for future projects!

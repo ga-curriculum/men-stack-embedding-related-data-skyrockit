@@ -26,7 +26,7 @@ Next, add the following code to our new nav partial:
 
 <nav>
   <% if(user) { %>
-    <a href="/users/<%=user._id%>/applications">View Your Applications</a>
+    <a href="/users/<%=user._id%>/applications">Your Apps</a>
     <a href="/auth/sign-out">Sign Out</a>
   <% } else { %>
     <a href="/auth/sign-in">Sign In</a>
@@ -84,7 +84,7 @@ Let's go ahead and include this partial in our `sign-up` and `sign-in` templates
 
 If all is working well, you should now see the links above your forms and know that your partial is rendering!
 
-Now that we have the partial working for our `sign-up` and `sign-in` pages we can render it onto our site index page and the site landing page as well.
+Now that we have the partial working for our `sign-up` and `sign-in` pages we can render it onto our site index page and the site homepage as well.
 
 First, let's add the partial to our site's homepage:
 
@@ -96,21 +96,23 @@ First, let's add the partial to our site's homepage:
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home Page</title>
+  <title>Skyrockit</title>
 </head>
 <body>
   <%- include('./partials/_navbar.ejs') %>
-  <h1>Welcome to Skyrockit, guest.</h1>
+  <h1>Skyrockit</h1>
+  <p>A job application tracker.</p>
+  <a href="/auth/sign-up">Sign up</a>
+  <a href="/auth/sign-in">sign in</a>
 </body>
 </html>
 ```
 
-> **Note** The addition of this partial now makes all of the previous links on this page redundant. You can remove the all previous starter code markup and let the partial do the work for you! Test it out and you can see the partial rendered in your main homepage now.
+The addition of this partial now makes all of the previous links on this page redundant. You can remove these links and let the partial do the work for you!
 
-> If you want to test the conditional rendering in the partial, just create a test user and sign in. Once signed in, the page receives a user object, and you'll see the link to the applications page.
+> Test it out and you can see the partial rendered in your main homepage now. If you want to test the conditional rendering, just create a test user and sign in. Once signed in, the page receives a user object, and you'll see the link to the applications page.
 
-
-### Including the `nav` partial on the `applications` landing page
+### Including the `nav` partial on `index.ejs`
 
 Let's also add our `navbar` partial to our `applications` landing page:
 
@@ -119,7 +121,7 @@ Let's also add our `navbar` partial to our `applications` landing page:
 
 <body>
   <%- include('../partials/_navbar.ejs') %>
-  <h1>Applications Index Page</h1>
+  <h1>Your Apps</h1>
 </body>
 ```
 

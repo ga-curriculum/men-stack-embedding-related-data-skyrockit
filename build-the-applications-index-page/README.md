@@ -2,7 +2,7 @@
 
 **Learning objective:** By the end of this lesson, students will be able to build the `applications` index route and view.
 
-## Building the Landing page
+## Building the Applications landing page
 
 Now that we have most of the key components in place, we can start to connect our controller to pages a user interacts with.
 
@@ -50,15 +50,15 @@ Once this file is created, let's add some boilerplate:
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Applications</title>
+  <title>Your Apps</title>
 </head>
 <body>
-  <h1>Applications Index Page</h1>
+  <h1>Your Apps</h1>
 </body>
 </html>
 ```
 
-Our last step will be to change the controller logic from using `res.send` as a response to using `res.render` to render this newly created template.
+Now change the controller logic from using `res.send` as a response to using `res.render` to render this newly created template.
 
 ```javascript
 // controllers/applications.js
@@ -73,6 +73,6 @@ router.get('/', async (req, res) => {
 });
 ```
 
-Note that in the above snippet we aren't passing any information to the template yet. We'll be adding more to this controller function later - for now, we are just interested in making sure that the template is rendering when the route is accessed from the server. 
+Note that in the above snippet we aren't passing any information to the template yet. We'll be adding more to this controller function later - for now, we are just interested in making sure that the template is rendering when the route is accessed from the server.
 
 Test it out - `localhost:3000/users/applications`. If you see the rendered page then congratulations, you are ready to move forward!

@@ -52,11 +52,11 @@ Change the title to "Add a New Application", and give the page a matching header
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Add a New Application</title>
+  <title>Add a New App</title>
 </head>
   <body>
     <%- include('../partials/_navbar.ejs') %>
-    <h1>Add a New Application</h1>
+    <h1>Add a New App</h1>
   </body>
 </html>
 ```
@@ -69,8 +69,8 @@ We need a link on our `applications` index page that will take us to our `new` v
 <!-- views/applications/index.ejs -->
 
 <body>
-  <h1>Applications Index Page</h1>
-  <a href="/users/<%=user._id%>/applications/new">Add a New Application</a>
+  <h1>Your Apps</h1>
+  <a href="/users/<%=user._id%>/applications/new">Add an App</a>
 </body>
 </html>
 ```

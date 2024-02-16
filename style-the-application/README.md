@@ -1,9 +1,10 @@
 # ![MEN Stack Embedding Related Data - Skyrockit - Level Up - Style the Application](./assets/hero.png)
 
+**Learning objective:** By the end of this lesson, students will learn to apply CSS styling to their Skyrockit application. They will set up middleware for static files, create and link CSS stylesheets, and style key components like the homepage, forms, and navigation bar.
+
 Now that you've built a MEN-stack app with embedding, it's time to add some style. If you follow all of the steps of this level up you'll have an app that looks like this:
 
-
-![landing page](./assets/originals/landing-page.png)
+![home page](./assets/originals/home-page.png)
 
 ![index page](./assets/originals/index.png)
 
@@ -88,11 +89,11 @@ body {
 Here, we're assigning the font that we imported, setting a common background color, and declaring the `<body>` element to be a `flexbox` with an orientation of `flex-direction: column`. 
 
 
-## Styling the landing page 
+## Styling the homepage 
 
 **If you're logged into the app, you'll need to log out to see what we're changing in the next few sections.**
 
-Most of the CSS we write is going to be recycled and used throughout the app, but a lot of what we're doing on the landing page will only be used once. To achieve this, we're going to add some `<divs>` and `classes` to our elements to make styling easier. 
+Most of the CSS we write is going to be recycled and used throughout the app, but a lot of what we're doing on the homepage will only be used once. To achieve this, we're going to add some `<divs>` and `classes` to our elements to make styling easier. 
 
 1. First, in `index.ejs` we're going to add a class of `.index-body` to the `<body>` tag, as well as add four `<divs>`. Replace the code below the closing `</head>` tag with this:
 ```html
@@ -111,7 +112,7 @@ Most of the CSS we write is going to be recycled and used throughout the app, bu
 </body>
 ```
 
-2. Now we're going to add our styling for the landing page. The following CSS is doing a few things:
+2. Now we're going to add our styling for the homepage. The following CSS is doing a few things:
 - setting our background image and its size/positioning
 - styling our header and subheader
 - spacing out our elements with `flex`
@@ -340,7 +341,7 @@ button{
 
 ## Styling the index page
 
-Now that we've added all the styles to the landing page, the sign-in form, and the sign-up form, it's time to log into the app so we can style the rest. 
+Now that we've added all the styles to the hoomepage, the sign-in form, and the sign-up form, it's time to log into the app so we can style the rest. 
 
 1. We're going to add some `classes` and `<divs>` to the contents of `applications/index.ejs`:
 ```html
@@ -608,7 +609,7 @@ We're in the home stretch! Now we just need to fix some small things on our `app
 </div>
 ```
 
-2. Do the same for `applications/edit.ejs`, but with the classname of `.edit-body`:
+2. Do the same for `applications/edit.ejs`, but with the class name of `.edit-body`:
 ```html
 <div class="edit-body">
   <h1>Edit <%= application.title %> at <%= application.company %>

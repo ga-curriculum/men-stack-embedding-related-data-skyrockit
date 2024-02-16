@@ -60,12 +60,12 @@ For now, we'll just display the `title` and `company`:
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Applications</title>
+  <title>Your Apps</title>
 </head>
   <body>
     <%- include('../partials/_navbar.ejs') %>
-    <h1>Applications Index Page</h1>
-    <a href="/users/<%=user._id%>/applications/new">Add a New Application</a>
+    <h1>Your Apps</h1>
+    <a href="/users/<%=user._id%>/applications/new">Add an App</a>
     <!-- Add the following: -->
     <ul>
       <% applications.forEach((application)=>{ %>

@@ -91,7 +91,7 @@ const passUserToView = require('./middleware/pass-user-to-view.js');
 
 For this application, users must be signed in to view any of the routes associated with their applications. Therefore, `isSignedIn` should be placed above the `applications` controller, but not before auth.
 
-`PassUserToView` should be included before all our routes, including our home page, just in case we want to include conditional rendering with a user's details. If there is no signed in user the locals object will be set to null. 
+`PassUserToView` should be included before all our routes, including our homepage, just in case we want to include conditional rendering with a user's details. If there is no signed in user the locals object will be set to null. 
 
 
 ```javascript
