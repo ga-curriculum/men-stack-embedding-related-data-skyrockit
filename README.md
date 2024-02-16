@@ -25,7 +25,7 @@ tktk Write a short but descriptive summary of the content in this module.
 | [Build the Show Page](./build-the-show-page/README.md)                                                 | -- | -- | Build the `show` route and view |
 | [Build Delete Functionality](./build-delete-functionality/README.md)                                   | -- | -- | Implement a `DELETE` route and form |
 | [Build the Edit Page](./build-the-edit-page/README.md)                                                 | -- | -- | Implement an `edit` view and route |
-| [Build Update Functionality](./build-update-application-functionality/README.md)                       | -- | -- | tktk skills covered |
+| [Build Update Functionality](./build-update-functionality/README.md)                                   | -- | -- | `update` data in an application by implementing a `PUT` route|
 | [Wrap Up](./wrap-up/README.md)                                                                         | -- | -- | tktk skills covered |
 | **Total content**                                                                                      | -- | -- | --                  |
 

@@ -83,7 +83,10 @@ We don't currently have a `applications/edit.ejs` to render, so we'll need to cr
 touch views/applications/edit.ejs
 ```
 
-When revising the form for editing job applications, we'll largely use the same structure as our 'new' form. However, the key difference in the 'edit.ejs' file is that we already have existing data for the application.
+
+### Shaping the data
+
+When revising the form for editing job applications, we'll largely use the same structure as our 'new' form. However, the key difference in the `edit.ejs` file is that we already have existing data for the application.
 
 The goal is to pre-fill the form with the current data so the user only has to modify the parts they want to update. This approach significantly improves the user experience, as it prevents the need to re-enter all the information for minor changes.
 
@@ -110,7 +113,17 @@ For the `<select>` dropdown that handles the 'status', additional logic is requi
 Here, the expression <%= application.status === 'interested' ? 'selected' : '' %> checks if the current status is 'interested'. If it is, the 'selected' attribute is added to the option, making it the default selected option in the dropdown. This same logic is applied to all other status options.
 
 
-Let's make these changes and finalize our form:
+Our form action will match our future `update` route:
+
+```html
+    <!-- We'll use method-override to allow us to hit a put route: -->
+<form 
+    action="/users/<%= user._id %>/applications/<%= application._id %>?_method=PUT"
+    method="POST"
+  >
+```
+
+Let's make all of these changes and finalize our form:
 
 ```html
 <!-- views/applications/edit.ejs -->
