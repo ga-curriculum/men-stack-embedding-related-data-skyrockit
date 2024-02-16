@@ -42,7 +42,7 @@ This story let's us know that an application should have at least a "company nam
 
 Let's add them to our ERD:
 
-![Job Applications ERD](./assets/originals/tktk-erd-placeholder.png)
+![Job Applications ERD](../assets/erd.png)
 
 Considering our user story, it appears that "company" and "title" are essential fields, whereas other details are optional. Additionally, although our ERD includes an `_id`, there's no need to explicitly define it in our schema since MongoDB automatically generates this identifier when a new document is created.
 
