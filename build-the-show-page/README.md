@@ -103,9 +103,9 @@ To our boilerplate, we'll add some EJS to display the `application` data:
     <p>Notes: <%= application.notes %></p>
   <% } %>
   <% if (application.postingLink) { %>
-    <a href="<%= application.postingLink %>">Visit this job posting</a>
+    <a href="<%= application.postingLink %>">View job posting</a>
   <% } %>
-  <p>The status of this application is: <%= application.status %></p>
+  <p>Current Status: <%= application.status %></p>
 </body>
 </html>
 ```
