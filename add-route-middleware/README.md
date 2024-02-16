@@ -4,7 +4,7 @@
 
 ## Adding custom middleware
 
-At the start of this project, we cloned a pre-built repository that included established authentication routes and logic. Now, we need to use this feature to make sure only users who are logged in can see certain parts of our app. This is known as *Authorization*. Specifically, we'll focus on ensuring that only logged-in users can access the `applications` that belong to them. 
+At the start of this project, we cloned a pre-built repository that included established authentication routes and logic. Now, we need to use this feature to make sure only users who are logged in can see certain parts of our app. This is known as *Authorization*.
 
 We also need a way to share the user's data with the multiple views in the application. The [Express documentation](https://expressjs.com/en/api.html#res) provides a feature called `res.locals` for this purpose. It allows us to store data that can be easily accessed by our pages when they are rendered to the user.
 
@@ -104,7 +104,7 @@ app.use(
   })
 );
 
-app.use(passUserToView);
+app.use(passUserToView); // add here
 
 app.get('/', (req, res) => {
   if (req.session.user) {
@@ -115,7 +115,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/auth', authController);
-app.use(isSignedIn);
+app.use(isSignedIn); // add here
 app.use('/users/applications', applicationsController);
 ```
 
@@ -132,3 +132,26 @@ app.use('/auth', authController);
 app.use(isSignedIn);
 app.use('/users/:userId/applications', applicationsController); // updated
 ```
+
+## Redirect logged in users to `index` page
+
+For an improved user experience, it's beneficial to guide logged-in users directly to a page where they can see an index of their applications. Conversely, users who are not logged in should be directed to the homepage, where they have the option to sign up or sign in. Our starter code already includes a basic index route, but we'll adjust its logic to cater to these different user scenarios.
+
+Let's update the main index route in our `server.js` file:
+
+```js
+// server.js
+
+app.get('/', (req, res) => {
+  // Check if the user is logged in
+  if (req.session.user) {
+    // Redirect logged-in users to their applications index
+    res.redirect(`/users/${req.session.user._id}/applications`);
+  } else {
+    // Show the homepage for users who are not logged in
+    res.render('index.ejs');
+  }
+});
+```
+
+Now logged in users can bypass the homepage and go right to their applications.
