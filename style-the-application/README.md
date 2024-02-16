@@ -4,11 +4,11 @@
 
 Now that you've built a MEN-stack app with embedding, it's time to add some style. If you follow all of the steps of this level up you'll have an app that looks like this:
 
-![home page](./assets/originals/home-page.png) tktk 
+![Home page](./assets/home-page.png)
 
-![index page](./assets/originals/index.png) tktk 
+![Index page](./assets/index.png)
 
-![show page](./assets/originals/show.png) tktk
+![Show page](./assets/show.png)
 
 ## Setting up the middleware and static files
 

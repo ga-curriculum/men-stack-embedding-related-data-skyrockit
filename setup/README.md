@@ -1,4 +1,4 @@
-# ![MEN Stack Embedding Related Data - Skyrockit - Setup](./assets/herotktk.png)
+# ![MEN Stack Embedding Related Data - Skyrockit - Setup](./assets/hero.png)
 
 ## Setup
 

@@ -56,9 +56,7 @@ An ERD is like a blueprint for your data. It doesn't involve any coding, but it'
 
 Below is an example of the ERD we will be using for Skyrockit:
 
-![Job Applications ERD](./assets/tktk-erd-placeholder.png)
-
-[tktk Hunter, can you fix up this ERD so that it's happy?]
+![Job Applications ERD](../assets/erd.png)
 
 ### Embedding data
 
