@@ -1,10 +1,10 @@
-# ![MEN Stack Embedding Related Data - Skyrockit](./assets/tktk-hero.png)
+# ![MEN Stack Embedding Related Data - Skyrockit](./assets/hero.png)
 
 ## About
 
 This module is focused on developing a robust MEN (MongoDB, Express.js, Node.js) stack application. Throughout this code along, we'll create "Skyrockit," an advanced platform designed to help users manage and track their job applications. You'll learn about essential full-stack development features, including user authentication and embedding application data within user models using Mongoose. Additionally, this module guides you through styling your application, helping you create a polished, portfolio-worthy project. Tailored for intermediate to advanced learners with a background in full-stack JavaScript development, "Skyrockit" offers practical experience in relational data management and web application design.
 
-![Skyrockit Home Page](./assets/home-page.png) tktk Hunter - give this the usual screen shot treatment please
+![Skyrockit Home Page](./assets/home-page.png)
 
 ## Prerequisites
 
