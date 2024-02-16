@@ -1,6 +1,6 @@
 # ![MEN Stack Embedding Related Data - Skyrockit - Build and Use the Applications Controller](./assets/hero.png)
 
-**Learning objective:** By the end of this lesson, students will be able to create and integrate an `application` controller in their project.
+**Learning objective:** By the end of this lesson, students will be able to create and integrate an `applications` controller in their project.
 
 ## Creating our Application Controller
 
