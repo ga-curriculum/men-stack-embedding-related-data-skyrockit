@@ -1,18 +1,18 @@
-# ![Job Application Tracker App - Build and Use the Applications Controller](./assets/hero.png)
+# ![MEN Stack Embedding Related Data - Skyrockit - Build the Application Schema](./assets/hero.png)
 
-**Learning objective:** By the end of this lesson, students will have added the "application" schema to the app and thus set the stage for building CRUD functionality into the job tracker.
+**Learning objective:** By the end of this lesson, students will successfully develop an `application` schema and establish its relationship within the `user` model through embedding.
 
 ## Use the ERD as our guide.
 
 We have established an ERD for our data and also decided to embed our application in the user model. Deciding to create an embedded relationship means that we will not need to create another file and import or export it's logic to other portions of our application.  Instead, we will define our schema logic in the same file that our user schema is located in and create the connection there.
 
-Let us begin that process by defining our schema and also associate it with the user.
+Let's that process by defining our schema and associate it with the user.
 
 In the `models/users.js`, we'll add the following logic:
 
 ```javascript
 const applicationSchema = new mongoose.Schema({
-  // key/value pairs to be added 
+  // properties of applications
 });
 
 const userSchema = new mongoose.Schema({
@@ -24,31 +24,27 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  applications: [applicationSchema], // this is where we reference the applicationSchema
+  applications: [applicationSchema], // embedding the applicationSchema here
 });
 ```
 
-Take note of the `applications` key located in our `userSchema`.  The value there is a reference to the `userSchema` we are defining just above it.  In pointing to the `applicationSchema` and nesting it in a array literal, we are ensuring that a user can create and track multiple applications.  
+Focus on the `applications` attribute within our `userSchema`. This key is associated with an array of `applicationSchema`. By doing this, we are structurally enabling a user to manage multiple job applications.
 
-We have also opted to only define the application schema and make sure we reference it prior to defining the shape of our applications.
+It's important to define and reference the `applicationSchema` before we detail what our applications data will look like. This order of operations is important for establishing the nested relationship between users and their applications first, and adding the details later. 
 
 ### Define the shape of our Applications
 
-Now that we have defined our application schema let us think back to our first user story and our ERD.
+Now that we have defined our application schema let's think back to our first user story:
 
-Our first user story is the following:
+> As a user, I want to be able to add new job applications that I'm thinking about applying to or have already applied to. For each job, I should be able to note down important stuff like the company's name, the job title, what stage the application is at, and if I want, some personal notes and the link to the job posting.
 
-```
-As a user (AAU), I should be able to create job application for jobs that I anticipating applying for or have applied for. I should be able to keep track of the company name, the job title, and the status of the job application. Optionally I can add any notes I have about the job, and the URL to the job posting.
-```
+This story let's us know that an application should have at least a "company name", "job title", "status", and "notes".  These are values that users can create and manage in the application. 
 
-The following story let's us know that an application created by a user will have at least a "company name", "job title", "status", and "notes".  These are values that user can at least create and are something we note in our ERD.
+Let's add them to our ERD:
 
-Speaking of which, let's revisit that ERD:
+![Job Applications ERD](./assets/originals/tktk-erd-placeholder.png)
 
-![Job Applications ERD](./assets/tktk-erd-placeholder.png)
-
-Our ERD let's us know that our "company" and "title" are the only value require while everything else will be optional.  Also, while an `_id` is listed in the ERD we do not need to write this logic as Mongo will create one automatically when the document is created.
+Considering our user story, it appears that "company" and "title" are essential fields, whereas other details are optional. Additionally, although our ERD includes an `_id`, there's no need to explicitly define it in our schema since MongoDB automatically generates this identifier when a new document is created.
 
 With this knowledge in hand, we can return to the application schema and add the fields and types needed:
 
@@ -76,4 +72,4 @@ const applicationSchema = new mongoose.Schema({
 });
 ```
 
-We have now added the key/value pairs needed for us to allow the user to create "applications" to track.
+With that, our applications schema is complete! 

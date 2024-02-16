@@ -1,10 +1,12 @@
-# ![Job Application Tracker App - Build Update Functionality](./assets/hero.png)
+# ![MEN Stack Embedding Related Data - Skyrockit - Build Update Functionality](./assets/hero.png)
 
-**Learning objective:** By the end of this lesson, students will be able to implement update functionality in a MEN stack application.
+**Learning objective:** By the end of this lesson, students will learn how to `update` specific data in a job application by implementing a `PUT` route. 
 
 ## Conceptualizing the Route
 
-Now that we have our edit view, we can handle the updating of the resource! As always, we'll start by conceptualizing our route: 
+Now that we have our edit view, we can handle the updating of the resource in the database! 
+
+As always, we'll start by conceptualizing our route: 
 
 ```plaintext
 PUT /users/:userId/applications/:applicationId
@@ -13,22 +15,16 @@ PUT /users/:userId/applications/:applicationId
 This matches the route we gave the `action` attribute of our `<form>`. 
 
 ```html
-/users/<%= user._id %>/applications/<%= application._id %>
+    <!-- We'll use method-override to allow us to hit a put route: -->
+<form 
+    action="/users/<%= user._id %>/applications/<%= application._id %>?_method=PUT"
+    method="POST"
+  >
 ```
 
-## Defining the route and coding the controller
+## Defining the route and building the controller function
 
-Next, in `controllers/applications.js`, let's change the update route from: 
-
-```js
-// controllers/applications.js`
-
-router.put('/:applicationId', (req, res) => {
-  res.send(`You have reached the PUT route for req.params: ${req.params.applicationId}`);
-});
-```
-
-To: 
+Next, in `controllers/applications.js`, let's build our `update` route:
 
 ```js
 // // controllers/applications.js`
@@ -53,3 +49,5 @@ router.put('/:applicationId', async (req, res) => {
   }
 });
 ```
+
+> The application's existing data is updated with the new data submitted in the request body (`req.body`). This is done using Mongoose's `.set()` method, which is a convenient way to update subdocuments in an embedded schema.

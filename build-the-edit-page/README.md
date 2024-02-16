@@ -1,10 +1,10 @@
-# ![Job Application Tracker App - Build the Edit Page](./assets/hero.png)
+# ![MEN Stack Embedding Related Data - Skyrockit - Build the Edit Page](./assets/hero.png)
 
-**Learning objective:** By the end of this lesson, students will be able to implement edit functionality in a MEN stack application.
+**Learning objective:** By the end of this lesson, students will be able to build and implement the `edit` view and route for updating a job application.
 
-Let's tackle our final user story!
+For our final page, we'll consult the following User Story:
 
-> AAU, when viewing the details of an application, I should be able to follow a link to be taken to a page where I can edit any of the details of a job application and update it from there.
+> As a user, when I'm looking at all the details of a job application, I want to be able to change any of the information. There should be an easy-to-find link that takes me to a different page where I can make these changes and then save them.
 
 ## Conceptualizing the Route
 
@@ -14,7 +14,7 @@ As always, we start by conceptualizing the route:
 GET /users/:userId/applications/edit
 ```
 
-Next, we'll create the UI that will issue the request to that route. Let's return to `show.ejs` one last time:  
+Next, we'll create the UI that will issue the request to that route. Let's return to `show.ejs` one last time:
 
 ```html
 <!-- views/applications/show.ejs -->
@@ -53,19 +53,10 @@ Next, we'll create the UI that will issue the request to that route. Let's retur
 </html>
 ```
 
-## Defining the route and coding the controller
+## Defining and building the route
 
-Next, in `controllers/applications.js`, we want to look up an application by it's `_id`, and then render a view containing a form to update it. Let's update the edit route from:
+Next, in `controllers/applications.js`, we want to look up an application by its `id`, and then render a view containing a form to update it.
 
-```js
-// controllers/applications.js
-
-router.get(':/applicationId/edit', (req, res) => {
-  res.send(`You have reached the EDIT route for req.params: ${req.params.applicationId}`);
-});
-```
-
-To: 
 
 ```js
 // controllers/applications.js
@@ -92,12 +83,47 @@ We don't currently have a `applications/edit.ejs` to render, so we'll need to cr
 touch views/applications/edit.ejs
 ```
 
-Most of the code for the `edit` form will be similar to that of the `new` form. The primary difference is that, in `edit.ejs`, we have `application` data that is being passed to the view. 
 
-We want the user to have all of the current applications data filled into the forms, so that they only need to change whatever input needs updating. 
-As you can imagine, it would be a very bad user experience to have to re-enter all of the data every time you edit a resource. 
+### Shaping the data
 
-To avoid this, we can set each input's `value` attribute equal to the current data in the database. For the `<select>` dropdown, we also need to do a bit of extra work to ensure that only the option that matches the current `status` is selected.
+When revising the form for editing job applications, we'll largely use the same structure as our 'new' form. However, the key difference in the `edit.ejs` file is that we already have existing data for the application.
+
+The goal is to pre-fill the form with the current data so the user only has to modify the parts they want to update. This approach significantly improves the user experience, as it prevents the need to re-enter all the information for minor changes.
+
+To achieve this, we set the `value` attribute for each input field to reflect the data currently stored in the database. For instance, the input for the company name would look like this:
+
+
+```html
+<input type="text" name="company" id="company" value="<%= application.company %>">
+```
+
+In this example, `<%= application.company %>` dynamically inserts the existing company name from the application data into the input field.
+
+
+For the `<select>` dropdown that handles the 'status', additional logic is required. We need to ensure that the dropdown shows the current status as the selected option. This involves adding a conditional statement to each `<option>` to check whether it should be marked as 'selected' based on the current data:
+
+```html
+<select id="status" name="status">
+  <option value="interested" <%= application.status === 'interested' ? 'selected' : '' %>>Interested</option>
+  <option value="applied" <%= application.status === 'applied' ? 'selected' : '' %>>Applied</option>
+  <!-- ...more options with similar conditional logic -->
+</select>
+```
+
+Here, the expression <%= application.status === 'interested' ? 'selected' : '' %> checks if the current status is 'interested'. If it is, the 'selected' attribute is added to the option, making it the default selected option in the dropdown. This same logic is applied to all other status options.
+
+
+Our form action will match our future `update` route:
+
+```html
+    <!-- We'll use method-override to allow us to hit a put route: -->
+<form 
+    action="/users/<%= user._id %>/applications/<%= application._id %>?_method=PUT"
+    method="POST"
+  >
+```
+
+Let's make all of these changes and finalize our form:
 
 ```html
 <!-- views/applications/edit.ejs -->
@@ -172,3 +198,5 @@ To avoid this, we can set each input's `value` attribute equal to the current da
 </body>
 </html>
 ```
+
+The last step to to update our data in the database.

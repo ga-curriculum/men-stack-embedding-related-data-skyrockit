@@ -1,23 +1,64 @@
-# ![Job Application Tracker App - Add Route Middleware](./assets/hero.png)
+# ![MEN Stack Embedding Related Data - Skyrockit - Add Route Middleware](./assets/hero.png)
 
-**Learning objective:** By the end of this lesson, students will be able to add middleware to be used in conjunction with their routing logic.
+**Learning objective:** By the end of this lesson, students will be able to add custom middleware to check for a logged-in user and pass user data to views.
 
-## Adding Route Middleware for our Application Routes
+## Adding custom middleware
 
-To begin this project, we cloned a repository that already had auth routes and logic established.  This was a great starting point, but we are at the stage now where we need to add middleware to be used with our application routes. The middleware we are adding will protect these `application` routes from being accessed by visitors who are not logged in. It will also add the `user` to a `res.locals` object that can be accessed by our view templates.
+At the start of this project, we cloned a pre-built repository that included established authentication routes and logic. Now, we need to use this feature to make sure only users who are logged in can see certain parts of our app. This is known as *Authorization*. Specifically, we'll focus on ensuring that only logged-in users can access the `applications` that belong to them. 
 
-Per the [Express documentation](https://expressjs.com/en/api.html#res) on `res.locals`:  'Use this property to set variables accessible in templates rendered with `res.render`.'
+We also need a way to share the user's data with the multiple views in the application. The [Express documentation](https://expressjs.com/en/api.html#res) provides a feature called `res.locals` for this purpose. It allows us to store data that can be easily accessed by our pages when they are rendered to the user.
+
+Both of these tasks can be accomplished by creating some custom middleware that intercepts requests to our `applications` controller. 
 
 ### Creating the folder and middleware
 
-Let's begin the process of adding middleware by creating a middleware folder in the root of our project and adding the file that will house our logic:
+Let's begin by creating a middleware folder in the root of our project:
 
 ```bash
 mkdir middleware
-touch middleware/pass-user-to-view.js
 ```
 
-Inside of the `pass-user-to-view.js` file, we will add the middleware logic to add the user to the `res.locals` object.
+Create two new files here called `is-signed-in.js` and `pass-user-to-view.js`:
+
+```bash
+touch middleware/is-signed-in.js middleware/pass-user-to-view.js
+```
+
+### `isSignedIn`
+
+When writing a custom middleware function, recall that we want three parameters instead of the usual two parameters our route handlers have been using:
+
+- `req` is the request object, 
+- `res` is the response object, 
+- `next` is the third parameter, representing the `next` function in the long line of middleware and route handlers that a request is processed through.
+
+
+This function's purpose is to check if a user is signed in and authorized to access certain routes or resources
+
+Let's add the following to  `is-signed-in.js`:
+
+```javascript
+// middleware/is-signed-in.js
+
+const isSignedIn = (req, res, next) => {
+  if (req.session.user && req.session.user._id === req.params.userId) {
+    return next();
+  }
+  res.redirect('/auth/sign-in');
+};
+
+module.exports = isSignedIn;
+```
+
+The function first checks if there's a user object in the session (provided by `req.session.user`). This is typically used to confirm that a user is logged in.
+
+It further checks if the logged-in user's ID (`req.session.user._id`) matches the user ID in the URL parameters (`req.params.userId`). This is to ensure that the user is accessing their own data and not someone else's.
+
+If the user is logged in and the user IDs match, `next()` is called, allowing the request to proceed to the next middleware or route handler. If this check fails, however, it moves to redirect the user to the sign-in page, strongly suggesting to the user that, to get where they want to go, they'll have to sign-in.
+
+### `PassUserToView`
+
+Inside of the `pass-user-to-view.js` file, we will add the following logic to add the user to the `res.locals` object.
 
 ```javascript
 // middleware/pass-user-to-view.js
@@ -30,27 +71,32 @@ const passUserToView = (req, res, next) => {
 module.exports = passUserToView
 ```
 
-In the above code, via a ternary operator, we are specifying that if a user exists (in `req.session.user`) then set the value of `res.locals.user` to that user. Otherwise, we will set the value of `res.locals.user` to null. `next()` calls the next function in our route handling sequence.
+In the above code, we use a ternary operator specifying that if a user exists (in `req.session.user`) then set the value of `res.locals.user` to that user. Otherwise, we will set the value of `res.locals.user` to null. `next()` then calls the next function in our route handling sequence.
 
-### Mount and use the middleware in `server.js`
+This middleware provides us a shortcut to always pass the information of the logged in user to our requests final destination.
 
-Now that we have our middleware created we need to mount it and use it in `server.js`.  To do so, let us import the middleware immediately after we mount our dependencies:
+## Import and mount custom middleware
+
+Now that we have our middleware created, we need to mount and use it in our server. Import the middleware just below our other dependencies at the top of `server.js`:
 
 ```javascript
 // server.js
-.
-.
-.
+
 const morgan = require('morgan');
 const session = require('express-session');
 
+const isSignedIn = require('./middleware/is-signed-in.js');
 const passUserToView = require('./middleware/pass-user-to-view.js');
 ```
 
-Once that is in place we can "use" the middleware before any routing we establish:
+For this application, users must be signed in to view any of the routes associated with their applications. Therefore, `isSignedIn` should be placed above the `applications` controller, but not before auth.
+
+`PassUserToView` should be included before all our routes, including our homepage, just in case we want to include conditional rendering with a user's details. If there is no signed in user the locals object will be set to null. 
+
 
 ```javascript
 //server.js
+
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 // app.use(morgan('dev'));
@@ -64,11 +110,29 @@ app.use(
 
 app.use(passUserToView);
 
-.
-.
-.
+app.get('/', (req, res) => {
+  if (req.session.user) {
+    res.redirect(`/users/${req.session.user._id}/applications`);
+  } else {
+    res.render('index.ejs');
+  }
+});
 
 app.use('/auth', authController);
+app.use(isSignedIn);
+app.use('/users/applications', applicationsController);
 ```
 
-We now have the middleware in place to move forward!
+## Adding `userId` to the `applications` controller
+
+Without a signed-in user, we were able to build and test our first route in the `applications` controller. However, all of our future routes require a `userId` for proper functionality, which can only come from having an active user.
+
+Its time to add the `userId` as a route parameter in the path for our `applications` controller.
+
+```js
+// server.js
+
+app.use('/auth', authController);
+app.use(isSignedIn);
+app.use('/users/:userId/applications', applicationsController); // updated
+```

@@ -1,22 +1,24 @@
-# ![Job Application Tracker App - Build Delete Functionality](./assets/hero.png)
+# ![MEN Stack Embedding Related Data - Skyrockit - Build Delete Functionality](./assets/hero.png)
 
-**Learning objective:** By the end of this lesson, students will be able to implement delete functionality in a MEN stack application. 
+**Learning objective:** By the end of this lesson, students will be able to build and implement a `DELETE` route and form in their Express application.
 
 Next, we'll tackle the following user story: 
 
-> AAU, when viewing the details of an application, I should be able to click a button and delete the application.
+> As a user, if I'm looking at the details of a job application, I want a simple way to delete it completely, like clicking a 'Delete' button.
 
-## Conceptualizing the Route
+## Conceptualizing the route
 
-Referencing [RESTful Routing Conventions](https://git.generalassemb.ly/modular-curriculum-all-courses/restful-routing/blob/main/routing-conventions/README.md) again, we find that to delete an application, the proper route will be:
+This route will be defined as:
 
 ```plaintext
 DELETE /users/:userId/applications/:applicationsId
 ```
 
+This allows us to delete a specific application by `id`.
+
 ## Adding the UI to issue the request
 
-Next, we'll need to create the UI that will issue the result to the route. In `show.ejs`, add the following `<form>`: 
+Next, we'll need to create the UI that will issue the request to the route. In `show.ejs`, add the following `<form>`: 
 
 ```html
 <!-- views/applications/show.ejs -->
@@ -51,19 +53,9 @@ Next, we'll need to create the UI that will issue the result to the route. In `s
 </html>
 ```
 
-## Defining the route and coding the controller
+## Building the route
 
-Next, in `controllers/applications.js`, update the delete route from:  
-
-```js
-// controllers/applications.js
-
-router.delete('/:applicationId', (req, res) => {
-  res.send(`You have reached the DELETE route for req.params: ${req.params.applicationId}`);
-});
-```
-
-to: 
+Just like we did in our `show` route, we will use an `id` to look up a specific application, only this time we will delete it. 
 
 ```js
 // controllers/applications.js
@@ -87,4 +79,4 @@ router.delete('/:applicationId', async (req, res) => {
 });
 ```
 
-We don't need to create a new view, as we'll just be redirecting back to the existing index page! 
+For this route, we don't need to create a new view, as we'll just be redirecting back to the existing index page!

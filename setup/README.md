@@ -1,16 +1,18 @@
-# ![Job Application Tracker App - Setup](./assets/herotktk.png)
+# ![MEN Stack Embedding Related Data - Skyrockit - Setup](./assets/herotktk.png)
 
-## Cloning our Auth repository
+## Setup
 
-We will begin our Job Application build by cloning down the repository that holds our previously built Auth logic.  Doing so will allow us to have a connection established to our MongoDB Atlas, add functioning auth for our user model, and install some of the packages we will need for our app build.
-
-First, we will want to move into your `lectures` directory on your computer
+Open your Terminal application and navigate to your `~/code/ga/lectures` directory:
 
 ```bash
-cd ~/code/ga/lectures/
+cd ~/code/ga/lectures
 ```
 
-Navigate to [this link](https://git.generalassemb.ly/modular-curriculum-all-courses/men-stack-session-auth-template) and clone the repository to your machine:
+## Cloning the Auth boilerplate
+
+This lecture uses the [`MEN Stack Auth Template`](https://git.generalassemb.ly/modular-curriculum-all-courses/men-stack-session-auth-template) as starter code. Doing so allows us to have a connection established to our MongoDB Atlas, add functioning auth for our user model, and install some of the packages we will need for our app build.
+
+Navigate to the [MEN Stack Auth Template](https://git.generalassemb.ly/modular-curriculum-all-courses/men-stack-session-auth-template) and clone the repository to your machine:
 
 ```bash
 git clone git@git.generalassemb.ly:modular-curriculum-all-courses/men-stack-session-auth-template.git
@@ -22,12 +24,49 @@ Once we have the repository on our machines, we can change the name of the direc
 mv men-stack-session-auth-template skyrockit
 ```
 
-Change into the directory we cloned down and open VSCode from there:
+Next, `cd` into your renamed directory:
 
 ```bash
 cd skyrockit
+```
+
+Finally, remove the existing `.git` information from this template:
+
+```bash
+rm -rf .git
+```
+
+> Removing the `.git` info is important as this is just a starter template provided by GA. You do not need the existing git history for this project.
+
+
+## GitHub setup
+
+To add this project to GitHub, initialize a new Git repository:
+
+```bash
+git init
+git add .
+git commit -m "init commit"
+```
+
+Make a new repository on [GitHub](https://github.com/) named `skyrockit`. 
+
+Link your local project to your remote GitHub repo:
+
+```bash
+git remote add origin https://github.com/<github-username>/skyrockit.git
+git push origin main
+```
+
+> 🚨 Do not copy the above command. It will not work. Your GitHub username will replace `<github-username>` (including the `<` and `>`) in the URL above.
+
+Open the project's folder in your code editor:
+
+```bash
 code .
 ```
+
+## Install dependencies
 
 Next, you will want to install all of the packages listed in `package.json`
 
@@ -35,32 +74,31 @@ Next, you will want to install all of the packages listed in `package.json`
 npm i
 ```
 
-After succesfully install the packages, let us create a `.env` file and `.gitignore` so we can safely house our sensitive connection data and have it not tracked by git.
-
-```bash
-touch .gitignore .env
-```
+## Create your .gitignore
 
 Once these files are created, add `.env`, `package-lock.json`, and `node_modules` to your `.gitignore` file.  Doing so will prevent those files and directories from being tracked and we can be confident that any data we add there will not be pushed up to GitHub.
 
+```text
+.env
+node_modules
+package-lock.json
+```
+
+## Create your .env
+
 Lastly, we want to create `MONGODB_URI` and `SESSION_SECRET` to hold values used in our auth logic.  `MONGODB_URI` will connect to your MongoDB Atlas connection string so you will need to establish one for this application.  `SESSION_SECRET` will aid in your auth session logic.
 
-Let's ensure that all of our logic is correct and we can start our server.
+Add a `.env` file to your application and add the following secret keys to your application:
+
+```text
+MONGODB_URI=
+SESSION_SECRET=
+```
+
+Start the server and you are ready for launch. 
 
 ```bash
 nodemon start
 ```
 
-Assuming all things are working you should see no errors and output that looks like the following:
-
-```bash
-[nodemon] 3.0.3
-[nodemon] to restart at any time, enter `rs`
-[nodemon] watching path(s): *.*
-[nodemon] watching extensions: js,mjs,cjs,json
-[nodemon] starting `node start server.js`
-The express app is ready on port 3000!
-Connected to MongoDB final-mern-app.
-```
-
-Excellent work!!  We are ready to set the stage for how to move forward with creating this application.
+Happy Coding! 

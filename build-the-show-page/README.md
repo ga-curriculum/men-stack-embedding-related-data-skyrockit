@@ -1,35 +1,46 @@
-# ![Job Application Tracker App - Build the Show Page](./assets/hero.png)
+# ![MEN Stack Embedding Related Data - Skyrockit - Build the Show Page](./assets/hero.png)
 
-**Learning objective:** By the end of this lesson, students will be able to implement a show route and page in a MEN stack application.
+**Learning objective:** By the end of this lesson, students will have successfully built a 'Show' route and view as part of their web application, enabling them to perform a detailed 'Read' operation on individual items.
 
-## Conceptualizing the Show View
+## Conceptualizing the route
 
 Now that we have an index view, let's look at another User Story: 
 
-> AAU, I should be able to view all the details of a job application on a new page by following a link from that index page.
+> As a user, I need to be able to click on any job in my list and see all the details about it on a new page. This includes everything I've recorded about that job application.
 
-Currently, our index only shows the title and company, but each application in our database contains a lot more data than that! In order to see all of the data, and fulfil our user story, let's build a `show` view that we can link to from our index. 
+Our current index page provides a snapshot of each application, displaying only its `title` and `company`. However, there's more data associated with each application that isn't yet visible. To address this, we'll create a 'show' view. This view will present all the details of a specific job application, allowing users to gain a complete understanding of each application's status and information.
 
-To start, let's revisit `applications/index.ejs` and set up a link with the proper routing convention: 
+The route is defined as follows:
+
+```text
+GET /users/:userId/applications/:applicationId
+```
+
+This route is structured to fetch a particular application, identified by its unique `:applicationId`, associated with a specific user, by `:userId`.
+
+
+## Link to the `show` page
+
+To start, let's update our `applications/index.ejs` file. We will modify it to include links that lead to the detailed `show` view of each application:
 
 ```html
 <!-- views/applications/index.ejs -->
 
 <ul>
-    <% applications.forEach((application)=>{ %>
-      <li>
-        <!-- wrap the title and company in a link -->
-        <a href="/users/<%= user._id %>/applications/<%= application._id %>">
-            <%= application.title %> at <%= application.company %>
-        </a>
-      </li>
-    <% }) %>
-  </ul>
+  <% applications.forEach((application)=>{ %>
+    <li>
+      <!-- Add a link around each title and company, directing to the 'show' page -->
+      <a href="/users/<%= user._id %>/applications/<%= application._id %>">
+          <%= application.title %> at <%= application.company %>
+      </a>
+    </li>
+  <% }) %>
+</ul>
 ```
 
-## Defining the route and coding the controller
+## Build the route
 
-Next, we'll code out the body of the controller function. Update the current router function from:
+Next, we'll build a simple controller function:
 
 ```js
 // controllers/applications.js
@@ -39,7 +50,10 @@ router.get('/:applicationId', (req, res) => {
 });
 ```
 
-to: 
+Click one of the new application links to see your `applicationId`. It works! 
+
+
+With this `id` we can now look up specific applications in our database. Modify the controller function to look up an application by `id` and render the `show` page:
 
 ```js
 // controllers/applications.js
@@ -64,13 +78,13 @@ router.get('/:applicationId', async (req, res) => {
 
 ## Building the UI
 
-Next, we'll need to add the view we rendered above: 
+Next, we'll need to add the view we rendered above:
 
 ```bash
 touch views/applications/show.ejs
 ```
 
-To our boilerplate, we'll add some EJS to display the `application` data: 
+To our boilerplate, we'll add some EJS to display the `application` data:
 
 ```html
 <!-- views/applications/show.ejs -->
@@ -96,5 +110,4 @@ To our boilerplate, we'll add some EJS to display the `application` data:
 </html>
 ```
 
-Note that some of the information we collected from the user was optional. We want to make sure we account for any optional data using conditional logic, so that the user is only shown information they opted to include. We can do this by using the `<% if(data) %>` convention.
-
+Note that some of the information we collected from the user was optional. We want to make sure we account for any optional data using conditional logic so that the user is only shown information they opted to include. We can do this by using the `<% if(data) %>` convention.

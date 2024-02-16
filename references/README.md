@@ -1,13 +1,7 @@
-# ![[tktk Module Name] - References](./assets/hero.png)
+# ![MEN Stack Embedding Related Data - Skyrockit - References](./assets/hero.png)
 
 ## Lesson references
 
-- [tktk descriptive name of link]()
-- [tktk descriptive name of link]()
-- [tktk descriptive name of link]()
+[Embedding vs. Referencing Data in MongoDB](https://www.mongodb.com/developer/products/mongodb/mongodb-schema-design-best-practices/)
 
-## Level Up references
 
-- [tktk descriptive name of link]()
-- [tktk descriptive name of link]()
-- [tktk descriptive name of link]()
