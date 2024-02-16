@@ -17,7 +17,7 @@ This module is focused on developing a robust MEN (MongoDB, Express.js, Node.js)
 | [Setup](./setup/README.md)                                                                         | -- | -- | Setting up the development environment |
 | [Setting the Stage](./setting-the-stage/README.md)                                                 | -- | -- | Outline the application: data structure, user stories, and routing |
 | [Build the Application Schema](./build-the-application-schema/README.md)                           | -- | -- | Build `application` schema and embed in `user` model |
-| [Build the Homepage](./build-the-homepage/README.md)                                               | -- | -- | tktk skills covered |
+| [Build the Homepage](./build-the-homepage/README.md)                                               | -- | -- | Update the homepage UI |
 | [Build and Use the Applications Controller](./build-and-use-the-applications-controller/README.md) | -- | -- | Create and integrate an `applications` controller |
 | [Build the Applications Index Page](./build-the-applications-index-page/README.md)                 | -- | -- | Build the `index` route and view |
 | [Add Route Middleware](./add-route-middleware/README.md)                                           | -- | -- | Add custom middleware `isSignedIn` and `passUserToView` |
