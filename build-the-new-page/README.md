@@ -87,7 +87,7 @@ It's essential to align our form design with the structure outlined in our data 
 ```js
 // models/user.js
 
-const applicationSchema = mongoose.Schema({
+const applicationSchema = new mongoose.Schema({
   company: {
     type: String,
     required: true,

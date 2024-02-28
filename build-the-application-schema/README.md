@@ -8,7 +8,7 @@ We have established an ERD for our data and also decided to embed our applicatio
 
 Let's that process by defining our schema and associate it with the user.
 
-In the `models/users.js`, we'll add the following logic:
+In the `models/user.js`, we'll add the following logic:
 
 ```javascript
 const applicationSchema = new mongoose.Schema({
@@ -48,8 +48,9 @@ Considering our user story, it appears that "company" and "title" are essential 
 
 With this knowledge in hand, we can return to the application schema and add the fields and types needed:
 
-`models/users.js`
 ```javascript
+// models/user.js
+
 const applicationSchema = new mongoose.Schema({
   company: {
     type: String,
