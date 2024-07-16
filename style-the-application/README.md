@@ -13,6 +13,7 @@ Now that you've built a MEN-stack app with embedding, it's time to add some styl
 ## Setting up the middleware and static files
 
 1. First we need to add our middleware so that our app can read and apply our css rules. Add the following code to `server.js`:
+
 ```javascript
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
@@ -30,9 +31,10 @@ app.use(
   })
 );
 ```
+
 The `express.static` middleware is designed to serve static files like CSS stylesheets.
 
-2. Now we need to add require `path`, which we use in the `express.static` middleware. Add this to `server.js`:
+1. Now we need to add require `path`, which we use in the `express.static` middleware. Add this to `server.js`:
 ```javascript
 const port = process.env.PORT ? process.env.PORT : '3000';
 
