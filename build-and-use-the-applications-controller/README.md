@@ -16,8 +16,8 @@ touch controllers/applications.js
 
 Open the new `applications.js` file.
 
-1. First, import Express and create a router. 
-2. Then, import the `User` model so we will have access to it in our CRUD routes. 
+1. First, import Express and create a router.
+2. Then, import the `User` model so we will have access to it in our CRUD routes.
 3. Finally, make sure to export the router so that we can use it in our main server file.
 
 ```javascript
@@ -33,7 +33,7 @@ const User = require('../models/user.js');
 module.exports = router;
 ```
 
-Next, we will import the `applications` controller into `server.js`. Place this import near the top, before you define the `port` variable. 
+Next, we will import the `applications` controller into `server.js`. Place this import near the top, before the `port` variable is defined.
 
 ```javascript
 // server.js
@@ -41,15 +41,15 @@ Next, we will import the `applications` controller into `server.js`. Place this 
 const applicationsController = require('./controllers/applications.js');
 ```
 
-Finally, link your controller to a specific route in `server.js`. This tells the server that any incoming requests to `/users/applications` will be handled by your `applications` controller.
+Finally, link your controller to a specific route in `server.js`. This tells the server that any incoming requests to `/users/:userId/applications` will be handled by your `applications` controller.
 
-The following line can be placed just above our `app.listen` logic in the server:
+Place it just above our `app.listen` logic in the server:
 
 ```javascript
 // server.js
 
 app.use('/auth', authController);
-app.use('/users/applications', applicationsController); // New!
+app.use('/users/:userId/applications', applicationsController); // New!
 
 app.listen(port, () => {
   console.log(`The express app is ready on port ${port}!`);

@@ -4,9 +4,13 @@
 
 ## What is a Partial
 
-When creating an application, you might find that certain pieces of UI code are repeated on multiple pages. To avoid copying and pasting the same code (which goes against best practice of writing D.R.Y. code), we can use a feature in EJS called "partials."
+When creating an application, you might find that certain pieces of UI code are repeated on multiple pages. To avoid copying and pasting the same code (which goes against best practice of writing DRY code), we can use a feature in EJS called *partials*. A common use case for partials is for components like navigation bars, which are typically consistent across different pages of an app.
 
-A partial is essentially a small EJS template designed to be included or embedded within other EJS templates. A common use case for partials is for components like navigation bars, which are typically consistent across different pages of an app. The code for the navbar of an app is likely to remain the same regardless of what page the user is navigating to, so being able to write the code once and reuse it on each page is very handy! To demonstrate the power and utility of partials, we will create and render a navbar partial for our application.
+The code for the navbar of an app is likely to remain the same regardless of what page the user is navigating to, so being able to write the code once and reuse it on each page is very handy!
+
+> 📚 A *partial* is an EJS template designed to be included or embedded within other EJS templates.
+
+To demonstrate the power and utility of partials, we will create and render a navbar partial for our application.
 
 ## Creating a partial template
 
@@ -35,7 +39,7 @@ Next, add the following code to our new nav partial:
 </nav>
 ```
 
-The above code applies conditional rendering based on the existence of a user. When setting up our `passUserToView` middleware, we either passed a user object or null into the locals object of each page. The logic above reads, that if there is no signed-in user, only the sign-in and sign-up links will be visible, otherwise the user will see a link to view all of their applications or sign out. 
+The above code applies conditional rendering based on the existence of a user. When setting up our `passUserToView` middleware, we either passed a user object or null into the locals object of each page. The logic above reads, that if there is no signed-in user, only the sign-in and sign-up links will be visible, otherwise the user will see a link to view all of their applications or sign out.
 
 ## Using partials
 

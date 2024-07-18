@@ -2,7 +2,9 @@
 
 ## About
 
-This module is focused on developing a robust MEN (MongoDB, Express.js, Node.js) stack application. Throughout this code along, we'll create "Skyrockit," an advanced platform designed to help users manage and track their job applications. You'll learn about essential full-stack development features, including user authentication and embedding application data within user models using Mongoose. Additionally, this module guides you through styling your application, helping you create a polished, portfolio-worthy project. Tailored for intermediate to advanced learners with a background in full-stack JavaScript development, "Skyrockit" offers practical experience in relational data management and web application design.
+This module is focused on developing a robust MEN (MongoDB, Express.js, Node.js) stack application. Throughout this code along, we'll create "Skyrockit," an advanced platform designed to help users manage and track their job applications. You'll learn about essential full-stack development features, including user authentication and embedding application data within user models using Mongoose.
+
+Additionally, this module guides you through styling your application, helping you create a polished, portfolio-worthy project. Tailored for intermediate to advanced learners with a background in full-stack JavaScript development, "Skyrockit" offers practical experience in relational data management and web application design.
 
 ![Skyrockit Home Page](./assets/home-page.png)
 
@@ -18,9 +20,9 @@ This module is focused on developing a robust MEN (MongoDB, Express.js, Node.js)
 | [Setting the Stage](./setting-the-stage/README.md)                                                 | -- | -- | Outline the application: data structure, user stories, and routing |
 | [Build the Application Schema](./build-the-application-schema/README.md)                           | -- | -- | Build `application` schema and embed in `user` model |
 | [Build the Homepage](./build-the-homepage/README.md)                                               | -- | -- | Update the homepage UI |
+| [Add Route Middleware](./add-route-middleware/README.md)                                           | -- | -- | Add custom middleware `isSignedIn` and `passUserToView` |
 | [Build and Use the Applications Controller](./build-and-use-the-applications-controller/README.md) | -- | -- | Create and integrate an `applications` controller |
 | [Build the Applications Index Page](./build-the-applications-index-page/README.md)                 | -- | -- | Build the `index` route and view |
-| [Add Route Middleware](./add-route-middleware/README.md)                                           | -- | -- | Add custom middleware `isSignedIn` and `passUserToView` |
 | [Build the Navigation Bar Partial](./build-the-navigation-bar-partial/README.md)                   | -- | -- | Create a reusable `nav` bar component |
 | [Build the New Page](./build-the-new-page/README.md)                                               | -- | -- | Create a form for adding `new` job applications |
 | [Build Create Functionality](./build-create-functionality/README.md)                               | -- | -- | Implement the Create operation in a `POST` route |
