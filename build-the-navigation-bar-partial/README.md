@@ -2,7 +2,7 @@
 
 **Learning objective:** By the end of this lesson, students will be able to understand and implement EJS partials in their web applications by creating a reusable nav bar component.
 
-## What is a Partial
+## What is a partial
 
 When creating an application, you might find that certain pieces of UI code are repeated on multiple pages. To avoid copying and pasting the same code (which goes against best practice of writing DRY code), we can use a feature in EJS called *partials*. A common use case for partials is for components like navigation bars, which are typically consistent across different pages of an app.
 
@@ -30,7 +30,7 @@ Next, add the following code to our new nav partial:
 
 <nav>
   <% if(user) { %>
-    <a href="/users/<%=user._id%>/applications">Your Apps</a>
+    <a href="/users/<%= user._id %>/applications">Your Apps</a>
     <a href="/auth/sign-out">Sign Out</a>
   <% } else { %>
     <a href="/auth/sign-in">Sign In</a>
@@ -129,4 +129,4 @@ Let's also add our `navbar` partial to our `applications` landing page:
 </body>
 ```
 
-Refresh the page and you should see the navbar rendered above your h1.
+Refresh the page and you should see the navbar rendered above the `<h1>` element.

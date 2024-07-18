@@ -8,13 +8,11 @@ Now that we have most of the key components in place, we can start to connect ou
 
 ### Conceptualizing the route
 
-Before we program this route, let's refresh our memories on the action and route combination needed for a landing page or "index" route:
+Before we program this route, let's refresh our memories on the action and route combination needed for a landing page or index route:
 
 ```text
 GET /users/:userId/applications
 ```
-
-> If this route looks a little different from what we just defined in our server, that's by design. We'll be adding a `userId` to our route parameters as soon as we have some basic route functionality in place.
 
 ### Create the applications index route
 
@@ -51,7 +49,7 @@ app.get('/', (req, res) => {
 });
 ```
 
-Now signed in users can bypass the homepage and go right to their applications. Test this now! Ensure you are signed in, and navigate to the home page. Instead of seeing the content in `index.ejs` you should be redirected to the new route we just created and see your "Hello applications index route!" response. Let's replace that simple response with a full page next!
+Now signed in users can bypass the homepage and go right to their applications. Test this now! Ensure you are signed in, and navigate to the home page. Instead of seeing the content in `index.ejs` you should be redirected to the new route we just created and see the **Hello applications index route!** response. Let's replace that simple response with a full page next!
 
 ### Render the applications index template
 
@@ -95,4 +93,4 @@ router.get('/', async (req, res) => {
 });
 ```
 
-Note that in the above snippet we aren't passing any information to the template yet. We'll be adding more to this controller function later - for now, we are just interested in making sure that the template is rendering when the route is accessed from the server.
+Note that in the above snippet we aren't passing any information to the template yet. We'll be adding more to this controller function later - for now, we are just interested in making sure that the template is rendering when the route is accessed from the server. Test it out now! Ensure you are signed in, and navigate to the home page.
