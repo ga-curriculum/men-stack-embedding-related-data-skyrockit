@@ -4,11 +4,13 @@
 
 ## Updating homepage starter code
 
-Initially, the `MEN Stack Auth Template` provides a generic homepage setup. This page uses conditional rendering to show different content based on whether a user is signed in or not. We will tailor this page to align with the Skyrockit app's theme, focusing on job application tracking.
+Initially, the **MEN Stack Auth Template** provides a generic homepage setup. This page uses conditional rendering to show different content based on whether a user is signed in or not. We will tailor this page to align with the Skyrockit app's theme, focusing on job application tracking.
 
-Here’s the original homepage code:
+Here's the original homepage code:
 
 ```html
+<!-- views/index.ejs -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,6 +39,8 @@ Here’s the original homepage code:
 To customize this for Skyrockit, we'll make some changes to reflect the app's purpose and branding:
 
 ```html
+<!-- views/index.ejs -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,8 +59,7 @@ To customize this for Skyrockit, we'll make some changes to reflect the app's pu
 
 ## Update server starter code
 
-
-In addition to updating the homepage, let's tidy up the server code in `server.js` by removing any unnecessary routes. For instance, the `VIP lounge` link is no longer needed for Skyrockit and can be removed for a cleaner setup:
+In addition to updating the homepage, let's tidy up the server code in `server.js` by removing the route for the **VIP lounge**:
 
 ```js
 // server.js
@@ -67,7 +70,7 @@ app.get('/', (req, res) => {
   });
 });
 
-// removed!
+// We've removed the VIP lounge!
 
 app.use('/auth', authController);
 

@@ -1,22 +1,24 @@
 # ![MEN Stack Embedding Related Data - Skyrockit - Build Update Functionality](./assets/hero.png)
 
-**Learning objective:** By the end of this lesson, students will learn how to `update` specific data in a job application by implementing a `PUT` route. 
+**Learning objective:** By the end of this lesson, students will learn how to `update` specific data in a job application by implementing a `PUT` route.
 
-## Conceptualizing the Route
+## Conceptualizing the route
 
-Now that we have our edit view, we can handle the updating of the resource in the database! 
+Now that we have our edit view, we can handle the updating of the resource in the database!
 
-As always, we'll start by conceptualizing our route: 
+As always, we'll start by conceptualizing our route:
 
 ```plaintext
 PUT /users/:userId/applications/:applicationId
 ```
 
-This matches the route we gave the `action` attribute of our `<form>`. 
+This matches the route we gave the `action` attribute of our `<form>`.
 
 ```html
-    <!-- We'll use method-override to allow us to hit a put route: -->
-<form 
+  <!-- views/applications/edit.ejs -->
+
+  <!-- We'll use method-override to allow us to hit a put route: -->
+  <form 
     action="/users/<%= user._id %>/applications/<%= application._id %>?_method=PUT"
     method="POST"
   >
@@ -27,7 +29,7 @@ This matches the route we gave the `action` attribute of our `<form>`.
 Next, in `controllers/applications.js`, let's build our `update` route:
 
 ```js
-// // controllers/applications.js`
+// controllers/applications.js`
 
 router.put('/:applicationId', async (req, res) => {
   try {
@@ -35,7 +37,9 @@ router.put('/:applicationId', async (req, res) => {
     const currentUser = await User.findById(req.session.user._id);
     // Find the current application from the id supplied by req.params
     const application = currentUser.applications.id(req.params.applicationId);
-    // Use the Mongoose .set() method, updating the current application to reflect the new form data on `req.body`
+    // Use the Mongoose .set() method
+    // this method updates the current application to reflect the new form
+    // data on `req.body`
     application.set(req.body);
     // Save the current user
     await currentUser.save();
@@ -50,4 +54,4 @@ router.put('/:applicationId', async (req, res) => {
 });
 ```
 
-> The application's existing data is updated with the new data submitted in the request body (`req.body`). This is done using Mongoose's `.set()` method, which is a convenient way to update subdocuments in an embedded schema.
+> 🧠 The application's existing data is updated with the new data submitted in the request body (`req.body`). This is done using Mongoose's `.set()` method, which is a convenient way to update subdocuments in an embedded schema.

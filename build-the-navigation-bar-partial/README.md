@@ -2,11 +2,15 @@
 
 **Learning objective:** By the end of this lesson, students will be able to understand and implement EJS partials in their web applications by creating a reusable nav bar component.
 
-## What is a Partial
+## What is a partial
 
-When creating an application, you might find that certain pieces of UI code are repeated on multiple pages. To avoid copying and pasting the same code (which goes against best practice of writing D.R.Y. code), we can use a feature in EJS called "partials."
+When creating an application, you might find that certain pieces of UI code are repeated on multiple pages. To avoid copying and pasting the same code (which goes against best practice of writing DRY code), we can use a feature in EJS called *partials*. A common use case for partials is for components like navigation bars, which are typically consistent across different pages of an app.
 
-A partial is essentially a small EJS template designed to be included or embedded within other EJS templates. A common use case for partials is for components like navigation bars, which are typically consistent across different pages of an app. The code for the navbar of an app is likely to remain the same regardless of what page the user is navigating to, so being able to write the code once and reuse it on each page is very handy! To demonstrate the power and utility of partials, we will create and render a navbar partial for our application.
+The code for the navbar of an app is likely to remain the same regardless of what page the user is navigating to, so being able to write the code once and reuse it on each page is very handy!
+
+> 📚 A *partial* is an EJS template designed to be included or embedded within other EJS templates.
+
+To demonstrate the power and utility of partials, we will create and render a navbar partial for our application.
 
 ## Creating a partial template
 
@@ -26,7 +30,7 @@ Next, add the following code to our new nav partial:
 
 <nav>
   <% if(user) { %>
-    <a href="/users/<%=user._id%>/applications">Your Apps</a>
+    <a href="/users/<%= user._id %>/applications">Your Apps</a>
     <a href="/auth/sign-out">Sign Out</a>
   <% } else { %>
     <a href="/auth/sign-in">Sign In</a>
@@ -35,7 +39,7 @@ Next, add the following code to our new nav partial:
 </nav>
 ```
 
-The above code applies conditional rendering based on the existence of a user. When setting up our `passUserToView` middleware, we either passed a user object or null into the locals object of each page. The logic above reads, that if there is no signed-in user, only the sign-in and sign-up links will be visible, otherwise the user will see a link to view all of their applications or sign out. 
+The above code applies conditional rendering based on the existence of a user. When setting up our `passUserToView` middleware, we either passed a user object or null into the locals object of each page. The logic above reads, that if there is no signed-in user, only the sign-in and sign-up links will be visible, otherwise the user will see a link to view all of their applications or sign out.
 
 ## Using partials
 
@@ -56,11 +60,16 @@ Let's go ahead and include this partial in our `sign-up` and `sign-in` templates
   <h1>Create a new account!</h1>
   <form action="/auth/sign-up" method="POST">
     <label for="username">Username:</label>
-    <input type="text" name="username" id="username" />
+    <input type="text" name="username" id="username" required />
     <label for="password">Password:</label>
-    <input type="password" name="password" id="password" />
+    <input type="password" name="password" id="password" required />
     <label for="confirmPassword">Confirm Password:</label>
-    <input type="password" name="confirmPassword" id="confirmPassword" />
+    <input
+      type="password"
+      name="confirmPassword"
+      id="confirmPassword"
+      required
+    />
     <button type="submit">Sign up</button>
   </form>
 </body>
@@ -74,9 +83,9 @@ Let's go ahead and include this partial in our `sign-up` and `sign-in` templates
   <h1>Sign in</h1>
   <form action="/auth/sign-in" method="POST">
     <label for="username">Username:</label>
-    <input type="text" name="username" id="username" />
+    <input type="text" name="username" id="username" required />
     <label for="password">Password:</label>
-    <input type="password" name="password" id="password" />
+    <input type="password" name="password" id="password" required />
     <button type="submit">Sign in</button>
   </form>
 </body>
@@ -91,26 +100,18 @@ First, let's add the partial to our site's homepage:
 ```html
 <!-- views/index.ejs -->
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Skyrockit</title>
-</head>
 <body>
   <%- include('./partials/_navbar.ejs') %>
   <h1>Skyrockit</h1>
   <p>A job application tracker.</p>
   <a href="/auth/sign-up">Sign up</a>
-  <a href="/auth/sign-in">sign in</a>
+  <a href="/auth/sign-in">Sign in</a>
 </body>
-</html>
 ```
 
 The addition of this partial now makes all of the previous links on this page redundant. You can remove these links and let the partial do the work for you!
 
-> Test it out and you can see the partial rendered in your main homepage now. If you want to test the conditional rendering, just create a test user and sign in. Once signed in, the page receives a user object, and you'll see the link to the applications page.
+> 💡 Test it out and you can see the partial rendered in your main homepage now. If you want to test the conditional rendering, just create a test user and sign in. Once signed in, the page receives a user object, and you'll see the link to the applications page.
 
 ### Including the `nav` partial on `index.ejs`
 
@@ -125,4 +126,4 @@ Let's also add our `navbar` partial to our `applications` landing page:
 </body>
 ```
 
-Refresh the page and you should see the navbar rendered above your h1.
+Refresh the page and you should see the navbar rendered above the `<h1>` element.

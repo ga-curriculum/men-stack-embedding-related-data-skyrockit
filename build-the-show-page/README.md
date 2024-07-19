@@ -4,7 +4,7 @@
 
 ## Conceptualizing the route
 
-Now that we have an index view, let's look at another User Story: 
+Now that we have an index view, let's look at another user story:
 
 > As a user, I need to be able to click on any job in my list and see all the details about it on a new page. This includes everything I've recorded about that job application.
 
@@ -12,30 +12,29 @@ Our current index page provides a snapshot of each application, displaying only 
 
 The route is defined as follows:
 
-```text
+```plaintext
 GET /users/:userId/applications/:applicationId
 ```
 
 This route is structured to fetch a particular application, identified by its unique `:applicationId`, associated with a specific user, by `:userId`.
-
 
 ## Link to the `show` page
 
 To start, let's update our `applications/index.ejs` file. We will modify it to include links that lead to the detailed `show` view of each application:
 
 ```html
-<!-- views/applications/index.ejs -->
+  <!-- views/applications/index.ejs -->
 
-<ul>
-  <% applications.forEach((application)=>{ %>
-    <li>
-      <!-- Add a link around each title and company, directing to the 'show' page -->
-      <a href="/users/<%= user._id %>/applications/<%= application._id %>">
-          <%= application.title %> at <%= application.company %>
-      </a>
-    </li>
-  <% }) %>
-</ul>
+  <ul>
+    <% applications.forEach((application)=>{ %>
+      <li>
+        <!-- Add a link around each application, directing to the 'show' page -->
+        <a href="/users/<%= user._id %>/applications/<%= application._id %>">
+            <%= application.title %> at <%= application.company %>
+        </a>
+      </li>
+    <% }) %>
+  </ul>
 ```
 
 ## Build the route
@@ -50,8 +49,7 @@ router.get('/:applicationId', (req, res) => {
 });
 ```
 
-Click one of the new application links to see your `applicationId`. It works! 
-
+Click one of the new application links to see your `applicationId`. It works!
 
 With this `id` we can now look up specific applications in our database. Modify the controller function to look up an application by `id` and render the `show` page:
 
@@ -110,4 +108,4 @@ To our boilerplate, we'll add some EJS to display the `application` data:
 </html>
 ```
 
-Note that some of the information we collected from the user was optional. We want to make sure we account for any optional data using conditional logic so that the user is only shown information they opted to include. We can do this by using the `<% if(data) %>` convention.
+Note that some of the information we collected from the user was optional. We want to make sure we account for any optional data using conditional logic so that the user is only shown information they opted to include. We can do this by using the `<% if (data) %>` convention.

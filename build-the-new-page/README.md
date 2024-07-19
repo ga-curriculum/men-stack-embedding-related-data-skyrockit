@@ -2,11 +2,11 @@
 
 **Learning objective:** By the end of this lesson, students will be able to create a form for adding new job applications, understand how to route this form using RESTful conventions and learn the principles of aligning form inputs with a data schema.
 
-At this stage, we have an index page, but no applications to display. Before we can add application data to our database, we need a form to collect this information from our user. 
+At this stage, we have an index page, but no applications to display. Before we can add application data to our database, we need a form to collect this information from our user.
 
 ## Conceptualizing the route
 
-Let's review our first user story: 
+Let's review our first user story:
 
 > As a user, I want to be able to add new job applications that I'm thinking about applying to or have already applied to. For each job, I should be able to note down important stuff like the company's name, the job title, what stage the application is at, and if I want, some personal notes and the link to the job posting.
 
@@ -22,7 +22,6 @@ Before we move forward, a quick reminder that some CRUD operations only require 
 2. *Submitting the Form:* After the user fills out and submits the form, a second request takes place. This request sends the user's data to the server, where it's either added as new data to the database (Create) or used to update existing data (Update).
 
 Below, we'll tackle the first half of the `New` + `Create` process (a `GET` request to a view displaying a form), and in the next lesson we'll handle what happens when that form is submitted.
-
 
 ## Defining the route on the server
 
@@ -40,9 +39,15 @@ router.get('/new', async (req, res) => {
 
 Next, it's time to build our view. To submit user input, we'll need to create a page with a form element.
 
-In `views/applications`, create a `new.ejs` file and add HTML boilerplate.  
+In `views/applications`, create a `new.ejs` file:
 
-Change the title to "Add a New Application", and give the page a matching header. Lastly, add the navbar partial at the top of the `<body>`: 
+```bash
+touch views/applications/new.ejs
+```
+
+Then add the HTML boilerplate.
+
+Change the title to "Add a New Application", and give the page a matching header. Lastly, add the navbar partial at the top of the `<body>`:
 
 ```html
 <!-- views/applications/new.ejs -->
@@ -61,7 +66,7 @@ Change the title to "Add a New Application", and give the page a matching header
 </html>
 ```
 
-Time to test, but how do we get to our new page? 
+Time to test, but how do we get to our new page?
 
 We need a link on our `applications` index page that will take us to our `new` view.
 
@@ -69,14 +74,13 @@ We need a link on our `applications` index page that will take us to our `new` v
 <!-- views/applications/index.ejs -->
 
 <body>
+  <%- include('../partials/_navbar.ejs') %>
   <h1>Your Apps</h1>
   <a href="/users/<%=user._id%>/applications/new">Add an App</a>
 </body>
-</html>
 ```
 
-The link for this route should match our defined route above. Sign in and test it out! 
-
+The link for this route should match our defined route above. Sign in and test it out!
 
 ## Designing the form
 
@@ -111,50 +115,48 @@ const applicationSchema = new mongoose.Schema({
 
 When designing the form based on this schema, here's what we should consider:
 
-- **Single Line Text Inputs**: For `company`, `title`, and `postingLink`, use standard text inputs. These fields typically require short, concise text.
-
-- **TextArea for Notes**: The notes field is likely to contain more detailed information. Therefore, use a `<textarea>` element, giving users ample space to write their notes.
-
-- **Dropdown for Status:** The status field has pre-defined, *enumerable* options. To enhance user experience and prevent errors, use a `<select>` dropdown. This way, users can only choose from the valid options listed in the `enum` array. This approach eliminates guesswork for users and gives us predictable data.
+- **Single line text inputs**: For `company`, `title`, and `postingLink`, use standard text inputs. These fields typically require short, concise text.
+- **TextArea for notes**: The notes field is likely to contain more detailed information. Therefore, use a `<textarea>` element, giving users ample space to write their notes.
+- **Dropdown for status**: The status field has pre-defined, *enumerable* options. To enhance user experience and prevent errors, use a `<select>` dropdown. This way, users can only choose from the valid options listed in the `enum` array. This approach eliminates guesswork for users and gives us predictable data.
 
 ## Building the form
 
 In `new.ejs`, create a new form element. For now, we will leave the `action` and `method` attributes empty:
 
 ```html
-<!-- views/applications/new.ejs -->
+  <!-- views/applications/new.ejs -->
 
   <form action="" method="">
   </form>
 ```
 
-Next, add input fields to match each item in our data schema. Each input should have a corresponding label for accessibility. 
+Next, add input fields to match each item in our data schema. Each input should have a corresponding label for accessibility.
 
 ```html
-<!-- views/applications/new.ejs -->
+  <!-- views/applications/new.ejs -->
 
-<form action="" method="">
-  <label for="company">Company:</label>
-  <input type="text" name="company" id="company">
-  
-  <label for="title">Title:</label>
-  <input type="text" name="title" id="title">
-  
-  <label for="notes">Notes:</label>
-  <textarea name="notes" id="notes"></textarea>
-  
-  <label for="postingLink">Posting Link:</label>
-  <input type="text" name="postingLink" id="postingLink">
-  
-  <label for="status">Status:</label>
-  <select id="status" name="status">
-    <option value="interested">Interested</option>
-    <option value="applied">Applied</option>
-    <option value="interviewing">Interviewing</option>
-    <option value="rejected">Rejected</option>
-    <option value="accepted">Accepted</option>
-  </select>
-</form>
+  <form action="" method="">
+    <label for="company">Company:</label>
+    <input type="text" name="company" id="company">
+    
+    <label for="title">Title:</label>
+    <input type="text" name="title" id="title">
+    
+    <label for="notes">Notes:</label>
+    <textarea name="notes" id="notes"></textarea>
+    
+    <label for="postingLink">Posting Link:</label>
+    <input type="text" name="postingLink" id="postingLink">
+    
+    <label for="status">Status:</label>
+    <select id="status" name="status">
+      <option value="interested">Interested</option>
+      <option value="applied">Applied</option>
+      <option value="interviewing">Interviewing</option>
+      <option value="rejected">Rejected</option>
+      <option value="accepted">Accepted</option>
+    </select>
+  </form>
 ```
 
 ### Shaping data
@@ -164,7 +166,9 @@ It's important to remember that when a form is submitted, each input's `name` at
 For example, in our schema, we have a company field defined like this:
 
 ```js
-company: {
+  // models/user.js
+
+  company: {
     type: String,
     required: true,
   }
@@ -173,26 +177,33 @@ company: {
 To ensure proper data mapping when the form is submitted, the corresponding input in our HTML form should be set up as follows:
 
 ```html
-<label for="company">Company:</label>
-<input type="text" name="company" id="company">
+    <!-- views/applications/new.ejs -->
+
+    <label for="company">Company:</label>
+    <input type="text" name="company" id="company">
 ```
 
-> The `name` attribute of the input (`name="company"`) exactly matches the property name in the schema (`company:`).
+> 💡 The `name` attribute of the input (`name="company"`) exactly matches the property name in the schema (`company:`).
 
-
-Also, note that the `value` attribute for each `<option>` in our `<select>` dropdown exactly matches one of the items in the `enum` array on our schema: 
+Also, note that the `value` attribute for each `<option>` in our `<select>` dropdown exactly matches one of the items in the `enum` array on our schema:
 
 **Schema:**
+
 ```js
-status: {
+  // models/user.js
+
+  status: {
     type: String,
     enum: ['interested', 'applied', 'interviewing', 'rejected', 'accepted'],
   }
 ```
 
 **Form:**
+
 ```html
-<select id="status" name="status">
+    <!-- views/applications/new.ejs -->
+
+    <select id="status" name="status">
       <option value="interested">Interested</option>
       <option value="applied">Applied</option>
       <option value="interviewing">Interviewing</option>
@@ -201,7 +212,7 @@ status: {
     </select>
 ```
 
-Similar to how the rest of the inputs work, when the form is submitted the `name` of the `<select>` input will be used as a key, and the `value` of the selected option will be submitted as the value. If a user were to select "Applied" from the dropdown, the resulting key:value pair would look like this: 
+Similar to how the rest of the inputs work, when the form is submitted the `name` of the `<select>` input will be used as a key, and the `value` of the selected option will be submitted as the value. If a user were to select "Applied" from the dropdown, the resulting key:value pair would look like this:
 
 ```json
 { "status": "applied" }
@@ -209,40 +220,38 @@ Similar to how the rest of the inputs work, when the form is submitted the `name
 
 This is why the `value` must match an `enum` element exactly.
 
-
 ## Submitting the form
 
 To complete our form, the last element we need is a submit button.
 
 ```html
-<!-- views/applications/new.ejs -->
+  <!-- views/applications/new.ejs -->
 
-<form action="" method="">
-  <label for="company">Company:</label>
-  <input type="text" name="company" id="company">
-  
-  <label for="title">Title:</label>
-  <input type="text" name="title" id="title">
-  
-  <label for="notes">Notes:</label>
-  <textarea name="notes" id="notes"></textarea>
-  
-  <label for="postingLink">Posting Link:</label>
-  <input type="text" name="postingLink" id="postingLink">
-  
-  <label for="status">Status:</label>
-  <select id="status" name="status">
-    <option value="interested">Interested</option>
-    <option value="applied">Applied</option>
-    <option value="interviewing">Interviewing</option>
-    <option value="rejected">Rejected</option>
-    <option value="accepted">Accepted</option>
-  </select>
+  <form action="" method="">
+    <label for="company">Company:</label>
+    <input type="text" name="company" id="company">
+    
+    <label for="title">Title:</label>
+    <input type="text" name="title" id="title">
+    
+    <label for="notes">Notes:</label>
+    <textarea name="notes" id="notes"></textarea>
+    
+    <label for="postingLink">Posting Link:</label>
+    <input type="text" name="postingLink" id="postingLink">
+    
+    <label for="status">Status:</label>
+    <select id="status" name="status">
+      <option value="interested">Interested</option>
+      <option value="applied">Applied</option>
+      <option value="interviewing">Interviewing</option>
+      <option value="rejected">Rejected</option>
+      <option value="accepted">Accepted</option>
+    </select>
 
-  <!-- Add a submit button -->
-  <button type="submit">Add Application</button>
-</form>
+    <!-- Add a submit button -->
+    <button type="submit">Add Application</button>
+  </form>
 ```
 
-Fantastic - next, we're ready to build the `create` functionality and give this form somewhere to submit to! 
-We'll be coming back to update the `action` and `method` on this form, but otherwise our `new` page is finished.
+Fantastic - next, we're ready to build the `create` functionality and give this form somewhere to submit to! We'll be coming back to update the `action` and `method` on this form, but otherwise our `new` page is finished.

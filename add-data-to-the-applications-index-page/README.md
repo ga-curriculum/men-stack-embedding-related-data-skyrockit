@@ -2,13 +2,13 @@
 
 **Learning objective:** By the end of this lesson, students will be able to implement the `Read` operation for an `index` route in a CRUD application.
 
-Currently, when we finish creating a new application, our controller redirects to `/applications`. Now that there is data in the database for this resource, we want `/applications` to be a page that indexes all of the applications we've created. 
+Currently, when we finish creating a new application, our controller redirects to `/applications`. Now that there is data in the database for this resource, we want `/applications` to be a page that indexes all of the applications we've created.
 
-Let's get started! 
+Let's get started!
 
 ## Conceptualizing the route
 
-We've already done this! The route will be: 
+We've already done this! The route will be:
 
 ```plaintext
 GET /users/:userId/applications
@@ -16,11 +16,11 @@ GET /users/:userId/applications
 
 ## Add the UI
 
-Submitting a new application will automatically redirect us here, and we already have a link in our nav partial! 
+Submitting a new application will automatically redirect us here, and we already have a link in our nav partial!
 
 ## Define the route and build the controller
 
-In order to list all of the applications created by the user, we'll first need to look up the current user in the database. When rendering the index view, the `applications` array of the current user will get passed to the view in the context object. Let's update our existing `index` controller function: 
+In order to list all of the applications created by the user, we'll first need to look up the current user in the database. When rendering the index view, the `applications` array of the current user will get passed to the view in the context object. Let's update our existing `index` controller function:
 
 ```js
 // controllers/applications.js
@@ -46,7 +46,7 @@ router.get('/', async (req, res) => {
 
 Now that we have updated the controller for our `index` route, let's update our `applications/index.ejs` file to display the `applications` data.
 
-Consider the following User Story:
+Consider the following user story:
 
 > As a user, I want to see all the jobs I've applied for in one place. This page should just show the job title and the company name for each job to keep it simple and easy to look at.
 
@@ -69,9 +69,7 @@ For now, we'll just display the `title` and `company`:
     <!-- Add the following: -->
     <ul>
       <% applications.forEach((application)=>{ %>
-        <li>
-            <%= application.title %> at <%= application.company %>
-        </li>
+        <li><%= application.title %> at <%= application.company %></li>
       <% }) %>
     </ul>
   </body>
