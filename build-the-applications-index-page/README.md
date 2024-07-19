@@ -2,7 +2,7 @@
 
 **Learning objective:** By the end of this lesson, students will be able to build the `applications` index route and view.
 
-## Building the applications landing page
+## Building the applications index page
 
 Now that we have most of the key components in place, we can start to connect our controller to pages a user interacts with.
 
