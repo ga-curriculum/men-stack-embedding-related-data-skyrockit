@@ -2,7 +2,7 @@
 
 **Learning objective:** By the end of this lesson, students will be able to build and implement the `edit` view and route for updating a job application.
 
-For our final page, we'll consult the following User Story:
+For our final page, we'll consult the following user story:
 
 > As a user, when I'm looking at all the details of a job application, I want to be able to change any of the information. There should be an easy-to-find link that takes me to a different page where I can make these changes and then save them.
 
@@ -57,7 +57,6 @@ Next, we'll create the UI that will issue the request to that route. Let's retur
 
 Next, in `controllers/applications.js`, we want to look up an application by its `id`, and then render a view containing a form to update it.
 
-
 ```js
 // controllers/applications.js
 
@@ -77,12 +76,39 @@ router.get('/:applicationId/edit', async (req, res) => {
 
 ## Building the UI
 
-We don't currently have a `applications/edit.ejs` to render, so we'll need to create that file next: 
+We don't currently have a `applications/edit.ejs` to render, so we'll need to create that file next:
 
 ```bash
 touch views/applications/edit.ejs
 ```
 
+The edit form will look very similar to the new form - we want to allow the user to change any of the application data. Since these forms will be so similar it's easiest to copy the code from `views/applications/new.ejs` into the `views/applications/edit.ejs` file we just created. Do this now.
+
+Start our modifications to this by changing the page title from:
+
+```html
+  <!-- views/applications/edit.ejs -->
+
+  <title>Add a New App</title>
+```
+
+to
+
+```html
+  <!-- views/applications/edit.ejs -->
+
+  <title>Editing <%= application.title %></title>
+```
+
+This will make the page title change depending on which application is being edited.
+
+Next change the header on the page to read:
+
+```html
+  <!-- views/applications/edit.ejs -->
+
+  <h1>Edit <%= application.title %> at <%= application.company %></h1>
+```
 
 ### Shaping the data
 
@@ -92,32 +118,50 @@ The goal is to pre-fill the form with the current data so the user only has to m
 
 To achieve this, we set the `value` attribute for each input field to reflect the data currently stored in the database. For instance, the input for the company name would look like this:
 
-
 ```html
-<input type="text" name="company" id="company" value="<%= application.company %>">
+    <!-- views/applications/edit.ejs -->
+
+    <input
+      type="text"
+      name="company"
+      id="company"
+      value="<%= application.company %>"
+    >
 ```
 
 In this example, `<%= application.company %>` dynamically inserts the existing company name from the application data into the input field.
 
-
 For the `<select>` dropdown that handles the 'status', additional logic is required. We need to ensure that the dropdown shows the current status as the selected option. This involves adding a conditional statement to each `<option>` to check whether it should be marked as 'selected' based on the current data:
 
 ```html
-<select id="status" name="status">
-  <option value="interested" <%= application.status === 'interested' ? 'selected' : '' %>>Interested</option>
-  <option value="applied" <%= application.status === 'applied' ? 'selected' : '' %>>Applied</option>
-  <!-- ...more options with similar conditional logic -->
-</select>
+    <!-- views/applications/edit.ejs -->
+
+    <select id="status" name="status">
+      <option 
+        value="interested" 
+        <%= application.status === 'interested' ? 'selected' : '' %>
+      >
+        Interested
+      </option>
+      <option 
+        value="applied"
+        <%= application.status === 'applied' ? 'selected' : '' %>
+      >
+        Applied
+      </option>
+      <!-- ...more options with similar conditional logic -->
+    </select>
 ```
 
-Here, the expression <%= application.status === 'interested' ? 'selected' : '' %> checks if the current status is 'interested'. If it is, the 'selected' attribute is added to the option, making it the default selected option in the dropdown. This same logic is applied to all other status options.
-
+Here, the expression `<%= application.status === 'interested' ? 'selected' : '' %>` checks if the current status is `'interested'`. If it is, the `'selected'` attribute is added to the option, making it the default selected option in the dropdown. This same logic is applied to all other status options.
 
 Our form action will match our future `update` route:
 
 ```html
-    <!-- We'll use method-override to allow us to hit a put route: -->
-<form 
+  <!-- views/applications/edit.ejs -->
+
+  <!-- We'll use method-override to allow us to hit a put route: -->
+  <form 
     action="/users/<%= user._id %>/applications/<%= application._id %>?_method=PUT"
     method="POST"
   >

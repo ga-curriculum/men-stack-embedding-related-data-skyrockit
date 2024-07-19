@@ -10,7 +10,7 @@ Now that we have most of the key components in place, we can start to connect ou
 
 Before we program this route, let's refresh our memories on the action and route combination needed for a landing page or index route:
 
-```text
+```plaintext
 GET /users/:userId/applications
 ```
 

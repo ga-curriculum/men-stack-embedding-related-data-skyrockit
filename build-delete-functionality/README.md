@@ -2,7 +2,7 @@
 
 **Learning objective:** By the end of this lesson, students will be able to build and implement a `DELETE` route and form in their Express application.
 
-Next, we'll tackle the following user story: 
+Next, we'll tackle the following user story:
 
 > As a user, if I'm looking at the details of a job application, I want a simple way to delete it completely, like clicking a 'Delete' button.
 
@@ -18,7 +18,7 @@ This allows us to delete a specific application by `id`.
 
 ## Adding the UI to issue the request
 
-Next, we'll need to create the UI that will issue the request to the route. In `show.ejs`, add the following `<form>`: 
+Next, we'll need to create the UI that will issue the request to the route. In `show.ejs`, add the following `<form>`:
 
 ```html
 <!-- views/applications/show.ejs -->
@@ -55,7 +55,7 @@ Next, we'll need to create the UI that will issue the request to the route. In `
 
 ## Building the route
 
-Just like we did in our `show` route, we will use an `id` to look up a specific application, only this time we will delete it. 
+Just like we did in our `show` route, we will use an `id` to look up a specific application, only this time we will delete it.
 
 ```js
 // controllers/applications.js

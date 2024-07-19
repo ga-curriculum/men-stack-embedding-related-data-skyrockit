@@ -10,9 +10,9 @@ We also need a way to share the user's data with the multiple views in the appli
 
 Both of these tasks can be accomplished by creating some custom middleware that intercepts requests to our `applications` controller.
 
-### Creating the folder and middleware
+### Creating the directory and middleware
 
-Let's begin by creating a middleware folder in the root of our project:
+Let's begin by creating a middleware directory in the root of our project:
 
 ```bash
 mkdir middleware

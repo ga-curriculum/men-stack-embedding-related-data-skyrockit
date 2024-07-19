@@ -15,16 +15,12 @@ This lecture uses the [`MEN Stack Auth Template`](https://git.generalassemb.ly/m
 Navigate to the [MEN Stack Auth Template](https://git.generalassemb.ly/modular-curriculum-all-courses/men-stack-session-auth-template) and clone the repository to your machine:
 
 ```bash
-git clone git@git.generalassemb.ly:modular-curriculum-all-courses/men-stack-session-auth-template.git
+git clone https://git.generalassemb.ly/modular-curriculum-all-courses/men-stack-session-auth-template.git skyrockit
 ```
 
-Once we have the repository on our machines, we can change the name of the directory to better reflect a job tracking app meant to help us ascend to the highest stratospheres of our career:  Skyrockit!
+Note by adding the `skyrockit` argument we're cloning the specified repo into a directory called `skyrockit` on our machines.
 
-```bash
-mv men-stack-session-auth-template skyrockit
-```
-
-Next, `cd` into your renamed directory:
+Next, `cd` into the new directory:
 
 ```bash
 cd skyrockit
@@ -36,8 +32,7 @@ Finally, remove the existing `.git` information from this template:
 rm -rf .git
 ```
 
-> Removing the `.git` info is important as this is just a starter template provided by GA. You do not need the existing git history for this project.
-
+> 🚨 Removing the `.git` info is important as this is just a starter template provided by GA. You do not need the existing git history for this project.
 
 ## GitHub setup
 
@@ -49,7 +44,7 @@ git add .
 git commit -m "init commit"
 ```
 
-Make a new repository on [GitHub](https://github.com/) named `skyrockit`. 
+Make a new repository on [GitHub](https://github.com/) named `skyrockit`.
 
 Link your local project to your remote GitHub repo:
 
@@ -60,7 +55,7 @@ git push origin main
 
 > 🚨 Do not copy the above command. It will not work. Your GitHub username will replace `<github-username>` (including the `<` and `>`) in the URL above.
 
-Open the project's folder in your code editor:
+Open the project's directory in your code editor:
 
 ```bash
 code .
@@ -74,31 +69,45 @@ Next, you will want to install all of the packages listed in `package.json`
 npm i
 ```
 
-## Create your .gitignore
+## Create your `.gitignore`
 
-Once these files are created, add `.env`, `package-lock.json`, and `node_modules` to your `.gitignore` file.  Doing so will prevent those files and directories from being tracked and we can be confident that any data we add there will not be pushed up to GitHub.
+Create a `.gitignore` file at the root of your project:
 
-```text
+```bash
+touch .gitignore
+```
+
+Once the file are created, add `.env`, `package-lock.json`, and `node_modules` to your `.gitignore` file. Doing so will prevent those files and directories from being tracked and we can be confident that any data we add there will not be pushed up to GitHub.
+
+```plaintext
 .env
 node_modules
 package-lock.json
 ```
 
-## Create your .env
+## Create your `.env`
 
-Lastly, we want to create `MONGODB_URI` and `SESSION_SECRET` to hold values used in our auth logic.  `MONGODB_URI` will connect to your MongoDB Atlas connection string so you will need to establish one for this application.  `SESSION_SECRET` will aid in your auth session logic.
+Lastly, we want to create `MONGODB_URI` and `SESSION_SECRET` to hold values used in our auth logic. `MONGODB_URI` will connect to your MongoDB Atlas connection string so you will need to establish one for this application. `SESSION_SECRET` will aid in your auth session logic.
 
-Add a `.env` file to your application and add the following secret keys to your application:
+Add a `.env` file to your application:
 
-```text
+```bash
+touch .env
+```
+
+Then add the following secret keys to the file:
+
+```plaintext
 MONGODB_URI=
 SESSION_SECRET=
 ```
 
-Start the server and you are ready for launch. 
+Provide appropriate values for each.
+
+Start the server and you are ready for launch.
 
 ```bash
 nodemon start
 ```
 
-Happy Coding! 
+Happy coding!

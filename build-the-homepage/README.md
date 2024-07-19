@@ -9,6 +9,8 @@ Initially, the **MEN Stack Auth Template** provides a generic homepage setup. Th
 Here's the original homepage code:
 
 ```html
+<!-- views/index.ejs -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,6 +39,8 @@ Here's the original homepage code:
 To customize this for Skyrockit, we'll make some changes to reflect the app's purpose and branding:
 
 ```html
+<!-- views/index.ejs -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
