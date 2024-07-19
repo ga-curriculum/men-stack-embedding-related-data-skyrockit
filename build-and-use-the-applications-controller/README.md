@@ -49,6 +49,7 @@ Place it just above our `app.listen` logic in the server:
 // server.js
 
 app.use('/auth', authController);
+app.use(isSignedIn);
 app.use('/users/:userId/applications', applicationsController); // New!
 
 app.listen(port, () => {
