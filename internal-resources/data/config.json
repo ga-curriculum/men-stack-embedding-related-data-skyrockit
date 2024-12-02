@@ -1,0 +1,415 @@
+{
+  "org": {
+    "friendlyName": "Modular Curriculum All Courses",
+    "name": "modular-curriculum-all-courses"
+  },
+  "repo": {
+    "friendlyName": "MEN Stack Embedding Related Data - Skyrockit",
+    "name": "men-stack-embedding-related-data-skyrockit",
+    "type": "Lesson",
+    "about": "",
+    "starterCode": "",
+    "solutionCode": "",
+    "deployedSite": ""
+  },
+  "courses": [
+    {
+      "name": "fallback",
+      "courseAcronym": "",
+      "courseFullName": "",
+      "logoUrl": "",
+      "microlessons": [
+        {
+          "friendlyName": "Setup",
+          "dirName": "setup",
+          "type": "Content",
+          "skill": "",
+          "learningObjective": "",
+          "videoUrl": "",
+          "videoLengthInMinutes": 0,
+          "estimatedDeliveryTimeInMinutes": 0
+        },
+        {
+          "friendlyName": "Setting the Stage",
+          "dirName": "setting-the-stage",
+          "type": "Content",
+          "skill": "",
+          "learningObjective": "",
+          "videoUrl": "",
+          "videoLengthInMinutes": 0,
+          "estimatedDeliveryTimeInMinutes": 0
+        },
+        {
+          "friendlyName": "Build the Application Schema",
+          "dirName": "build-the-application-schema",
+          "type": "Content",
+          "skill": "",
+          "learningObjective": "",
+          "videoUrl": "",
+          "videoLengthInMinutes": 0,
+          "estimatedDeliveryTimeInMinutes": 0
+        },
+        {
+          "friendlyName": "Build the Homepage",
+          "dirName": "build-the-homepage",
+          "type": "Content",
+          "skill": "",
+          "learningObjective": "",
+          "videoUrl": "",
+          "videoLengthInMinutes": 0,
+          "estimatedDeliveryTimeInMinutes": 0
+        },
+        {
+          "friendlyName": "Add Route Middleware",
+          "dirName": "add-route-middleware",
+          "type": "Content",
+          "skill": "",
+          "learningObjective": "",
+          "videoUrl": "",
+          "videoLengthInMinutes": 0,
+          "estimatedDeliveryTimeInMinutes": 0
+        },
+        {
+          "friendlyName": "Build and Use the Applications Controller",
+          "dirName": "build-and-use-the-applications-controller",
+          "type": "Content",
+          "skill": "",
+          "learningObjective": "",
+          "videoUrl": "",
+          "videoLengthInMinutes": 0,
+          "estimatedDeliveryTimeInMinutes": 0
+        },
+        {
+          "friendlyName": "Build the Applications Index Page",
+          "dirName": "build-the-applications-index-page",
+          "type": "Content",
+          "skill": "",
+          "learningObjective": "",
+          "videoUrl": "",
+          "videoLengthInMinutes": 0,
+          "estimatedDeliveryTimeInMinutes": 0
+        },
+        {
+          "friendlyName": "Build the Navigation Bar Partial",
+          "dirName": "build-the-navigation-bar-partial",
+          "type": "Content",
+          "skill": "",
+          "learningObjective": "",
+          "videoUrl": "",
+          "videoLengthInMinutes": 0,
+          "estimatedDeliveryTimeInMinutes": 0
+        },
+        {
+          "friendlyName": "Build the New Page",
+          "dirName": "build-the-new-page",
+          "type": "Content",
+          "skill": "",
+          "learningObjective": "",
+          "videoUrl": "",
+          "videoLengthInMinutes": 0,
+          "estimatedDeliveryTimeInMinutes": 0
+        },
+        {
+          "friendlyName": "Build Create Functionality",
+          "dirName": "build-create-functionality",
+          "type": "Content",
+          "skill": "",
+          "learningObjective": "",
+          "videoUrl": "",
+          "videoLengthInMinutes": 0,
+          "estimatedDeliveryTimeInMinutes": 0
+        },
+        {
+          "friendlyName": "Add Data to the Applications Index Page",
+          "dirName": "add-data-to-the-applications-index-page",
+          "type": "Content",
+          "skill": "",
+          "learningObjective": "",
+          "videoUrl": "",
+          "videoLengthInMinutes": 0,
+          "estimatedDeliveryTimeInMinutes": 0
+        },
+        {
+          "friendlyName": "Build the Show Page",
+          "dirName": "build-the-show-page",
+          "type": "Content",
+          "skill": "",
+          "learningObjective": "",
+          "videoUrl": "",
+          "videoLengthInMinutes": 0,
+          "estimatedDeliveryTimeInMinutes": 0
+        },
+        {
+          "friendlyName": "Build Delete Functionality",
+          "dirName": "build-delete-functionality",
+          "type": "Content",
+          "skill": "",
+          "learningObjective": "",
+          "videoUrl": "",
+          "videoLengthInMinutes": 0,
+          "estimatedDeliveryTimeInMinutes": 0
+        },
+        {
+          "friendlyName": "Build the Edit Page",
+          "dirName": "build-the-edit-page",
+          "type": "Content",
+          "skill": "",
+          "learningObjective": "",
+          "videoUrl": "",
+          "videoLengthInMinutes": 0,
+          "estimatedDeliveryTimeInMinutes": 0
+        },
+        {
+          "friendlyName": "Build Update Functionality",
+          "dirName": "build-update-functionality",
+          "type": "Content",
+          "skill": "",
+          "learningObjective": "",
+          "videoUrl": "",
+          "videoLengthInMinutes": 0,
+          "estimatedDeliveryTimeInMinutes": 0
+        },
+        {
+          "friendlyName": "Wrap Up",
+          "dirName": "wrap-up",
+          "type": "Content",
+          "skill": "",
+          "learningObjective": "",
+          "videoUrl": "",
+          "videoLengthInMinutes": 0,
+          "estimatedDeliveryTimeInMinutes": 0
+        },
+        {
+          "friendlyName": "Style the Application",
+          "dirName": "style-the-application",
+          "type": "Content",
+          "skill": "",
+          "learningObjective": "",
+          "videoUrl": "",
+          "videoLengthInMinutes": 0,
+          "estimatedDeliveryTimeInMinutes": 0
+        }
+      ],
+      "isHeaderShown": true,
+      "isHeaderModuleNavShown": true,
+      "isHeaderHomeNavShown": true,
+      "isHeaderMicrolessonNavShown": true,
+      "isHeaderMicrolessonVideoLinkShown": true,
+      "isHeaderNavSettingsShown": true,
+      "isFooterCopyrightShown": true,
+      "isFooterLessonNavShown": true,
+      "isStickyNavSettingShown": true,
+      "isStickyNavAllowed": true,
+      "isFixedNavAllowed": true,
+      "isStickyNavDefault": true,
+      "isStickyNavForcedDefault": false,
+      "isFixedNavForcedDefault": false,
+      "isDarkModeSettingShown": true,
+      "isDarkModeAllowed": true,
+      "isLightModeAllowed": true,
+      "isLightModeDefault": true,
+      "isLightModeForcedDefault": false,
+      "isDarkModeForcedDefault": false,
+      "isActivityTimeShown": true
+    },
+    {
+      "name": "seb",
+      "courseAcronym": "",
+      "courseFullName": "",
+      "logoUrl": "",
+      "microlessons": [
+        {
+          "friendlyName": "Setup",
+          "dirName": "setup",
+          "type": "Content",
+          "skill": "",
+          "learningObjective": "",
+          "videoUrl": "",
+          "videoLengthInMinutes": 0,
+          "estimatedDeliveryTimeInMinutes": 0
+        },
+        {
+          "friendlyName": "Setting the Stage",
+          "dirName": "setting-the-stage",
+          "type": "Content",
+          "skill": "",
+          "learningObjective": "",
+          "videoUrl": "",
+          "videoLengthInMinutes": 0,
+          "estimatedDeliveryTimeInMinutes": 0
+        },
+        {
+          "friendlyName": "Build the Application Schema",
+          "dirName": "build-the-application-schema",
+          "type": "Content",
+          "skill": "",
+          "learningObjective": "",
+          "videoUrl": "",
+          "videoLengthInMinutes": 0,
+          "estimatedDeliveryTimeInMinutes": 0
+        },
+        {
+          "friendlyName": "Build the Homepage",
+          "dirName": "build-the-homepage",
+          "type": "Content",
+          "skill": "",
+          "learningObjective": "",
+          "videoUrl": "",
+          "videoLengthInMinutes": 0,
+          "estimatedDeliveryTimeInMinutes": 0
+        },
+        {
+          "friendlyName": "Add Route Middleware",
+          "dirName": "add-route-middleware",
+          "type": "Content",
+          "skill": "",
+          "learningObjective": "",
+          "videoUrl": "",
+          "videoLengthInMinutes": 0,
+          "estimatedDeliveryTimeInMinutes": 0
+        },
+        {
+          "friendlyName": "Build and Use the Applications Controller",
+          "dirName": "build-and-use-the-applications-controller",
+          "type": "Content",
+          "skill": "",
+          "learningObjective": "",
+          "videoUrl": "",
+          "videoLengthInMinutes": 0,
+          "estimatedDeliveryTimeInMinutes": 0
+        },
+        {
+          "friendlyName": "Build the Applications Index Page",
+          "dirName": "build-the-applications-index-page",
+          "type": "Content",
+          "skill": "",
+          "learningObjective": "",
+          "videoUrl": "",
+          "videoLengthInMinutes": 0,
+          "estimatedDeliveryTimeInMinutes": 0
+        },
+        {
+          "friendlyName": "Build the Navigation Bar Partial",
+          "dirName": "build-the-navigation-bar-partial",
+          "type": "Content",
+          "skill": "",
+          "learningObjective": "",
+          "videoUrl": "",
+          "videoLengthInMinutes": 0,
+          "estimatedDeliveryTimeInMinutes": 0
+        },
+        {
+          "friendlyName": "Build the New Page",
+          "dirName": "build-the-new-page",
+          "type": "Content",
+          "skill": "",
+          "learningObjective": "",
+          "videoUrl": "",
+          "videoLengthInMinutes": 0,
+          "estimatedDeliveryTimeInMinutes": 0
+        },
+        {
+          "friendlyName": "Build Create Functionality",
+          "dirName": "build-create-functionality",
+          "type": "Content",
+          "skill": "",
+          "learningObjective": "",
+          "videoUrl": "",
+          "videoLengthInMinutes": 0,
+          "estimatedDeliveryTimeInMinutes": 0
+        },
+        {
+          "friendlyName": "Add Data to the Applications Index Page",
+          "dirName": "add-data-to-the-applications-index-page",
+          "type": "Content",
+          "skill": "",
+          "learningObjective": "",
+          "videoUrl": "",
+          "videoLengthInMinutes": 0,
+          "estimatedDeliveryTimeInMinutes": 0
+        },
+        {
+          "friendlyName": "Build the Show Page",
+          "dirName": "build-the-show-page",
+          "type": "Content",
+          "skill": "",
+          "learningObjective": "",
+          "videoUrl": "",
+          "videoLengthInMinutes": 0,
+          "estimatedDeliveryTimeInMinutes": 0
+        },
+        {
+          "friendlyName": "Build Delete Functionality",
+          "dirName": "build-delete-functionality",
+          "type": "Content",
+          "skill": "",
+          "learningObjective": "",
+          "videoUrl": "",
+          "videoLengthInMinutes": 0,
+          "estimatedDeliveryTimeInMinutes": 0
+        },
+        {
+          "friendlyName": "Build the Edit Page",
+          "dirName": "build-the-edit-page",
+          "type": "Content",
+          "skill": "",
+          "learningObjective": "",
+          "videoUrl": "",
+          "videoLengthInMinutes": 0,
+          "estimatedDeliveryTimeInMinutes": 0
+        },
+        {
+          "friendlyName": "Build Update Functionality",
+          "dirName": "build-update-functionality",
+          "type": "Content",
+          "skill": "",
+          "learningObjective": "",
+          "videoUrl": "",
+          "videoLengthInMinutes": 0,
+          "estimatedDeliveryTimeInMinutes": 0
+        },
+        {
+          "friendlyName": "Wrap Up",
+          "dirName": "wrap-up",
+          "type": "Content",
+          "skill": "",
+          "learningObjective": "",
+          "videoUrl": "",
+          "videoLengthInMinutes": 0,
+          "estimatedDeliveryTimeInMinutes": 0
+        },
+        {
+          "friendlyName": "Style the Application",
+          "dirName": "style-the-application",
+          "type": "Level Up content",
+          "skill": "",
+          "learningObjective": "",
+          "videoUrl": "",
+          "videoLengthInMinutes": 0,
+          "estimatedDeliveryTimeInMinutes": 0
+        }
+      ],
+      "isHeaderShown": true,
+      "isHeaderModuleNavShown": true,
+      "isHeaderHomeNavShown": true,
+      "isHeaderMicrolessonNavShown": true,
+      "isHeaderMicrolessonVideoLinkShown": true,
+      "isHeaderNavSettingsShown": true,
+      "isFooterCopyrightShown": true,
+      "isFooterLessonNavShown": true,
+      "isStickyNavSettingShown": true,
+      "isStickyNavAllowed": true,
+      "isFixedNavAllowed": true,
+      "isStickyNavDefault": true,
+      "isStickyNavForcedDefault": false,
+      "isFixedNavForcedDefault": false,
+      "isDarkModeSettingShown": true,
+      "isDarkModeAllowed": true,
+      "isLightModeAllowed": true,
+      "isLightModeDefault": true,
+      "isLightModeForcedDefault": false,
+      "isDarkModeForcedDefault": false,
+      "isActivityTimeShown": true
+    }
+  ]
+}

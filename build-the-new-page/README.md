@@ -1,4 +1,7 @@
-# ![MEN Stack Embedding Related Data - Skyrockit - Build the New Page](./assets/hero.png)
+<h1>
+  <span class="headline">Skyrockit</span>
+  <span class="subhead">Build the New Page</span>
+</h1>
 
 **Learning objective:** By the end of this lesson, students will be able to create a form for adding new job applications, understand how to route this form using RESTful conventions and learn the principles of aligning form inputs with a data schema.
 
@@ -18,8 +21,8 @@ GET /users/:userId/applications/new
 
 Before we move forward, a quick reminder that some CRUD operations only require a single request, such as a `GET` request for a `show` page. However, operations like creating or updating data typically involve two distinct steps:
 
-1. *Initial request for form:* The first step involves a request that results in a page being displayed. This page contains a form designed to gather the required data from the user.
-2. *Submitting the Form:* After the user fills out and submits the form, a second request takes place. This request sends the user's data to the server, where it's either added as new data to the database (Create) or used to update existing data (Update).
+1. _Initial request for form:_ The first step involves a request that results in a page being displayed. This page contains a form designed to gather the required data from the user.
+2. _Submitting the Form:_ After the user fills out and submits the form, a second request takes place. This request sends the user's data to the server, where it's either added as new data to the database (Create) or used to update existing data (Update).
 
 Below, we'll tackle the first half of the `New` + `Create` process (a `GET` request to a view displaying a form), and in the next lesson we'll handle what happens when that form is submitted.
 
@@ -54,11 +57,11 @@ Change the title to "Add a New Application", and give the page a matching header
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Add a New App</title>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add a New App</title>
+  </head>
   <body>
     <%- include('../partials/_navbar.ejs') %>
     <h1>Add a New App</h1>
@@ -117,46 +120,45 @@ When designing the form based on this schema, here's what we should consider:
 
 - **Single line text inputs**: For `company`, `title`, and `postingLink`, use standard text inputs. These fields typically require short, concise text.
 - **TextArea for notes**: The notes field is likely to contain more detailed information. Therefore, use a `<textarea>` element, giving users ample space to write their notes.
-- **Dropdown for status**: The status field has pre-defined, *enumerable* options. To enhance user experience and prevent errors, use a `<select>` dropdown. This way, users can only choose from the valid options listed in the `enum` array. This approach eliminates guesswork for users and gives us predictable data.
+- **Dropdown for status**: The status field has pre-defined, _enumerable_ options. To enhance user experience and prevent errors, use a `<select>` dropdown. This way, users can only choose from the valid options listed in the `enum` array. This approach eliminates guesswork for users and gives us predictable data.
 
 ## Building the form
 
 In `new.ejs`, create a new form element. For now, we will leave the `action` and `method` attributes empty:
 
 ```html
-  <!-- views/applications/new.ejs -->
+<!-- views/applications/new.ejs -->
 
-  <form action="" method="">
-  </form>
+<form action="" method=""></form>
 ```
 
 Next, add input fields to match each item in our data schema. Each input should have a corresponding label for accessibility.
 
 ```html
-  <!-- views/applications/new.ejs -->
+<!-- views/applications/new.ejs -->
 
-  <form action="" method="">
-    <label for="company">Company:</label>
-    <input type="text" name="company" id="company">
-    
-    <label for="title">Title:</label>
-    <input type="text" name="title" id="title">
-    
-    <label for="notes">Notes:</label>
-    <textarea name="notes" id="notes"></textarea>
-    
-    <label for="postingLink">Posting Link:</label>
-    <input type="text" name="postingLink" id="postingLink">
-    
-    <label for="status">Status:</label>
-    <select id="status" name="status">
-      <option value="interested">Interested</option>
-      <option value="applied">Applied</option>
-      <option value="interviewing">Interviewing</option>
-      <option value="rejected">Rejected</option>
-      <option value="accepted">Accepted</option>
-    </select>
-  </form>
+<form action="" method="">
+  <label for="company">Company:</label>
+  <input type="text" name="company" id="company" />
+
+  <label for="title">Title:</label>
+  <input type="text" name="title" id="title" />
+
+  <label for="notes">Notes:</label>
+  <textarea name="notes" id="notes"></textarea>
+
+  <label for="postingLink">Posting Link:</label>
+  <input type="text" name="postingLink" id="postingLink" />
+
+  <label for="status">Status:</label>
+  <select id="status" name="status">
+    <option value="interested">Interested</option>
+    <option value="applied">Applied</option>
+    <option value="interviewing">Interviewing</option>
+    <option value="rejected">Rejected</option>
+    <option value="accepted">Accepted</option>
+  </select>
+</form>
 ```
 
 ### Shaping data
@@ -177,10 +179,10 @@ For example, in our schema, we have a company field defined like this:
 To ensure proper data mapping when the form is submitted, the corresponding input in our HTML form should be set up as follows:
 
 ```html
-    <!-- views/applications/new.ejs -->
+<!-- views/applications/new.ejs -->
 
-    <label for="company">Company:</label>
-    <input type="text" name="company" id="company">
+<label for="company">Company:</label>
+<input type="text" name="company" id="company" />
 ```
 
 > 💡 The `name` attribute of the input (`name="company"`) exactly matches the property name in the schema (`company:`).
@@ -201,15 +203,15 @@ Also, note that the `value` attribute for each `<option>` in our `<select>` drop
 **Form:**
 
 ```html
-    <!-- views/applications/new.ejs -->
+<!-- views/applications/new.ejs -->
 
-    <select id="status" name="status">
-      <option value="interested">Interested</option>
-      <option value="applied">Applied</option>
-      <option value="interviewing">Interviewing</option>
-      <option value="rejected">Rejected</option>
-      <option value="accepted">Accepted</option>
-    </select>
+<select id="status" name="status">
+  <option value="interested">Interested</option>
+  <option value="applied">Applied</option>
+  <option value="interviewing">Interviewing</option>
+  <option value="rejected">Rejected</option>
+  <option value="accepted">Accepted</option>
+</select>
 ```
 
 Similar to how the rest of the inputs work, when the form is submitted the `name` of the `<select>` input will be used as a key, and the `value` of the selected option will be submitted as the value. If a user were to select "Applied" from the dropdown, the resulting key:value pair would look like this:
@@ -225,33 +227,33 @@ This is why the `value` must match an `enum` element exactly.
 To complete our form, the last element we need is a submit button.
 
 ```html
-  <!-- views/applications/new.ejs -->
+<!-- views/applications/new.ejs -->
 
-  <form action="" method="">
-    <label for="company">Company:</label>
-    <input type="text" name="company" id="company">
-    
-    <label for="title">Title:</label>
-    <input type="text" name="title" id="title">
-    
-    <label for="notes">Notes:</label>
-    <textarea name="notes" id="notes"></textarea>
-    
-    <label for="postingLink">Posting Link:</label>
-    <input type="text" name="postingLink" id="postingLink">
-    
-    <label for="status">Status:</label>
-    <select id="status" name="status">
-      <option value="interested">Interested</option>
-      <option value="applied">Applied</option>
-      <option value="interviewing">Interviewing</option>
-      <option value="rejected">Rejected</option>
-      <option value="accepted">Accepted</option>
-    </select>
+<form action="" method="">
+  <label for="company">Company:</label>
+  <input type="text" name="company" id="company" />
 
-    <!-- Add a submit button -->
-    <button type="submit">Add Application</button>
-  </form>
+  <label for="title">Title:</label>
+  <input type="text" name="title" id="title" />
+
+  <label for="notes">Notes:</label>
+  <textarea name="notes" id="notes"></textarea>
+
+  <label for="postingLink">Posting Link:</label>
+  <input type="text" name="postingLink" id="postingLink" />
+
+  <label for="status">Status:</label>
+  <select id="status" name="status">
+    <option value="interested">Interested</option>
+    <option value="applied">Applied</option>
+    <option value="interviewing">Interviewing</option>
+    <option value="rejected">Rejected</option>
+    <option value="accepted">Accepted</option>
+  </select>
+
+  <!-- Add a submit button -->
+  <button type="submit">Add Application</button>
+</form>
 ```
 
 Fantastic - next, we're ready to build the `create` functionality and give this form somewhere to submit to! We'll be coming back to update the `action` and `method` on this form, but otherwise our `new` page is finished.

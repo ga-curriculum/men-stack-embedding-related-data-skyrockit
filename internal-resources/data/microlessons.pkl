@@ -1,0 +1,123 @@
+import "https://pages.git.generalassemb.ly/modular-curriculum-all-courses/universal-resources-internal/static/v2/pkl/template.pkl" as Template
+
+// Add microlessons here, in the order they should be delivered
+
+setup = new Template.Microlesson {
+  friendlyName = "Setup"
+  dirName = "setup"
+  type = "Content"
+  videoUrl = ""
+}
+
+settingTheStage = new Template.Microlesson {
+  friendlyName = "Setting the Stage"
+  dirName = "setting-the-stage"
+  type = "Content"
+  videoUrl = ""
+}
+
+buildTheApplicationSchema = new Template.Microlesson {
+  friendlyName = "Build the Application Schema"
+  dirName = "build-the-application-schema"
+  type = "Content"
+  videoUrl = ""
+}
+
+buildTheHomepage = new Template.Microlesson {
+  friendlyName = "Build the Homepage"
+  dirName = "build-the-homepage"
+  type = "Content"
+  videoUrl = ""
+}
+
+addRouteMiddleware = new Template.Microlesson {
+  friendlyName = "Add Route Middleware"
+  dirName = "add-route-middleware"
+  type = "Content"
+  videoUrl = ""
+}
+
+buildAndUseTheApplicationsController = new Template.Microlesson {
+  friendlyName = "Build and Use the Applications Controller"
+  dirName = "build-and-use-the-applications-controller"
+  type = "Content"
+  videoUrl = ""
+}
+
+buildTheApplicationsIndexPage = new Template.Microlesson {
+  friendlyName = "Build the Applications Index Page"
+  dirName = "build-the-applications-index-page"
+  type = "Content"
+  videoUrl = ""
+}
+
+buildTheNavigationBarPartial = new Template.Microlesson {
+  friendlyName = "Build the Navigation Bar Partial"
+  dirName = "build-the-navigation-bar-partial"
+  type = "Content"
+  videoUrl = ""
+}
+
+buildTheNewPage = new Template.Microlesson {
+  friendlyName = "Build the New Page"
+  dirName = "build-the-new-page"
+  type = "Content"
+  videoUrl = ""
+}
+
+buildCreateFunctionality = new Template.Microlesson {
+  friendlyName = "Build Create Functionality"
+  dirName = "build-create-functionality"
+  type = "Content"
+  videoUrl = ""
+}
+
+addDataToTheApplicationsIndexPage = new Template.Microlesson {
+  friendlyName = "Add Data to the Applications Index Page"
+  dirName = "add-data-to-the-applications-index-page"
+  type = "Content"
+  videoUrl = ""
+}
+
+buildTheShowPage = new Template.Microlesson {
+  friendlyName = "Build the Show Page"
+  dirName = "build-the-show-page"
+  type = "Content"
+  videoUrl = ""
+}
+
+buildDeleteFunctionality = new Template.Microlesson {
+  friendlyName = "Build Delete Functionality"
+  dirName = "build-delete-functionality"
+  type = "Content"
+  videoUrl = ""
+}
+
+buildTheEditPage = new Template.Microlesson {
+  friendlyName = "Build the Edit Page"
+  dirName = "build-the-edit-page"
+  type = "Content"
+  videoUrl = ""
+}
+
+buildUpdateFunctionality = new Template.Microlesson {
+  friendlyName = "Build Update Functionality"
+  dirName = "build-update-functionality"
+  type = "Content"
+  videoUrl = ""
+}
+
+wrapUp = new Template.Microlesson {
+  friendlyName = "Wrap Up"
+  dirName = "wrap-up"
+  type = "Content"
+  videoUrl = ""
+}
+
+styleTheApplication = new Template.Microlesson {
+  friendlyName = "Style the Application"
+  dirName = "style-the-application"
+  type = "Content"
+  videoUrl = ""
+}
+

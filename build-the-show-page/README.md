@@ -1,4 +1,7 @@
-# ![MEN Stack Embedding Related Data - Skyrockit - Build the Show Page](./assets/hero.png)
+<h1>
+  <span class="headline">Skyrockit</span>
+  <span class="subhead">Build the Show Page</span>
+</h1>
 
 **Learning objective:** By the end of this lesson, students will have successfully built a 'Show' route and view as part of their web application, enabling them to perform a detailed 'Read' operation on individual items.
 
@@ -23,18 +26,18 @@ This route is structured to fetch a particular application, identified by its un
 To start, let's update our `applications/index.ejs` file. We will modify it to include links that lead to the detailed `show` view of each application:
 
 ```html
-  <!-- views/applications/index.ejs -->
+<!-- views/applications/index.ejs -->
 
-  <ul>
-    <% applications.forEach((application)=>{ %>
-      <li>
-        <!-- Add a link around each application, directing to the 'show' page -->
-        <a href="/users/<%= user._id %>/applications/<%= application._id %>">
-            <%= application.title %> at <%= application.company %>
-        </a>
-      </li>
-    <% }) %>
-  </ul>
+<ul>
+  <% applications.forEach((application)=>{ %>
+  <li>
+    <!-- Add a link around each application, directing to the 'show' page -->
+    <a href="/users/<%= user._id %>/applications/<%= application._id %>">
+      <%= application.title %> at <%= application.company %>
+    </a>
+  </li>
+  <% }) %>
+</ul>
 ```
 
 ## Build the route
@@ -69,7 +72,7 @@ router.get('/:applicationId', async (req, res) => {
   } catch (error) {
     // If any errors, log them and redirect back home
     console.log(error);
-    res.redirect('/')
+    res.redirect('/');
   }
 });
 ```
@@ -89,22 +92,21 @@ To our boilerplate, we'll add some EJS to display the `application` data:
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title><%= application.title %></title>
-</head>
-<body>
-  <%- include('../partials/_navbar.ejs') %>
-  <h1><%= application.title %> at <%= application.company %></h1>
-  <% if (application.notes) { %>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= application.title %></title>
+  </head>
+  <body>
+    <%- include('../partials/_navbar.ejs') %>
+    <h1><%= application.title %> at <%= application.company %></h1>
+    <% if (application.notes) { %>
     <p>Notes: <%= application.notes %></p>
-  <% } %>
-  <% if (application.postingLink) { %>
+    <% } %> <% if (application.postingLink) { %>
     <a href="<%= application.postingLink %>">View job posting</a>
-  <% } %>
-  <p>Current Status: <%= application.status %></p>
-</body>
+    <% } %>
+    <p>Current Status: <%= application.status %></p>
+  </body>
 </html>
 ```
 

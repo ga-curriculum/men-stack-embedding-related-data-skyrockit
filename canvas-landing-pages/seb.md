@@ -1,4 +1,7 @@
-# ![MEN Stack Embedding Related Data - Skyrockit](../assets/hero.png)
+<h1>
+  <span class="prefix">MEN Stack Embedding Related Data</span>
+  <span class="headline">Skyrockit</span>
+</h1>
 
 ## About
 
@@ -10,8 +13,8 @@ Additionally, this module guides you through styling your application, helping y
 
 ## Content
 
-| Lesson | Skills |
-| ------ | ------ |
+| Lesson                                                                                              | Skills                                                              |
+| --------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | [Setup](../setup/README.md)                                                                         | Setting up the development environment.                             |
 | [Setting the Stage](../setting-the-stage/README.md)                                                 | Outline the application: data structure, user stories, and routing. |
 | [Build the Application Schema](../build-the-application-schema/README.md)                           | Build `application` schema and embed in `user` model.               |
@@ -31,8 +34,8 @@ Additionally, this module guides you through styling your application, helping y
 
 ## Level Up content
 
-| Lesson | Skills |
-| ------ | ------ |
+| Lesson                                                      | Skills                                             |
+| ----------------------------------------------------------- | -------------------------------------------------- |
 | [Style the Application](../style-the-application/README.md) | Bring your app to life with comprehensive styling. |
 
 ## References

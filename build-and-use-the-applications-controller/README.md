@@ -1,4 +1,7 @@
-# ![MEN Stack Embedding Related Data - Skyrockit - Build and Use the Applications Controller](./assets/hero.png)
+<h1>
+  <span class="headline">Skyrockit</span>
+  <span class="subhead">Build and Use the Applications Controller</span>
+</h1>
 
 **Learning objective:** By the end of this lesson, students will be able to create and integrate an `applications` controller in their project.
 

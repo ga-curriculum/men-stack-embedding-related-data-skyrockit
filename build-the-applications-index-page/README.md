@@ -1,4 +1,7 @@
-# ![MEN Stack Embedding Related Data - Skyrockit - Build the Applications Index Page](./assets/hero.png)
+<h1>
+  <span class="headline">Skyrockit</span>
+  <span class="subhead">Build the Applications Index Page</span>
+</h1>
 
 **Learning objective:** By the end of this lesson, students will be able to build the `applications` index route and view.
 
@@ -67,14 +70,14 @@ Once this file is created, let's add some boilerplate:
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Apps</title>
-</head>
-<body>
-  <h1>Your Apps</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Apps</title>
+  </head>
+  <body>
+    <h1>Your Apps</h1>
+  </body>
 </html>
 ```
 
@@ -87,8 +90,8 @@ router.get('/', async (req, res) => {
   try {
     res.render('applications/index.ejs');
   } catch (error) {
-    console.log(error)
-    res.redirect('/')
+    console.log(error);
+    res.redirect('/');
   }
 });
 ```

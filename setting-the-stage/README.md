@@ -1,4 +1,7 @@
-# ![MEN Stack Embedding Related Data - Skyrockit - Setting the Stage](./assets/hero.png)
+<h1>
+  <span class="headline">Skyrockit</span>
+  <span class="subhead">Setting the Stage</span>
+</h1>
 
 **Learning objective:** By the end of this lesson, students will be equipped to conceptualize and outline the foundation of a web application, focusing on data structure, user stories, and routing.
 
@@ -26,21 +29,21 @@ The following are some examples of user stories we can write for our Skyrockit a
 > As a user, when I'm looking at all the details of a job application, I want to be able to change any of the information. There should be an easy-to-find link that takes me to a different page where I can make these changes and then save them.
 > As a user, if I'm looking at the details of a job application, I want a simple way to delete it completely, like clicking a 'Delete' button.
 
-You might notice that the above user stories give us a good idea of what CRUD functions a user might want to perform on our applications.  Also, take note of how our first user story gives us some context as to how we might structure our data ("company name", "job title", "status", and optional "notes")  While these categories may not be the final names we give for data in our schema, they give us a high level guide we can refer back to when making decisions about how we structure data.
+You might notice that the above user stories give us a good idea of what CRUD functions a user might want to perform on our applications. Also, take note of how our first user story gives us some context as to how we might structure our data ("company name", "job title", "status", and optional "notes") While these categories may not be the final names we give for data in our schema, they give us a high level guide we can refer back to when making decisions about how we structure data.
 
 ## Planning the routes
 
 Let's go ahead and establish the RESTful routing for app:
 
-| Action   | Route                                              | HTTP Verb  |
-|----------|----------------------------------------------------|------------|
-| Index    | '/users/:userId/applications'                      | GET        |
-| New      | '/users/:userId/applications/new'                  | GET        |
-| Create   | '/users/:userId/applications'                      | POST       |
-| Show     | '/users/:userId/applications/:applicationId'       | GET        |
-| Edit     | '/users/:userId/applications/:applicationId/edit'  | GET        |
-| Update   | '/users/:userId/applications/:applicationId'       | PUT        |
-| Delete   | '/users/:userId/applications/:applicationId'       | DELETE     |
+| Action | Route                                             | HTTP Verb |
+| ------ | ------------------------------------------------- | --------- |
+| Index  | '/users/:userId/applications'                     | GET       |
+| New    | '/users/:userId/applications/new'                 | GET       |
+| Create | '/users/:userId/applications'                     | POST      |
+| Show   | '/users/:userId/applications/:applicationId'      | GET       |
+| Edit   | '/users/:userId/applications/:applicationId/edit' | GET       |
+| Update | '/users/:userId/applications/:applicationId'      | PUT       |
+| Delete | '/users/:userId/applications/:applicationId'      | DELETE    |
 
 **Note:** We are including the `userId` in the route since we are nesting our applications within the user object.
 
@@ -56,7 +59,7 @@ Below is an example of the ERD we will be using for Skyrockit:
 
 ### Embedding data
 
-In our ERD, we've opted for an *embedded* relationship model, where the job application data is directly incorporated into the user model. This approach was intentional because it makes data retrieval much easier in our application. By embedding the application data within the user's document, we minimize the need for multiple database read operations. Since users are already logged in, their associated applications are *embedded* within their own user document.
+In our ERD, we've opted for an _embedded_ relationship model, where the job application data is directly incorporated into the user model. This approach was intentional because it makes data retrieval much easier in our application. By embedding the application data within the user's document, we minimize the need for multiple database read operations. Since users are already logged in, their associated applications are _embedded_ within their own user document.
 
 This embedded model enhances performance by reducing the need for extensive database queries. It's a strategic decision that aligns well with the typical flow and structure of our application.
 

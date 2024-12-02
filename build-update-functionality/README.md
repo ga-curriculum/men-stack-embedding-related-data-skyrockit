@@ -1,4 +1,7 @@
-# ![MEN Stack Embedding Related Data - Skyrockit - Build Update Functionality](./assets/hero.png)
+<h1>
+  <span class="headline">Skyrockit</span>
+  <span class="subhead">Build Update Functionality</span>
+</h1>
 
 **Learning objective:** By the end of this lesson, students will learn how to `update` specific data in a job application by implementing a `PUT` route.
 
@@ -15,13 +18,13 @@ PUT /users/:userId/applications/:applicationId
 This matches the route we gave the `action` attribute of our `<form>`.
 
 ```html
-  <!-- views/applications/edit.ejs -->
+<!-- views/applications/edit.ejs -->
 
-  <!-- We'll use method-override to allow us to hit a put route: -->
-  <form 
-    action="/users/<%= user._id %>/applications/<%= application._id %>?_method=PUT"
-    method="POST"
-  >
+<!-- We'll use method-override to allow us to hit a put route: -->
+<form
+  action="/users/<%= user._id %>/applications/<%= application._id %>?_method=PUT"
+  method="POST"
+></form>
 ```
 
 ## Defining the route and building the controller function
@@ -49,7 +52,7 @@ router.put('/:applicationId', async (req, res) => {
     );
   } catch (error) {
     console.log(error);
-    res.redirect('/')
+    res.redirect('/');
   }
 });
 ```

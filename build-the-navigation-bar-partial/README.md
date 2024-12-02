@@ -1,14 +1,17 @@
-# ![MEN Stack Embedding Related Data - Skyrockit - Build the Navigation Bar Partial](./assets/hero.png)
+<h1>
+  <span class="headline">Skyrockit</span>
+  <span class="subhead">Build the Navigation Bar Partial</span>
+</h1>
 
 **Learning objective:** By the end of this lesson, students will be able to understand and implement EJS partials in their web applications by creating a reusable nav bar component.
 
 ## What is a partial
 
-When creating an application, you might find that certain pieces of UI code are repeated on multiple pages. To avoid copying and pasting the same code (which goes against best practice of writing DRY code), we can use a feature in EJS called *partials*. A common use case for partials is for components like navigation bars, which are typically consistent across different pages of an app.
+When creating an application, you might find that certain pieces of UI code are repeated on multiple pages. To avoid copying and pasting the same code (which goes against best practice of writing DRY code), we can use a feature in EJS called _partials_. A common use case for partials is for components like navigation bars, which are typically consistent across different pages of an app.
 
 The code for the navbar of an app is likely to remain the same regardless of what page the user is navigating to, so being able to write the code once and reuse it on each page is very handy!
 
-> 📚 A *partial* is an EJS template designed to be included or embedded within other EJS templates.
+> 📚 A _partial_ is an EJS template designed to be included or embedded within other EJS templates.
 
 To demonstrate the power and utility of partials, we will create and render a navbar partial for our application.
 
@@ -21,7 +24,7 @@ mkdir views/partials
 touch views/partials/_navbar.ejs
 ```
 
-**Note:** In our application, the navbar partial is named with an underscore at the beginning -  `_navbar.` This underscore is a common naming convention used to indicate that the file is a partial. It's a helpful reminder that this piece of code is meant to be a reusable component, embedded within other templates, rather than a standalone page.
+**Note:** In our application, the navbar partial is named with an underscore at the beginning - `_navbar.` This underscore is a common naming convention used to indicate that the file is a partial. It's a helpful reminder that this piece of code is meant to be a reusable component, embedded within other templates, rather than a standalone page.
 
 Next, add the following code to our new nav partial:
 
@@ -30,11 +33,11 @@ Next, add the following code to our new nav partial:
 
 <nav>
   <% if(user) { %>
-    <a href="/users/<%= user._id %>/applications">Your Apps</a>
-    <a href="/auth/sign-out">Sign Out</a>
+  <a href="/users/<%= user._id %>/applications">Your Apps</a>
+  <a href="/auth/sign-out">Sign Out</a>
   <% } else { %>
-    <a href="/auth/sign-in">Sign In</a>
-    <a href="/auth/sign-up">Sign Up</a>
+  <a href="/auth/sign-in">Sign In</a>
+  <a href="/auth/sign-up">Sign Up</a>
   <% } %>
 </nav>
 ```

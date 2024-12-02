@@ -1,4 +1,7 @@
-# ![MEN Stack Embedding Related Data - Skyrockit - Wrap Up](./assets/hero.png)
+<h1>
+  <span class="headline">Skyrockit</span>
+  <span class="subhead">Wrap Up</span>
+</h1>
 
 Learning Objective: Students will gain a comprehensive understanding of the Skyrockit app and its functionalities.
 

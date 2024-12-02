@@ -1,4 +1,7 @@
-# ![MEN Stack Embedding Related Data - Skyrockit - Build the Application Schema](./assets/hero.png)
+<h1>
+  <span class="headline">Skyrockit</span>
+  <span class="subhead">Build the Application Schema</span>
+</h1>
 
 **Learning objective:** By the end of this lesson, students will successfully develop an `application` schema and establish its relationship within the `user` model through embedding.
 

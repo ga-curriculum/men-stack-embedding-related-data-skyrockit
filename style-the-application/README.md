@@ -1,4 +1,7 @@
-# ![MEN Stack Embedding Related Data - Skyrockit - Level Up - Style the Application](./assets/hero.png)
+<h1>
+  <span class="headline">Skyrockit</span>
+  <span class="subhead">Style the Application</span>
+</h1>
 
 **Learning objective:** By the end of this lesson, students will learn to apply CSS styling to their Skyrockit application. They will set up middleware for static files, create and link CSS stylesheets, and style key components like the homepage, forms, and navigation bar.
 
@@ -65,12 +68,12 @@ Now that you've built a MEN-stack app with embedding, it's time to add some styl
    touch public/stylesheets/style.css
    ```
 
-   and link it to the top of *all* of our `ejs` files except for `_navbar.ejs`:
+   and link it to the top of _all_ of our `ejs` files except for `_navbar.ejs`:
 
    ```html
-     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-     <!-- Add this: -->
-     <link rel="stylesheet" href="/stylesheets/style.css" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <!-- Add this: -->
+   <link rel="stylesheet" href="/stylesheets/style.css" />
    ```
 
 ## Applying general rules
@@ -152,19 +155,19 @@ Most of the CSS we write is going to be recycled and used throughout the app, bu
      width: 100vw;
      color: white;
    }
-   
+
    .main-header {
      font-weight: bold;
      color: white;
      font-size: 5.6em;
      margin: -160px 20px 0 20px;
    }
-   
+
    .subheader {
      margin: 0 20px 0 20px;
      font-size: 1.4em;
    }
-   
+
    .index-container {
      display: flex;
      flex-direction: row;
@@ -172,7 +175,7 @@ Most of the CSS we write is going to be recycled and used throughout the app, bu
      align-items: center;
      height: 100%;
    }
-   
+
    .auth-links {
      display: flex;
      flex-direction: column;
@@ -181,7 +184,7 @@ Most of the CSS we write is going to be recycled and used throughout the app, bu
      margin: 0 80px 0 0;
      height: 100%;
    }
-   
+
    .signup-link,
    .signin-link {
      text-decoration: none;
@@ -191,23 +194,23 @@ Most of the CSS we write is going to be recycled and used throughout the app, bu
      width: 10em;
      text-align: center;
    }
-   
+
    .signup-link {
      background-color: #ce4866;
      color: white;
      margin: 0 0 20px 0;
    }
-   
+
    .signup-link:hover {
      background-color: #ff5378;
    }
-   
+
    .signin-link {
      background-color: #f6e7e7;
      color: #1c2e5b;
      margin: 20px 0 0 0;
    }
-   
+
    .signin-link:hover {
      background-color: #ffffff;
    }
@@ -220,9 +223,9 @@ Since we're using partials (`_navbar.ejs`), we're going to give it its own style
 1. Create a stylesheet called `public/stylesheets/partials.css` and link to it in `_navbar.ejs`:
 
    ```html
-     <!-- views/partials/_navbar.ejs -->
+   <!-- views/partials/_navbar.ejs -->
 
-     <link rel="stylesheet" href="/stylesheets/partials.css" />
+   <link rel="stylesheet" href="/stylesheets/partials.css" />
    ```
 
 2. We want to make some small adjustments to our `_navbar.ejs` partial. Here are the changes we're making:
@@ -236,21 +239,23 @@ Since we're using partials (`_navbar.ejs`), we're going to give it its own style
 
    <nav>
      <% if(user) { %>
-       <div class="navbar">
-         <h1 id="nav-header">Skyrockit</h1>
-         <div class="nav-links">
-           <a class="authlink" href="/users/<%=user._id%>/applications">Your Apps</a>
-           <a class="authlink" href="/auth/sign-out">Sign Out</a>
-         </div>
+     <div class="navbar">
+       <h1 id="nav-header">Skyrockit</h1>
+       <div class="nav-links">
+         <a class="authlink" href="/users/<%=user._id%>/applications"
+           >Your Apps</a
+         >
+         <a class="authlink" href="/auth/sign-out">Sign Out</a>
        </div>
+     </div>
      <% } else { %>
-       <div class="navbar">
-         <h1 id="nav-header">Skyrockit</h1>
-         <div class="nav-links">
-           <a class="authlink" href="/auth/sign-in">Sign In</a>
-           <a class="authlink" href="/auth/sign-up">Sign Up</a>
-         </div>
+     <div class="navbar">
+       <h1 id="nav-header">Skyrockit</h1>
+       <div class="nav-links">
+         <a class="authlink" href="/auth/sign-in">Sign In</a>
+         <a class="authlink" href="/auth/sign-up">Sign Up</a>
        </div>
+     </div>
      <% } %>
    </nav>
    ```
@@ -268,20 +273,20 @@ Since we're using partials (`_navbar.ejs`), we're going to give it its own style
      justify-content: space-between;
      align-items: center;
    }
-   
+
    #nav-header {
      color: #ce4866;
      size: 1em !important;
      margin: 0;
    }
-   
+
    .authlink {
      text-decoration: none;
      margin: 0 15px;
      color: #4b598e;
      font-weight: bold;
    }
-   
+
    .authlink:hover {
      color: white;
    }
@@ -316,7 +321,7 @@ Since we're using partials (`_navbar.ejs`), we're going to give it its own style
 
    <body>
      <%- include('../partials/_navbar.ejs') %>
-   
+
      <div class="signup-container">
        <h1>Create a new account!</h1>
        <form action="/auth/sign-up" method="POST">
@@ -348,11 +353,11 @@ Since we're using partials (`_navbar.ejs`), we're going to give it its own style
      width: 100%;
      height: 100%;
    }
-   
+
    h1 {
      color: #1c2e5b;
    }
-   
+
    form {
      display: flex;
      flex-direction: column;
@@ -365,13 +370,13 @@ Since we're using partials (`_navbar.ejs`), we're going to give it its own style
      color: #4b598e;
      font-weight: bold;
    }
-   
+
    input {
      border: 1px solid rgb(182, 182, 182);
      padding: 8px;
      border-radius: 10px;
    }
-   
+
    button {
      padding: 10px;
      background-color: #ce4866;
@@ -390,23 +395,23 @@ Now that we've added all the styles to the hoomepage, the sign-in form, and the 
 1. We're going to add some `classes` and `<divs>` to the contents of `applications/index.ejs`:
 
    ```html
-     <!-- views/applications/index.ejs -->
+   <!-- views/applications/index.ejs -->
 
-     <div class="all-apps-body">
-       <div class="all-apps-header">
-         <h1>Your Apps</h1>
-         <a class="add-app-link" href="/users/<%=user._id%>/applications/new"
-           >Add an App</a
-         >
-       </div>
-       <ul>
-         <% applications.forEach((application)=>{ %>
-         <a href="/users/<%= user._id %>/applications/<%= application._id %>">
-           <li><%= application.title %> at <%= application.company %></li>
-         </a>
-         <% }) %>
-       </ul>
+   <div class="all-apps-body">
+     <div class="all-apps-header">
+       <h1>Your Apps</h1>
+       <a class="add-app-link" href="/users/<%=user._id%>/applications/new"
+         >Add an App</a
+       >
      </div>
+     <ul>
+       <% applications.forEach((application)=>{ %>
+       <a href="/users/<%= user._id %>/applications/<%= application._id %>">
+         <li><%= application.title %> at <%= application.company %></li>
+       </a>
+       <% }) %>
+     </ul>
+   </div>
    ```
 
 2. Add the style rules to `style.css`. These will help adjust the layout of the page and add some style to our "Add an App" link.
@@ -420,7 +425,7 @@ Now that we've added all the styles to the hoomepage, the sign-in form, and the 
      align-items: center;
      justify-content: center;
    }
-   
+
    .all-apps-header {
      display: flex;
      flex-direction: row;
@@ -429,7 +434,7 @@ Now that we've added all the styles to the hoomepage, the sign-in form, and the 
      padding: 10px 20px;
      width: 90%;
    }
-   
+
    .add-app-link {
      padding: 10px;
      background-color: #ce4866;
@@ -440,7 +445,7 @@ Now that we've added all the styles to the hoomepage, the sign-in form, and the 
      padding: 2px 25px;
      text-decoration: none;
    }
-   
+
    .add-app-link:hover {
      background-color: #e84a6c;
    }
@@ -459,7 +464,7 @@ Now that we've added all the styles to the hoomepage, the sign-in form, and the 
      justify-content: center;
      align-items: center;
    }
-   
+
    ul > a {
      text-decoration: none;
      color: #1c2e5b;
@@ -471,7 +476,7 @@ Now that we've added all the styles to the hoomepage, the sign-in form, and the 
      font-weight: bold;
      text-align: center;
    }
-   
+
    ul > a:hover {
      background-color: #4b598e;
      color: white;
@@ -491,9 +496,9 @@ Now onto the show page. The layout we're working towards for this page is a bit 
 2. Replace the link for `style.css` in `applications/show.ejs`:
 
    ```html
-     <!-- views/applications/show.ejs -->
+   <!-- views/applications/show.ejs -->
 
-     <link rel="stylesheet" href="/stylesheets/show.css" />
+   <link rel="stylesheet" href="/stylesheets/show.css" />
    ```
 
 3. We also want to make a few adjustments to the structure of our content. We'll be adding several `<divs>` and some `classes` as well. Replace the content in the `<body>` of `show.ejs` with this:
@@ -545,7 +550,7 @@ Now onto the show page. The layout we're working towards for this page is a bit 
    /* public/stylesheets/show.css */
 
    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
-   
+
    body {
      display: flex;
      flex-direction: column;
@@ -553,7 +558,7 @@ Now onto the show page. The layout we're working towards for this page is a bit 
      width: 100vw;
      background-color: #9ac2ef;
    }
-   
+
    .show-body {
      display: flex;
      flex-direction: column;
@@ -561,7 +566,7 @@ Now onto the show page. The layout we're working towards for this page is a bit 
      justify-content: center;
      align-items: center;
    }
-   
+
    .show-header {
      display: flex;
      flex-direction: row;
@@ -569,13 +574,13 @@ Now onto the show page. The layout we're working towards for this page is a bit 
      align-items: center;
      width: 90%;
    }
-   
+
    .show-header > h1 {
      color: #1c2e5b;
      font-size: 3.4em;
      margin-left: 10px;
    }
-   
+
    .show-actions {
      display: flex;
      flex-direction: row;
@@ -584,7 +589,7 @@ Now onto the show page. The layout we're working towards for this page is a bit 
      align-items: center;
      margin: 20px 0 0 30px;
    }
-   
+
    button {
      padding: 8px 10px;
      background-color: #ce4866;
@@ -595,11 +600,11 @@ Now onto the show page. The layout we're working towards for this page is a bit 
      width: 10em;
      margin: 5px;
    }
-   
+
    button:hover {
      background-color: #e84a6c;
    }
-   
+
    .show-actions > a {
      background-color: #4b598e;
      color: white;
@@ -612,11 +617,11 @@ Now onto the show page. The layout we're working towards for this page is a bit 
      margin: 5px;
      font-family: 'Poppins', sans-serif;
    }
-   
+
    .show-actions > a:hover {
      background-color: #1c2e5b;
    }
-   
+
    p {
      color: #ce4866;
      font-weight: bold;
@@ -624,12 +629,12 @@ Now onto the show page. The layout we're working towards for this page is a bit 
      margin: 10px 30px;
      text-align: center;
    }
-   
+
    .show-notes-container {
      width: 90%;
      margin: 20px 0;
    }
-   
+
    .show-notes-container > a {
      text-decoration: none;
      font-weight: bold;
@@ -637,11 +642,11 @@ Now onto the show page. The layout we're working towards for this page is a bit 
      font-size: 1.4em;
      margin: 20px;
    }
-   
+
    .show-notes-container > a:hover {
      color: #4b598e;
    }
-   
+
    .show-notes {
      background-color: #f6e7e7;
      width: 85%;
@@ -649,12 +654,12 @@ Now onto the show page. The layout we're working towards for this page is a bit 
      padding: 40px 40px 20px 40px;
      margin: 20px 10px;
    }
-   
+
    h2 {
      margin: 0 10px;
      color: #1c2e5b;
    }
-   
+
    .show-notes > p {
      font-weight: normal;
      color: #1c2e5b;
@@ -670,29 +675,29 @@ We're in the home stretch! Now we just need to fix some small things on our `app
 1. First, let's work in `applications/new.ejs`. Add a `<div>` around the `form` and give it a class of `.new-body`:
 
    ```html
-     <!-- views/applications/new.ejs -->
+   <!-- views/applications/new.ejs -->
 
-     <div class="new-body">
-       <form action="/users/<%= user._id %>/applications" method="POST">
-        <!--  -->
-       </form>
-     </div>
+   <div class="new-body">
+     <form action="/users/<%= user._id %>/applications" method="POST">
+       <!--  -->
+     </form>
+   </div>
    ```
 
 2. Do the same for `applications/edit.ejs`, but with the class name of `.edit-body`:
 
    ```html
-     <!-- views/applications/edit.ejs -->
+   <!-- views/applications/edit.ejs -->
 
-     <div class="edit-body">
-       <h1>Edit <%= application.title %> at <%= application.company %></h1>
-       <form
-         action="/users/<%= user._id %>/applications/<%= application._id %>?_method=PUT"
-         method="POST"
-       >
-         ...
-       </form>
-     </div>
+   <div class="edit-body">
+     <h1>Edit <%= application.title %> at <%= application.company %></h1>
+     <form
+       action="/users/<%= user._id %>/applications/<%= application._id %>?_method=PUT"
+       method="POST"
+     >
+       ...
+     </form>
+   </div>
    ```
 
 3. Add some css for those pages in `style.css` (notice we're back to working in `style.css`!):
@@ -706,23 +711,23 @@ We're in the home stretch! Now we just need to fix some small things on our `app
      align-items: center;
      height: 100%;
    }
-   
+
    .new-body > form,
    .edit-body > form {
      height: 70%;
    }
-   
+
    textarea,
    select {
      border: 1px solid rgb(182, 182, 182);
      border-radius: 10px;
      padding: 10px;
    }
-   
+
    select {
      margin-bottom: 10px;
    }
-   
+
    .edit-body {
      display: flex;
      flex-direction: column;

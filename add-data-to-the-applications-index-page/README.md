@@ -1,4 +1,7 @@
-# ![MEN Stack Embedding Related Data - Skyrockit - Add Data to the Applications Index Page](./assets/hero.png)
+<h1>
+  <span class="headline">Skyrockit</span>
+  <span class="subhead">Add Data to the Applications Index Page</span>
+</h1>
 
 **Learning objective:** By the end of this lesson, students will be able to implement the `Read` operation for an `index` route in a CRUD application.
 
@@ -29,15 +32,15 @@ router.get('/', async (req, res) => {
   try {
     // Look up the user from req.session
     const currentUser = await User.findById(req.session.user._id);
-    // Render index.ejs, passing in all of the current user's 
-    // applications as data in the context object. 
+    // Render index.ejs, passing in all of the current user's
+    // applications as data in the context object.
     res.render('applications/index.ejs', {
       applications: currentUser.applications,
     });
   } catch (error) {
     // If any errors, log them and redirect back home
-    console.log(error)
-    res.redirect('/')
+    console.log(error);
+    res.redirect('/');
   }
 });
 ```
@@ -57,11 +60,11 @@ For now, we'll just display the `title` and `company`:
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Apps</title>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Apps</title>
+  </head>
   <body>
     <%- include('../partials/_navbar.ejs') %>
     <h1>Your Apps</h1>
@@ -69,7 +72,7 @@ For now, we'll just display the `title` and `company`:
     <!-- Add the following: -->
     <ul>
       <% applications.forEach((application)=>{ %>
-        <li><%= application.title %> at <%= application.company %></li>
+      <li><%= application.title %> at <%= application.company %></li>
       <% }) %>
     </ul>
   </body>

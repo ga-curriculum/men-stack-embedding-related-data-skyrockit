@@ -1,4 +1,7 @@
-# ![MEN Stack Embedding Related Data - Skyrockit - Build the Homepage](./assets/hero.png)
+<h1>
+  <span class="headline">Skyrockit</span>
+  <span class="subhead">Build the Homepage</span>
+</h1>
 
 **Learning objective:** By the end of this lesson, students will have modified the provided starter code to create a new, thematic homepage for the Skyrockit application.
 
@@ -13,26 +16,26 @@ Here's the original homepage code:
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>homepage</title>
-</head>
-<body>
-  <% if (user) { %>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>homepage</title>
+  </head>
+  <body>
+    <% if (user) { %>
     <h1>Welcome to the app, <%= user.username %>!</h1>
     <p>
       <a href="/auth/sign-out">Sign out</a>
     </p>
-  <% } else { %>
+    <% } else { %>
     <h1>Welcome to the app, guest.</h1>
     <p>
       <a href="/auth/sign-up">Sign up</a> or
       <a href="/auth/sign-in">Sign in</a>.
     </p>
-  <% } %>
-  <p><a href="/vip-lounge">Get into the VIP Users Only lounge!</a></p>
-</body>
+    <% } %>
+    <p><a href="/vip-lounge">Get into the VIP Users Only lounge!</a></p>
+  </body>
 </html>
 ```
 
@@ -43,17 +46,17 @@ To customize this for Skyrockit, we'll make some changes to reflect the app's pu
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Skyrockit</title> 
-</head>
-<body>
-  <h1>Skyrockit</h1>
-  <p>A job application tracker.</p>
-  <a href="/auth/sign-up">Sign up</a>
-  <a href="/auth/sign-in">Sign in</a>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Skyrockit</title>
+  </head>
+  <body>
+    <h1>Skyrockit</h1>
+    <p>A job application tracker.</p>
+    <a href="/auth/sign-up">Sign up</a>
+    <a href="/auth/sign-in">Sign in</a>
+  </body>
 </html>
 ```
 

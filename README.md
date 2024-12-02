@@ -1,4 +1,7 @@
-# ![MEN Stack Embedding Related Data - Skyrockit](./assets/hero.png)
+<h1>
+  <span class="prefix">MEN Stack Embedding Related Data</span>
+  <span class="headline">Skyrockit</span>
+</h1>
 
 ## About
 
@@ -8,14 +11,10 @@ Additionally, this module guides you through styling your application, helping y
 
 ![Skyrockit Home Page](./assets/home-page.png)
 
-## Prerequisites
-
-- Mongoose Relationships
-
 ## Content
 
-| Lesson | Skills |
-| ------ | ------ |
+| Lesson                                                                                             | Skills                                                              |
+| -------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | [Setup](./setup/README.md)                                                                         | Setting up the development environment.                             |
 | [Setting the Stage](./setting-the-stage/README.md)                                                 | Outline the application: data structure, user stories, and routing. |
 | [Build the Application Schema](./build-the-application-schema/README.md)                           | Build `application` schema and embed in `user` model.               |
@@ -32,22 +31,34 @@ Additionally, this module guides you through styling your application, helping y
 | [Build the Edit Page](./build-the-edit-page/README.md)                                             | Implement an `edit` view and route.                                 |
 | [Build Update Functionality](./build-update-functionality/README.md)                               | `update` data in an application by implementing a `PUT` route.      |
 | [Wrap Up](./wrap-up/README.md)                                                                     | Review of app build.                                                |
-
-## Level Up content
-
-| Lesson | Skills |
-| ------ | ------ |
-| [Style the Application](./style-the-application/README.md) | Bring your app to life with comprehensive styling. |
+| [Style the Application](./style-the-application/README.md)                                         | Bring your app to life with comprehensive styling.                  |
 
 ## References
 
 📖 [Reference Materials](./references/README.md)
 
-## Solution code
+## Internal
+
+### Prerequisites
+
+- Mongoose Relationships
+
+### Starter code
+
+This lecture uses the [`MEN Stack Auth Template`](https://git.generalassemb.ly/modular-curriculum-all-courses/men-stack-session-auth-template) as starter code. Doing so allows us to have a connection established to our MongoDB Atlas, add functioning auth for our user model, and install some of the packages we will need for our app build.
+
+🟢 [Starter code](https://git.generalassemb.ly/modular-curriculum-all-courses/men-stack-session-auth-template)
+
+### Solution code
 
 🏁 [Solution code](https://git.generalassemb.ly/modular-curriculum-all-courses/men-stack-embedding-related-data-skyrockit-solution)
 
-## Internal resources
+### Course landing pages
+
+- [SEB - Software Engineering Bootcamp](https://pages.git.generalassemb.ly/modular-curriculum-all-courses/men-stack-embedding-related-data-skyrockit/canvas-landing-pages/seb.html)
+- [Fallback](https://pages.git.generalassemb.ly/modular-curriculum-all-courses/men-stack-embedding-related-data-skyrockit/canvas-landing-pages/fallback.html)
+
+### Resources
 
 ✏️ [Instructor Guide](./internal-resources/instructor-guide.md)
 
@@ -57,4 +68,4 @@ Additionally, this module guides you through styling your application, helping y
 
 ---
 
-**Find a 👾 bug 👾 or have suggestions? [Let us know](https://git.generalassemb.ly/modular-curriculum-all-courses/universal-resources-internal/blob/main/module-feedback.md)!**
+**Find a 👾 bug 👾 or have suggestions? [Let us know](https://pages.git.generalassemb.ly/modular-curriculum-all-courses/universal-resources-internal/module-feedback.html)!**

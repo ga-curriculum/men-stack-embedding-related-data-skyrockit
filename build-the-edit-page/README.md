@@ -1,4 +1,7 @@
-# ![MEN Stack Embedding Related Data - Skyrockit - Build the Edit Page](./assets/hero.png)
+<h1>
+  <span class="headline">Skyrockit</span>
+  <span class="subhead">Build the Edit Page</span>
+</h1>
 
 **Learning objective:** By the end of this lesson, students will be able to build and implement the `edit` view and route for updating a job application.
 
@@ -21,35 +24,34 @@ Next, we'll create the UI that will issue the request to that route. Let's retur
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title><%= application.title %></title>
-</head>
-<body>
-  <%- include('../partials/_navbar.ejs') %>
-  <h1><%= application.title %> at <%= application.company %></h1>
-  <% if (application.notes) { %>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= application.title %></title>
+  </head>
+  <body>
+    <%- include('../partials/_navbar.ejs') %>
+    <h1><%= application.title %> at <%= application.company %></h1>
+    <% if (application.notes) { %>
     <p>Notes: <%= application.notes %></p>
-  <% } %>
-  <% if (application.postingLink) { %>
+    <% } %> <% if (application.postingLink) { %>
     <a href="<%= application.postingLink %>">Visit this job posting</a>
-  <% } %>
-  <p>The status of this application is: <%= application.status %></p>
+    <% } %>
+    <p>The status of this application is: <%= application.status %></p>
 
-  <!-- Add the following link -->
-  <a href="/users/<%= user._id %>/applications/<%= application._id %>/edit">
-    Edit this application
-  </a>
-  <!--  -->
+    <!-- Add the following link -->
+    <a href="/users/<%= user._id %>/applications/<%= application._id %>/edit">
+      Edit this application
+    </a>
+    <!--  -->
 
-  <form
-    action="/users/<%= user._id %>/applications/<%= application._id %>?_method=DELETE"
-    method="POST"
-  >
-    <button type="submit">Delete this application</button>
-  </form>
-</body>
+    <form
+      action="/users/<%= user._id %>/applications/<%= application._id %>?_method=DELETE"
+      method="POST"
+    >
+      <button type="submit">Delete this application</button>
+    </form>
+  </body>
 </html>
 ```
 
@@ -69,7 +71,7 @@ router.get('/:applicationId/edit', async (req, res) => {
     });
   } catch (error) {
     console.log(error);
-    res.redirect('/')
+    res.redirect('/');
   }
 });
 ```
@@ -87,17 +89,17 @@ The edit form will look very similar to the new form - we want to allow the user
 Start our modifications to this by changing the page title from:
 
 ```html
-  <!-- views/applications/edit.ejs -->
+<!-- views/applications/edit.ejs -->
 
-  <title>Add a New App</title>
+<title>Add a New App</title>
 ```
 
 to
 
 ```html
-  <!-- views/applications/edit.ejs -->
+<!-- views/applications/edit.ejs -->
 
-  <title>Editing <%= application.title %></title>
+<title>Editing <%= application.title %></title>
 ```
 
 This will make the page title change depending on which application is being edited.
@@ -105,9 +107,9 @@ This will make the page title change depending on which application is being edi
 Next change the header on the page to read:
 
 ```html
-  <!-- views/applications/edit.ejs -->
+<!-- views/applications/edit.ejs -->
 
-  <h1>Edit <%= application.title %> at <%= application.company %></h1>
+<h1>Edit <%= application.title %> at <%= application.company %></h1>
 ```
 
 ### Shaping the data
@@ -119,14 +121,14 @@ The goal is to pre-fill the form with the current data so the user only has to m
 To achieve this, we set the `value` attribute for each input field to reflect the data currently stored in the database. For instance, the input for the company name would look like this:
 
 ```html
-    <!-- views/applications/edit.ejs -->
+<!-- views/applications/edit.ejs -->
 
-    <input
-      type="text"
-      name="company"
-      id="company"
-      value="<%= application.company %>"
-    >
+<input
+  type="text"
+  name="company"
+  id="company"
+  value="<%= application.company %>"
+/>
 ```
 
 In this example, `<%= application.company %>` dynamically inserts the existing company name from the application data into the input field.
@@ -137,13 +139,13 @@ For the `<select>` dropdown that handles the 'status', additional logic is requi
     <!-- views/applications/edit.ejs -->
 
     <select id="status" name="status">
-      <option 
-        value="interested" 
+      <option
+        value="interested"
         <%= application.status === 'interested' ? 'selected' : '' %>
       >
         Interested
       </option>
-      <option 
+      <option
         value="applied"
         <%= application.status === 'applied' ? 'selected' : '' %>
       >
@@ -158,13 +160,13 @@ Here, the expression `<%= application.status === 'interested' ? 'selected' : '' 
 Our form action will match our future `update` route:
 
 ```html
-  <!-- views/applications/edit.ejs -->
+<!-- views/applications/edit.ejs -->
 
-  <!-- We'll use method-override to allow us to hit a put route: -->
-  <form 
-    action="/users/<%= user._id %>/applications/<%= application._id %>?_method=PUT"
-    method="POST"
-  >
+<!-- We'll use method-override to allow us to hit a put route: -->
+<form
+  action="/users/<%= user._id %>/applications/<%= application._id %>?_method=PUT"
+  method="POST"
+></form>
 ```
 
 Let's make all of these changes and finalize our form:
@@ -182,15 +184,15 @@ Let's make all of these changes and finalize our form:
 <body>
   <%- include('../partials/_navbar.ejs') %>
   <h1>Edit <%= application.title %> at <%= application.company %></h1>
-  <form 
+  <form
     action="/users/<%= user._id %>/applications/<%= application._id %>?_method=PUT"
     method="POST"
   >
     <label for="company">Company:</label>
-    <input 
-      type="text" 
-      name="company" 
-      id="company" 
+    <input
+      type="text"
+      name="company"
+      id="company"
       value="<%= application.company %>"
     >
     <label for="title">Title:</label>
@@ -198,34 +200,34 @@ Let's make all of these changes and finalize our form:
     <label for="notes">Notes:</label>
     <textarea name="notes" id="notes"><%= application.notes %></textarea>
     <label for="postingLink">Posting Link:</label>
-    <input 
-      type="text" 
-      name="postingLink" 
-      id="postingLink" 
+    <input
+      type="text"
+      name="postingLink"
+      id="postingLink"
       value="<%= application.postingLink %>"
     >
     <label for="status">Status:</label>
     <select id="status" name="status">
-      <option 
-        value="interested" 
+      <option
+        value="interested"
         <%= application.status === "interested" ? "selected" : "" %>
       >
         Interested
       </option>
-      <option 
-        value="applied" 
+      <option
+        value="applied"
         <%= application.status === "applied" ? "selected" : "" %>
       >
         Applied
       </option>
-      <option 
-        value="interviewing" 
-        <%= application.status === "interviewing" ? "selected" : "" %> 
+      <option
+        value="interviewing"
+        <%= application.status === "interviewing" ? "selected" : "" %>
       >
         Interviewing
       </option>
-      <option 
-        value="rejected" 
+      <option
+        value="rejected"
         <%= application.status === "rejected" ? "selected" : "" %>
       >
         Rejected

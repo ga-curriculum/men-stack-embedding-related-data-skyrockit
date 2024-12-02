@@ -1,4 +1,7 @@
-# ![MEN Stack Embedding Related Data - Skyrockit - Setup](./assets/hero.png)
+<h1>
+  <span class="headline">Skyrockit</span>
+  <span class="subhead">Setup</span>
+</h1>
 
 ## Setup
 

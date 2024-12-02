@@ -1,10 +1,13 @@
-# ![MEN Stack Embedding Related Data - Skyrockit - Add Route Middleware](./assets/hero.png)
+<h1>
+  <span class="headline">Skyrockit</span>
+  <span class="subhead">Add Route Middleware</span>
+</h1>
 
 **Learning objective:** By the end of this lesson, students will be able to add custom middleware to check for a logged-in user and pass user data to views.
 
 ## Adding custom middleware
 
-At the start of this project, we cloned a pre-built repository that included established authentication routes and logic. Now, we need to use this feature to make sure only users who are logged in can see certain parts of our app. This is known as *Authorization*.
+At the start of this project, we cloned a pre-built repository that included established authentication routes and logic. Now, we need to use this feature to make sure only users who are logged in can see certain parts of our app. This is known as _Authorization_.
 
 We also need a way to share the user's data with the multiple views in the application. The [Express documentation](https://expressjs.com/en/api.html#res) provides a feature called `res.locals` for this purpose. It allows us to store data that can be easily accessed by our pages when they are rendered to the user.
 
@@ -34,7 +37,7 @@ When writing a custom middleware function, recall that we want three parameters 
 
 This function's purpose is to check if a user is signed in and authorized to access certain routes or resources
 
-Let's add the following to  `is-signed-in.js`:
+Let's add the following to `is-signed-in.js`:
 
 ```javascript
 // middleware/is-signed-in.js
@@ -59,11 +62,11 @@ Inside of the `pass-user-to-view.js` file, we will add the following logic to ad
 // middleware/pass-user-to-view.js
 
 const passUserToView = (req, res, next) => {
-  res.locals.user = req.session.user ? req.session.user : null
-  next()
-}
+  res.locals.user = req.session.user ? req.session.user : null;
+  next();
+};
 
-module.exports = passUserToView
+module.exports = passUserToView;
 ```
 
 In the above code, we use a ternary operator specifying that if a user exists (in `req.session.user`) then set the value of `res.locals.user` to that user. Otherwise, we will set the value of `res.locals.user` to null. `next()` then calls the next function in our route handling sequence.

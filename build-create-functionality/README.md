@@ -1,4 +1,7 @@
-# ![MEN Stack Embedding Related Data - Skyrockit - Build Create Functionality](./assets/hero.png)
+<h1>
+  <span class="headline">Skyrockit</span>
+  <span class="subhead">Build Create Functionality</span>
+</h1>
 
 **Learning objective:** By the end of this lesson, students will be able to implement and understand the 'Create' operation in a CRUD application by setting up a RESTful `POST` route in an Express application.
 
@@ -19,11 +22,11 @@ This route signifies that we are posting new job application data associated wit
 Now, let's update the `<form>` in our `new.ejs` file to ensure it sends data to the correct route. Modify the form's `action` attribute to match our future `POST` route. The `method` attribute should be set to `POST` as well, indicating the type of request we're making:
 
 ```html
-  <!-- views/applications/new.ejs -->
+<!-- views/applications/new.ejs -->
 
-  <form action="/users/<%= user._id %>/applications" method="POST">
-    <!-- Form inputs here -->
-  </form>
+<form action="/users/<%= user._id %>/applications" method="POST">
+  <!-- Form inputs here -->
+</form>
 ```
 
 By setting the form's action attribute to our `POST` route, we direct the form data to the appropriate server endpoint when the form is submitted. The `user._id` in the action URL dynamically inserts the current user's ID, ensuring the new job application is associated with the right user.
@@ -49,7 +52,7 @@ router.post('/', async (req, res) => {
   } catch (error) {
     // If any errors, log them and redirect back home
     console.log(error);
-    res.redirect('/')
+    res.redirect('/');
   }
 });
 ```
