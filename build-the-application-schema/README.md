@@ -3,15 +3,17 @@
   <span class="subhead">Build the Application Schema</span>
 </h1>
 
-**Learning objective:** By the end of this lesson, students will successfully develop an `application` schema and establish its relationship within the `user` model through embedding.
+**Learning objective:** By the end of this lesson, students will be able to define an `application` schema and embed it within the `user` model.
 
-## Use the ERD as our guide
+## Use the ERD as a guide
 
-We have established an ERD for our data and also decided to embed our application in the user model. Deciding to create an embedded relationship means that we will not need to create another file and import or export it's logic to other portions of our application. Instead, we will define our schema logic in the same file that our user schema is located in and create the connection there.
+We already created an Entity Relationship Diagram (ERD) and decided to **embed** the `application` data inside the `user` model.
 
-Let's that process by defining our schema and associate it with the user.
+Embedding means we do **not** need to create a separate file for the application schema or connect it by importing or exporting between files. Instead, we define the `application` schema in the **same file** as the `user` schema and create the connection there.
 
-In the `models/user.js`, we'll add the following logic:
+Let’s begin by defining the `applicationSchema` and linking it to the `userSchema`.
+
+In `models/user.js`, add the following code:
 
 ```javascript
 // models/user.js
@@ -29,29 +31,37 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  applications: [applicationSchema], // embedding the applicationSchema here
+  applications: [applicationSchema], // embed applicationSchema here
 });
 ```
 
-Focus on the `applications` attribute within our `userSchema`. This key is associated with an array of `applicationSchema`. By doing this, we are structurally enabling a user to manage multiple job applications.
+Focus on the `applications` field inside `userSchema`. It is an **array of embedded application schemas**, which allows each user to store **multiple job applications**.
 
-It's important to define and reference the `applicationSchema` before we detail what our applications data will look like. This order of operations is important for establishing the nested relationship between users and their applications first, and adding the details later.
+Notice that we defined `applicationSchema` **before** using it in `userSchema`. This order is important — the structure of the nested data must be created first.
 
-### Define the shape of our Applications
+## Define the structure of an application
 
-Now that we have defined our application schema let's think back to our first user story:
+Let’s think about our original user story:
 
-> As a user, I want to be able to add new job applications that I'm thinking about applying to or have already applied to. For each job, I should be able to note down important stuff like the company's name, the job title, what stage the application is at, and if I want, some personal notes and the link to the job posting.
+> As a user, I want to be able to add new job applications that I'm thinking about applying to or have already applied to. For each job, I should be able to note down important information like the company's name, the job title, what stage the application is at, and if I want, some personal notes and the link to the job posting.
 
-This story let's us know that an application should have at least a "company name", "job title", "status", and "notes". These are values that users can create and manage in the application.
+This user story tells us that each application should include:
 
-Let's add them to our ERD:
+- Company name
+- Job title
+- Status of the application
+- Notes (optional)
+- Link to the job posting (optional)
+
+Let’s update our ERD with these fields:
 
 ![Job Applications ERD](../assets/erd.png)
 
-Considering our user story, it appears that "company" and "title" are essential fields, whereas other details are optional. Additionally, although our ERD includes an `_id`, there's no need to explicitly define it in our schema since MongoDB automatically generates this identifier when a new document is created.
+Based on this, we can say that `"company"` and `"title"` should be **required**, while the rest are **optional**.
 
-With this knowledge in hand, we can return to the application schema and add the fields and types needed:
+Note: MongoDB will automatically add an `_id` field to each embedded application, so we do **not** need to define it manually.
+
+Now, let’s update the schema with the required fields:
 
 ```javascript
 // models/user.js
@@ -78,4 +88,4 @@ const applicationSchema = new mongoose.Schema({
 });
 ```
 
-With that, our applications schema is complete!
+That’s it! We have now completed the `applicationSchema` and embedded it inside the `user` model.
