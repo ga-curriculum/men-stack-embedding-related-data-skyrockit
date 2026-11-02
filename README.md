@@ -45,13 +45,13 @@ Additionally, this module guides you through styling your application, helping y
 
 ### Starter code
 
-This lecture uses the [`MEN Stack Auth Template`](https://git.generalassemb.ly/modular-curriculum-all-courses/men-stack-session-auth-template) as starter code. Doing so allows us to have a connection established to our MongoDB Atlas, add functioning auth for our user model, and install some of the packages we will need for our app build.
+This lecture uses the [`MEN Stack Auth Template`](https://github.com/ga-curriculum/men-stack-session-auth-template-v2) as starter code. Doing so allows us to have a connection established to our MongoDB Atlas, add functioning auth for our user model, and install some of the packages we will need for our app build.
 
-🟢 [Starter code](https://git.generalassemb.ly/modular-curriculum-all-courses/men-stack-session-auth-template)
+🟢 [Starter code](https://github.com/ga-curriculum/men-stack-session-auth-template-v2)
 
 ### Solution code
 
-🏁 [Solution code](https://git.generalassemb.ly/modular-curriculum-all-courses/men-stack-embedding-related-data-skyrockit-solution)
+🏁 [Solution code](https://github.com/ga-curriculum/men-stack-embedding-related-data-skyrockit-solution)
 
 ### Course landing pages
 
