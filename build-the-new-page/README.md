@@ -13,7 +13,7 @@ Let's review our first user story:
 
 > As a user, I want to be able to add new job applications that I'm thinking about applying to or have already applied to. For each job, I should be able to note down important stuff like the company's name, the job title, what stage the application is at, and if I want, some personal notes and the link to the job posting.
 
-To make this possible, we need to establish a `new` route. This route will lead users to a form where they can input all the necessary information about a new job application. According to [RESTful Routing](https://git.generalassemb.ly/modular-curriculum-all-courses/restful-routing/blob/main/routing-conventions/README.md) Conventions, the route for displaying a `new.ejs` view, containing a form for a new application, is defined as:
+To make this possible, we need to establish a `new` route. This route will lead users to a form where they can input all the necessary information about a new job application. According to [RESTful Routing](https://github.com/ga-curriculum/restful-routing/blob/main/restful-routing-conventions/README.md) Conventions, the route for displaying a `new.ejs` view, containing a form for a new application, is defined as:
 
 ```plaintext
 GET /users/:userId/applications/new
