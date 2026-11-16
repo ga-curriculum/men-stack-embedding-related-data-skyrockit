@@ -13,12 +13,12 @@ cd ~/code/ga/lectures
 
 ## Cloning the Auth boilerplate
 
-This lecture uses the [`MEN Stack Auth Template`](https://git.generalassemb.ly/modular-curriculum-all-courses/men-stack-session-auth-template) as starter code. Doing so allows us to have a connection established to our MongoDB Atlas, add functioning auth for our user model, and install some of the packages we will need for our app build.
+This lecture uses the [`MEN Stack Auth Template`](https://github.com/ga-curriculum/men-stack-session-auth-template-v2) as starter code. Doing so allows us to have a connection established to our MongoDB Atlas, add functioning auth for our user model, and install some of the packages we will need for our app build.
 
-Navigate to the [MEN Stack Auth Template](https://git.generalassemb.ly/modular-curriculum-all-courses/men-stack-session-auth-template) and clone the repository to your machine:
+Navigate to the [MEN Stack Auth Template](https://github.com/ga-curriculum/men-stack-session-auth-template-v2) and clone the repository to your machine:
 
 ```bash
-git clone https://git.generalassemb.ly/modular-curriculum-all-courses/men-stack-session-auth-template.git skyrockit
+git clone https://github.com/ga-curriculum/men-stack-session-auth-template-v2.git skyrockit
 ```
 
 Note by adding the `skyrockit` argument we're cloning the specified repo into a directory called `skyrockit` on our machines.
